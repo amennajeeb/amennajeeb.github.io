@@ -693,6 +693,18 @@
     .hero-stats { gap: 2rem; }
     footer { flex-direction: column; text-align: center; }
   }
+  #tiltCard {
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease;
+  will-change: transform;
+}
+#tiltCard img {
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  transition: box-shadow 0.3s;
+}
+#tiltCard:hover img {
+  box-shadow: 0 40px 80px rgba(0,201,167,0.2);
+}
 </style>
 </head>
 <body>
@@ -760,7 +772,7 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="about-inner">
-    <div class="about-img-wrap reveal">
+    <div class="about-img-wrap reveal" id="tiltCard">
       <div class="about-avatar">
   <img src="photo.jpeg" alt="Amen Najeeb" 
   style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
@@ -1118,6 +1130,19 @@
   }, { threshold: 0.5 });
   const heroStats = document.querySelector('.hero-stats');
   if (heroStats) statsObserver.observe(heroStats);
+  // 3D TILT EFFECT
+const tiltCard = document.getElementById('tiltCard');
+if (tiltCard) {
+  tiltCard.addEventListener('mousemove', e => {
+    const rect = tiltCard.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    tiltCard.style.transform = `perspective(800px) rotateY(${x * 18}deg) rotateX(${-y * 18}deg) scale(1.03)`;
+  });
+  tiltCard.addEventListener('mouseleave', () => {
+    tiltCard.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) scale(1)';
+  });
+}
 </script>
 </body>
 </html>
