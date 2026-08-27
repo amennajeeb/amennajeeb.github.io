@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Muhammed Amen Najeeb M — Data Analyst &amp; Python Developer</title>
-<meta name="description" content="Portfolio of Muhammed Amen Najeeb M - Data Analyst & Python Developer specializing in Machine Learning, Power BI dashboards, and automated pipelines.">
-<meta name="keywords" content="Data Analyst, Python Developer, Machine Learning, Power BI, SQL, Portfolio, Kerala, UAE">
+<title>Muhammed Amen Najeeb M — Data Analyst &amp; </title>
+<meta name="description" content="Portfolio of Muhammed Amen Najeeb M - Data Analyst & Python Developer specializing in Power BI, SQL, Machine Learning, and automated data pipelines.">
+<meta name="keywords" content="Data Analyst, Python Developer, Power BI, SQL, DAX, Machine Learning, Portfolio, Kerala, UAE, Dubai Future Foundation">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -269,7 +269,7 @@
   .section-sub {
     color: var(--muted);
     font-size: 0.9rem;
-    max-width: 500px;
+    max-width: 550px;
     line-height: 1.7;
     margin-bottom: 4rem;
   }
@@ -442,9 +442,14 @@
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 2rem;
-    transition: all 0.3s;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative; overflow: hidden;
     display: flex; flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+  a.project-card {
+    cursor: pointer;
   }
   .project-card::after {
     content: '';
@@ -453,8 +458,9 @@
     opacity: 0; transition: opacity 0.3s;
     pointer-events: none;
   }
-  .project-card:hover { border-color: rgba(0,201,167,0.3); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
-  .project-card:hover::after { opacity: 1; }
+  a.project-card:hover { border-color: rgba(0,201,167,0.4); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.35), var(--glow-teal); }
+  a.project-card:hover::after { opacity: 1; }
+  .project-card:not(a):hover { border-color: rgba(255,255,255,0.15); transform: translateY(-3px); }
   .project-num {
     font-family: 'DM Serif Display', serif;
     font-size: 3.5rem;
@@ -497,6 +503,34 @@
     color: var(--teal);
     letter-spacing: 0.05em;
   }
+  .project-footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .project-gh-link {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--teal);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(0,201,167,0.1);
+    border: 1px solid rgba(0,201,167,0.25);
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  a.project-card:hover .project-gh-link {
+    background: var(--teal);
+    color: var(--ink);
+    border-color: var(--teal);
+    transform: translateX(3px);
+  }
 
   /* EDUCATION */
   #education { background: var(--slate); }
@@ -538,20 +572,260 @@
     font-size: 1rem;
   }
 
-  /* CERTIFICATIONS */
-  .certs-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
-  .cert-item {
-    display: flex; align-items: center; gap: 0.8rem;
-    padding: 0.9rem 1.4rem;
+  /* CERTIFICATIONS GRID */
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1.3rem; }
+  .cert-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    font-size: 0.82rem;
+    border-radius: 10px;
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  .cert-card.has-cred {
+    cursor: pointer;
+  }
+  .cert-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--teal), var(--amber));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .cert-card.has-cred:hover {
+    border-color: rgba(0,201,167,0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35), var(--glow-teal);
+  }
+  .cert-card.has-cred:hover::before { transform: scaleX(1); }
+  .cert-card:not(.has-cred):hover {
+    border-color: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+  }
+  .cert-issuer {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--teal);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cert-date {
+    color: var(--amber);
+    font-size: 0.65rem;
+    background: rgba(245,166,35,0.1);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+  }
+  .cert-title {
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+  .cert-meta {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 0.8rem;
+  }
+  .cert-id {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .cert-btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--teal);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(0,201,167,0.1);
+    border: 1px solid rgba(0,201,167,0.25);
+    padding: 0.3rem 0.65rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  .cert-card.has-cred:hover .cert-btn {
+    background: var(--teal);
+    color: var(--ink);
+    border-color: var(--teal);
+    transform: translateX(2px);
+  }
+
+  /* GOOGLE THEME HIGHLIGHT */
+  .cert-card.google-highlight {
+    background: linear-gradient(145deg, rgba(66, 133, 244, 0.12) 0%, rgba(28, 35, 51, 0.85) 60%, rgba(52, 168, 83, 0.08) 100%);
+    border: 1.5px solid rgba(66, 133, 244, 0.4);
+    box-shadow: 0 8px 30px rgba(66, 133, 244, 0.12);
+  }
+  .cert-card.google-highlight::before {
+    background: linear-gradient(90deg, #4285F4 0% 25%, #EA4335 25% 50%, #FBBC05 50% 75%, #34A853 75% 100%);
+    height: 3px;
+    transform: scaleX(1);
+  }
+  .cert-card.google-highlight:hover {
+    border-color: rgba(66, 133, 244, 0.8);
+    box-shadow: 0 16px 45px rgba(66, 133, 244, 0.25), 0 0 30px rgba(52, 168, 83, 0.2);
+    transform: translateY(-5px);
+  }
+  .cert-card.google-highlight .cert-issuer {
+    color: #6ba4ff;
+    font-weight: 700;
+  }
+  .google-tag-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(66, 133, 244, 0.12);
+    border: 1px solid rgba(66, 133, 244, 0.35);
+    color: #8ab4f8;
+    padding: 0.22rem 0.55rem;
+    border-radius: 4px;
+    margin-bottom: 0.7rem;
+    width: fit-content;
+  }
+  .cert-card.google-highlight .cert-btn {
+    background: rgba(66, 133, 244, 0.15);
+    border-color: rgba(66, 133, 244, 0.4);
+    color: #8ab4f8;
+  }
+  .cert-card.google-highlight:hover .cert-btn {
+    background: #4285F4;
+    color: #ffffff;
+    border-color: #4285F4;
+    box-shadow: 0 4px 15px rgba(66, 133, 244, 0.4);
+  }
+
+  /* CREDENTIAL MODAL */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(10, 13, 20, 0.85);
+    backdrop-filter: blur(12px);
+    z-index: 10000;
+    display: flex; align-items: center; justify-content: center;
+    padding: 1.5rem;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .modal-overlay.active {
+    opacity: 1; visibility: visible;
+  }
+  .modal-box {
+    background: #151b28;
+    border: 1px solid rgba(0, 201, 167, 0.3);
+    border-radius: 14px;
+    padding: 2.2rem;
+    max-width: 520px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.6), 0 0 50px rgba(0,201,167,0.15);
+    transform: translateY(20px) scale(0.96);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  .modal-overlay.active .modal-box {
+    transform: translateY(0) scale(1);
+  }
+  .modal-close {
+    position: absolute; top: 1.2rem; right: 1.2rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
     color: var(--light-muted);
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
     transition: all 0.2s;
   }
-  .cert-item:hover { border-color: rgba(0,201,167,0.3); color: var(--white); }
-  .cert-item::before { content: '✦'; color: var(--teal); font-size: 0.7rem; }
+  .modal-close:hover {
+    background: rgba(245,166,35,0.2);
+    color: var(--amber);
+    border-color: var(--amber);
+  }
+  .modal-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--teal);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .modal-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 1.2rem;
+  }
+  .modal-details {
+    background: rgba(28, 35, 51, 0.8);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-bottom: 1.8rem;
+    display: flex; flex-direction: column; gap: 0.8rem;
+  }
+  .modal-row {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.82rem;
+  }
+  .modal-row-label { color: var(--muted); font-family: 'Space Mono', monospace; font-size: 0.72rem; }
+  .modal-row-val { color: var(--white); font-weight: 600; }
+  .modal-actions {
+    display: flex; gap: 0.8rem; flex-wrap: wrap;
+  }
+  .modal-btn-primary {
+    flex: 1; min-width: 180px;
+    padding: 0.85rem 1.4rem;
+    background: var(--teal);
+    color: var(--ink);
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .modal-btn-primary:hover { background: var(--amber); transform: translateY(-2px); }
+  .modal-btn-secondary {
+    padding: 0.85rem 1.2rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    color: var(--light-muted);
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .modal-btn-secondary:hover { border-color: var(--teal); color: var(--white); }
 
   /* CONTACT */
   #contact {
@@ -706,7 +980,7 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
+    <li><a href="#education">Education &amp; Certs</a></li>
     <li><a href="#contact" class="nav-cta">Hire Me</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
@@ -737,16 +1011,16 @@
       <div class="stat-label">Years Experience</div>
     </div>
     <div>
-      <div class="stat-num">4<span>+</span></div>
+      <div class="stat-num">5<span>+</span></div>
       <div class="stat-label">Major Projects</div>
     </div>
     <div>
       <div class="stat-num">6<span>+</span></div>
-      <div class="stat-label">Certifications</div>
+      <div class="stat-label">Verified Certs</div>
     </div>
     <div>
-      <div class="stat-num">5<span>+</span></div>
-      <div class="stat-label">Core Tech Skills</div>
+      <div class="stat-num">6<span>+</span></div>
+      <div class="stat-label">Core Tech Domains</div>
     </div>
   </div>
   <div class="hero-scroll">
@@ -769,10 +1043,10 @@
       <p class="about-text">I'm a results-driven Data Analyst based in Kannur, Kerala, with hands-on experience in Python, SQL, and machine learning. My work centers on transforming complex datasets into clear, actionable stories for stakeholders.</p>
       <p class="about-text">Currently working at Taxpert Pro ACC, I build automated pipelines and Power BI dashboards that help accounting teams make smarter, faster decisions. My background in network engineering gives me a unique edge in understanding data infrastructure end-to-end.</p>
       <div class="about-highlights">
-        <div class="highlight-row"><strong>Location:</strong> Kannur, Kerala, India</div>
+        <div class="highlight-row"><strong>Location:</strong> Kannur, Kerala, India (Targeting UAE / Gulf &amp; Global Roles)</div>
         <div class="highlight-row"><strong>Education:</strong> B.Tech Computer Science, SNGCET 2025</div>
         <div class="highlight-row"><strong>Currently:</strong> Data Analyst @ Taxpert Pro ACC, Kozhikode</div>
-        <div class="highlight-row"><strong>Interests:</strong> ML, Data Storytelling, Automation, Cloud</div>
+        <div class="highlight-row"><strong>Interests:</strong> ML, Prompt Engineering, Data Storytelling, Automation, Cloud</div>
       </div>
     </div>
   </div>
@@ -782,58 +1056,60 @@
 <section id="skills">
   <div class="section-label reveal">Technical Skills</div>
   <h2 class="section-title reveal">What I <em>work with</em></h2>
-  <p class="section-sub reveal">A toolkit built across data analysis, machine learning, programming, and cloud — refined through real projects and professional experience.</p>
+  <p class="section-sub reveal">A toolkit built across data analysis, machine learning, programming, and cloud — refined through real projects and professional certifications.</p>
   <div class="skills-grid">
     <div class="skill-card reveal">
-      <div class="skill-cat">Analytics</div>
+      <div class="skill-cat">Analytics &amp; BI</div>
       <h3>Data Analysis &amp; Visualization</h3>
       <div class="skill-tags">
+        <span class="tag">Power BI</span>
+        <span class="tag">DAX</span>
         <span class="tag">Python</span>
         <span class="tag">Pandas</span>
         <span class="tag">NumPy</span>
         <span class="tag">Matplotlib</span>
         <span class="tag">Seaborn</span>
-        <span class="tag">Power BI</span>
-        <span class="tag">Excel</span>
-        <span class="tag">Pivot Tables</span>
-        <span class="tag">VLOOKUP</span>
+        <span class="tag">Google Sheets</span>
+        <span class="tag">Excel (VLOOKUP, Pivot)</span>
       </div>
     </div>
     <div class="skill-card reveal reveal-delay-1">
-      <div class="skill-cat">Databases</div>
-      <h3>SQL &amp; Querying</h3>
+      <div class="skill-cat">Databases &amp; Querying</div>
+      <h3>SQL (HackerRank Advanced)</h3>
       <div class="skill-tags">
         <span class="tag">MySQL</span>
         <span class="tag">PostgreSQL</span>
-        <span class="tag">Joins</span>
+        <span class="tag">Complex Joins</span>
         <span class="tag">Aggregations</span>
         <span class="tag">Subqueries</span>
         <span class="tag">Window Functions</span>
-        <span class="tag">DB Design</span>
+        <span class="tag">Data Cleaning</span>
+        <span class="tag">DB Schema Design</span>
       </div>
     </div>
     <div class="skill-card reveal reveal-delay-2">
       <div class="skill-cat">Intelligent Systems</div>
-      <h3>Machine Learning</h3>
+      <h3>Machine Learning &amp; AI</h3>
       <div class="skill-tags">
         <span class="tag">Scikit-learn</span>
+        <span class="tag">Prompt Engineering</span>
+        <span class="tag">Generative AI</span>
         <span class="tag">Regression</span>
         <span class="tag">Classification</span>
         <span class="tag">Deep Learning</span>
-        <span class="tag">Model Evaluation</span>
-        <span class="tag">RMSE</span>
+        <span class="tag">Model Evaluation (RMSE)</span>
       </div>
     </div>
     <div class="skill-card reveal reveal-delay-3">
       <div class="skill-cat">Development</div>
-      <h3>Programming</h3>
+      <h3>Programming &amp; Automation</h3>
       <div class="skill-tags">
         <span class="tag">Python (OOP)</span>
-        <span class="tag">Automation</span>
+        <span class="tag">ETL Automation</span>
         <span class="tag">Web Scraping</span>
         <span class="tag">Java</span>
         <span class="tag">Web Development</span>
-        <span class="tag">Git</span>
+        <span class="tag">Git &amp; GitHub</span>
         <span class="tag">Jupyter</span>
       </div>
     </div>
@@ -844,21 +1120,21 @@
         <span class="tag">AWS</span>
         <span class="tag">Azure</span>
         <span class="tag">Google Cloud</span>
-        <span class="tag">OSPF</span>
-        <span class="tag">VLANs</span>
+        <span class="tag">Cisco CCNA</span>
+        <span class="tag">OSPF / VLANs</span>
         <span class="tag">TCP/IP</span>
         <span class="tag">Wireshark</span>
       </div>
     </div>
     <div class="skill-card reveal reveal-delay-1">
       <div class="skill-cat">Interpersonal</div>
-      <h3>Soft Skills</h3>
+      <h3>Professional Skills</h3>
       <div class="skill-tags">
-        <span class="tag">Problem Solving</span>
+        <span class="tag">Business Intelligence</span>
         <span class="tag">Data Storytelling</span>
-        <span class="tag">Communication</span>
-        <span class="tag">Teamwork</span>
-        <span class="tag">Attention to Detail</span>
+        <span class="tag">SLA Performance Tracking</span>
+        <span class="tag">Problem Solving</span>
+        <span class="tag">Stakeholder Presentation</span>
       </div>
     </div>
   </div>
@@ -905,8 +1181,9 @@
       <div class="exp-meta">
         <span class="exp-date" style="color:var(--muted); background:rgba(107,122,153,0.15)">Additional Experience</span>
       </div>
-      <div class="exp-role" style="font-size:1.1rem">Other Internships &amp; Workshops</div>
+      <div class="exp-role" style="font-size:1.1rem">Other Internships &amp; Simulations</div>
       <ul class="exp-bullets">
+        <li>Data Analyst Job Simulation — OneRoadmap (Jul 2026)</li>
         <li>Data Science Internship — Pacelab (1 week)</li>
         <li>Android App Development Internship (5 days)</li>
         <li>Workshop on Automotive Diagnostics &amp; Tuning — Techmaghi (2 days)</li>
@@ -919,10 +1196,30 @@
 <section id="projects">
   <div class="section-label reveal">Portfolio</div>
   <h2 class="section-title reveal">Featured <em>Projects</em></h2>
-  <p class="section-sub reveal">A selection of projects spanning machine learning, full-stack development, dashboard design, and network architecture.</p>
+  <p class="section-sub reveal">A selection of projects spanning Power BI intelligence dashboards, machine learning systems, full-stack platforms, and network architecture.</p>
   <div class="projects-grid">
-    <div class="project-card reveal">
+    <!-- PROJECT 1: E-COMMERCE DASHBOARD (WITH GITHUB LINK) -->
+    <a href="https://github.com/amennajeeb/ecommerce-analytics-powerbi" target="_blank" rel="noopener noreferrer" class="project-card reveal">
       <div class="project-num">01</div>
+      <div class="project-icon">🛒</div>
+      <h3>E-Commerce Analytics Dashboard</h3>
+      <p>Built an end-to-end 4-page e-commerce intelligence dashboard in Power BI, backed by custom SQL queries extracting customer, product, marketing, delivery, and returns data. Configured DAX measures to analyze sales and profit trends, customer segmentation, marketing channel efficiency, delivery SLAs, and return anomalies to surface at-risk customers and cost leaks.</p>
+      <div class="project-tags">
+        <span class="project-tag">Power BI</span>
+        <span class="project-tag">SQL</span>
+        <span class="project-tag">DAX</span>
+        <span class="project-tag">Data Modeling</span>
+        <span class="project-tag">Customer Segments</span>
+        <span class="project-tag">SLA Tracking</span>
+      </div>
+      <div class="project-footer">
+        <span class="project-gh-link">View on GitHub ↗</span>
+      </div>
+    </a>
+
+    <!-- PROJECT 2: AIR QUALITY PREDICTION -->
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-num">02</div>
       <div class="project-icon">🌫️</div>
       <h3>Air Quality Prediction System</h3>
       <p>Developed a machine learning model to forecast air quality index using real-time pollutant data. Applied regression and classification techniques with Scikit-learn; evaluated model performance using RMSE and accuracy metrics.</p>
@@ -934,11 +1231,13 @@
         <span class="project-tag">RMSE</span>
       </div>
     </div>
-    <div class="project-card reveal reveal-delay-1">
-      <div class="project-num">02</div>
+
+    <!-- PROJECT 3: MULTI-CITY WEATHER INTELLIGENCE -->
+    <div class="project-card reveal reveal-delay-2">
+      <div class="project-num">03</div>
       <div class="project-icon">📊</div>
       <h3>Multi-City Weather Intelligence Dashboard</h3>
-      <p>Designed an interactive Power BI dashboard tracking live weather and air quality metrics across multiple Kerala cities. Built a custom dark-themed UI with city-switching cards, a 7-day forecast trendline, AQI gauge with pollutant breakdown (SO2, O3, PM10, PM2.5, CO, NO2), and a rain-probability panel — translating raw weather data into an at-a-glance decision tool.</p>
+      <p>Designed an interactive Power BI dashboard tracking live weather and air quality metrics across multiple Kerala cities. Built a custom dark-themed UI with city-switching cards, a 7-day forecast trendline, AQI gauge with pollutant breakdown (SO2, O3, PM10, PM2.5, CO, NO2), and rain-probability indicators.</p>
       <div class="project-tags">
         <span class="project-tag">Power BI</span>
         <span class="project-tag">DAX</span>
@@ -947,8 +1246,10 @@
         <span class="project-tag">UI/UX</span>
       </div>
     </div>
-    <div class="project-card reveal reveal-delay-2">
-      <div class="project-num">03</div>
+
+    <!-- PROJECT 4: RE WASTRA -->
+    <div class="project-card reveal reveal-delay-3">
+      <div class="project-num">04</div>
       <div class="project-icon">♻️</div>
       <h3>Re Wastra — Sustainable Fashion Platform</h3>
       <p>Built a full-stack responsive web platform for upcycling garments with secure user authentication, dynamic listings, and a clean UI. Focused on backend logic, database design, and user experience.</p>
@@ -960,8 +1261,10 @@
         <span class="project-tag">UI/UX</span>
       </div>
     </div>
-    <div class="project-card reveal reveal-delay-3">
-      <div class="project-num">04</div>
+
+    <!-- PROJECT 5: CAMPUS NETWORK -->
+    <div class="project-card reveal">
+      <div class="project-num">05</div>
       <div class="project-icon">🌐</div>
       <h3>Campus Network Implementation</h3>
       <p>Designed a multi-department campus network using VLANs, VTP, Inter-VLAN routing, and DHCP in Cisco Packet Tracer, simulating real-world enterprise network architecture at scale.</p>
@@ -976,12 +1279,12 @@
   </div>
 </section>
 
-<!-- EDUCATION -->
+<!-- EDUCATION & CERTIFICATIONS -->
 <section id="education">
   <div class="section-label reveal">Academic</div>
   <h2 class="section-title reveal">Education &amp; <em>Background</em></h2>
-  <p class="section-sub reveal">A strong computer science foundation, complemented by professional certifications across data, networking, and security.</p>
-  <div class="edu-grid" style="margin-bottom: 4rem;">
+  <p class="section-sub reveal">A strong computer science foundation, complemented by industry credentials and job simulations.</p>
+  <div class="edu-grid" style="margin-bottom: 4.5rem;">
     <div class="edu-card reveal">
       <div class="edu-badge">🎓</div>
       <div class="edu-year">2021 – 2025</div>
@@ -1002,17 +1305,262 @@
     </div>
   </div>
 
-  <div class="section-label reveal" id="certs">Certifications</div>
-  <h3 class="reveal" style="font-family:'DM Serif Display',serif; font-size:1.8rem; margin-bottom:2rem;">Professional <em style="font-style:italic;color:var(--teal)">Credentials</em></h3>
+  <div class="section-label reveal" id="certs">Credentials</div>
+  <h3 class="reveal" style="font-family:'DM Serif Display',serif; font-size:2rem; margin-bottom:2rem;">Licenses &amp; <em style="font-style:italic;color:var(--teal)">Certifications</em></h3>
+  
   <div class="certs-grid reveal">
-    <div class="cert-item">Cisco CCNA — Nov 2025</div>
-    <div class="cert-item">Tata Cybersecurity Analyst Simulation</div>
-    <div class="cert-item">Machine Learning for Engineers</div>
-    <div class="cert-item">Google Ads Certification</div>
-    <div class="cert-item">Data Science — Pacelab</div>
-    <div class="cert-item">AI for All — AI Appreciate Badge</div>
+    <!-- 1. HackerRank SQL Advanced (WITH CREDENTIAL URL) -->
+    <div class="cert-card has-cred" 
+         data-title="SQL (ADVANCED)" 
+         data-issuer="HackerRank" 
+         data-date="Jul 2026" 
+         data-id="5FEDCE8B5332" 
+         data-url="https://www.hackerrank.com/certificates/5fedce8b5332" 
+         data-skills="Advanced SQL, Joins, Aggregations, Window Functions, Subqueries, Query Optimization">
+      <div>
+        <div class="cert-issuer">
+          <span>HackerRank</span>
+          <span class="cert-date">Jul 2026</span>
+        </div>
+        <div class="cert-title">SQL (ADVANCED)</div>
+      </div>
+      <div class="cert-meta">
+        <span class="cert-id">ID: 5FEDCE8B5332</span>
+        <span class="cert-btn">Show credential ↗</span>
+      </div>
+    </div>
+
+    <!-- 2. Google Data Analytics (WITH GOOGLE THEME HIGHLIGHT) -->
+    <div class="cert-card has-cred google-highlight" 
+         data-title="Google Data Analytics Professional Certificate" 
+         data-issuer="Google / Coursera" 
+         data-date="Jul 2026" 
+         data-id="CERGV2D6SJK0" 
+         data-url="https://www.coursera.org/account/accomplishments/professional-cert/CERGV2D6SJK0" 
+         data-skills="Data Analysis, Spreadsheets, SQL, Tableau, R Programming, Data Cleaning &amp; Integrity">
+      <div>
+        <div class="google-tag-pill">
+          <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          Google Certified
+        </div>
+        <div class="cert-issuer">
+          <span>Google / Coursera</span>
+          <span class="cert-date" style="background:rgba(66,133,244,0.18); color:#8ab4f8;">Jul 2026</span>
+        </div>
+        <div class="cert-title">Google Data Analytics Professional Certificate</div>
+      </div>
+      <div class="cert-meta" style="border-top-color:rgba(66,133,244,0.2);">
+        <span class="cert-id" style="color:#8ab4f8; font-weight:600;">ID: CERGV2D6SJK0</span>
+        <span class="cert-btn">Show credential ↗</span>
+      </div>
+    </div>
+
+    <!-- 3. Dubai Future Foundation (WITH CREDENTIAL URL) -->
+    <div class="cert-card has-cred" 
+         data-title="One Million Prompters – Certificate of Completion" 
+         data-issuer="Dubai Future Foundation" 
+         data-date="Aug 2026" 
+         data-id="Initiative by HH Sheikh Hamdan bin Mohammed" 
+         data-url="https://www.dubaifuture.ae/" 
+         data-skills="Prompt Engineering, Artificial Intelligence (AI), Generative AI, LLMs">
+      <div>
+        <div class="cert-issuer">
+          <span>Dubai Future Foundation</span>
+          <span class="cert-date">Aug 2026</span>
+        </div>
+        <div class="cert-title">One Million Prompters — AI &amp; Prompt Engineering</div>
+      </div>
+      <div class="cert-meta">
+        <span class="cert-id">Dubai Future Foundation</span>
+        <span class="cert-btn">Show credential ↗</span>
+      </div>
+    </div>
+
+    <!-- 4. Simplilearn Google Sheets (WITH CREDENTIAL URL) -->
+    <div class="cert-card has-cred" 
+         data-title="Google Sheets — Spreadsheet Data Analysis &amp; Productivity" 
+         data-issuer="Simplilearn" 
+         data-date="Aug 2026" 
+         data-id="10656134" 
+         data-url="https://simplilearn.com/" 
+         data-skills="Spreadsheet Data Analysis, Formulas, Pivot Tables, Data Organization &amp; Collaboration">
+      <div>
+        <div class="cert-issuer">
+          <span>Simplilearn</span>
+          <span class="cert-date">Aug 2026</span>
+        </div>
+        <div class="cert-title">Google Sheets — Data Analysis &amp; Productivity</div>
+      </div>
+      <div class="cert-meta">
+        <span class="cert-id">ID: 10656134</span>
+        <span class="cert-btn">Show credential ↗</span>
+      </div>
+    </div>
+
+    <!-- 5. OneRoadmap Job Sim (WITH CREDENTIAL URL) -->
+    <div class="cert-card has-cred" 
+         data-title="Data Analyst Job Simulation" 
+         data-issuer="OneRoadmap" 
+         data-date="Jul 2026" 
+         data-id="ORA-DA-PXA269" 
+         data-url="https://oneroadmap.io/" 
+         data-skills="Data Analysis, Data Cleaning, Real-world KPI Problem Solving, Stakeholder Presentation">
+      <div>
+        <div class="cert-issuer">
+          <span>OneRoadmap</span>
+          <span class="cert-date">Jul 2026</span>
+        </div>
+        <div class="cert-title">Data Analyst Job Simulation</div>
+      </div>
+      <div class="cert-meta">
+        <span class="cert-id">ID: ORA-DA-PXA269</span>
+        <span class="cert-btn">Show credential ↗</span>
+      </div>
+    </div>
+
+    <!-- 6. OneRoadmap Big 4 Ready (WITH CREDENTIAL URL) -->
+    <div class="cert-card has-cred" 
+         data-title="Data Analyst – Big 4 Ready" 
+         data-issuer="OneRoadmap" 
+         data-date="May 2026" 
+         data-id="ORA-DA-BIG4" 
+         data-url="https://oneroadmap.io/" 
+         data-skills="Financial Data Analytics, Business Case Studies, Stakeholder Reporting, Accounting KPIs">
+      <div>
+        <div class="cert-issuer">
+          <span>OneRoadmap</span>
+          <span class="cert-date">May 2026</span>
+        </div>
+        <div class="cert-title">Data Analyst – Big 4 Ready</div>
+      </div>
+      <div class="cert-meta">
+        <span class="cert-id">Verified Credential</span>
+        <span class="cert-btn">Show credential ↗</span>
+      </div>
+    </div>
+
+    <!-- 7. Cisco CCNA -->
+    <div class="cert-card">
+      <div>
+        <div class="cert-issuer">
+          <span>Cisco</span>
+          <span class="cert-date">Nov 2025</span>
+        </div>
+        <div class="cert-title">Cisco CCNA (Routing &amp; Switching)</div>
+      </div>
+      <div class="cert-meta">
+        <span class="cert-id">Enterprise Networking</span>
+      </div>
+    </div>
+
+    <!-- 8. Tata Cybersecurity -->
+    <div class="cert-card">
+      <div>
+        <div class="cert-issuer">
+          <span>Tata Group</span>
+          <span class="cert-date">Completed</span>
+        </div>
+        <div class="cert-title">Tata Cybersecurity Analyst Simulation</div>
+      </div>
+      <div class="cert-meta">
+        <span class="cert-id">Threat Analysis &amp; Security</span>
+      </div>
+    </div>
+
+    <!-- 9. Machine Learning for Engineers -->
+    <div class="cert-card">
+      <div>
+        <div class="cert-issuer">
+          <span>Technical Certification</span>
+          <span class="cert-date">Completed</span>
+        </div>
+        <div class="cert-title">Machine Learning for Engineers</div>
+      </div>
+      <div class="cert-meta">
+        <span class="cert-id">Scikit-learn &amp; Predictive Models</span>
+      </div>
+    </div>
+
+    <!-- 10. Google Ads Certification -->
+    <div class="cert-card">
+      <div>
+        <div class="cert-issuer">
+          <span>Google</span>
+          <span class="cert-date">Certified</span>
+        </div>
+        <div class="cert-title">Google Ads Certification</div>
+      </div>
+      <div class="cert-meta">
+        <span class="cert-id">Campaign Analytics &amp; Optimization</span>
+      </div>
+    </div>
+
+    <!-- 11. Pacelab Data Science -->
+    <div class="cert-card">
+      <div>
+        <div class="cert-issuer">
+          <span>Pacelab</span>
+          <span class="cert-date">Completed</span>
+        </div>
+        <div class="cert-title">Data Science Internship Certification</div>
+      </div>
+      <div class="cert-meta">
+        <span class="cert-id">Data Cleaning &amp; EDA</span>
+      </div>
+    </div>
+
+    <!-- 12. AI for All -->
+    <div class="cert-card">
+      <div>
+        <div class="cert-issuer">
+          <span>AI for All</span>
+          <span class="cert-date">Badge</span>
+        </div>
+        <div class="cert-title">AI Appreciate Badge</div>
+      </div>
+      <div class="cert-meta">
+        <span class="cert-id">AI &amp; Emerging Tech Literacy</span>
+      </div>
+    </div>
   </div>
 </section>
+
+<!-- CREDENTIAL MODAL -->
+<div class="modal-overlay" id="certModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
+    <div class="modal-badge" id="modalIssuer">Issuing Organization</div>
+    <div class="modal-title" id="modalTitle">Certificate Title</div>
+    <div class="modal-details">
+      <div class="modal-row">
+        <span class="modal-row-label">ISSUE DATE</span>
+        <span class="modal-row-val" id="modalDate">—</span>
+      </div>
+      <div class="modal-row">
+        <span class="modal-row-label">CREDENTIAL ID</span>
+        <span class="modal-row-val" id="modalId" style="font-family:'Space Mono',monospace; color:var(--teal)">—</span>
+      </div>
+      <div class="modal-row" style="flex-direction:column; align-items:flex-start; gap:0.3rem;">
+        <span class="modal-row-label">SKILLS COVERED</span>
+        <span class="modal-row-val" id="modalSkills" style="font-size:0.8rem; font-weight:400; color:var(--light-muted)">—</span>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <a href="#" target="_blank" rel="noopener noreferrer" class="modal-btn-primary" id="modalUrlBtn">
+        <span>Verify &amp; Show Credential</span>
+        <span>↗</span>
+      </a>
+      <button class="modal-btn-secondary" id="modalCopyBtn">
+        <span>Copy ID</span>
+      </button>
+    </div>
+  </div>
+</div>
 
 <!-- CONTACT -->
 <section id="contact">
@@ -1021,7 +1569,7 @@
     <div class="contact-big reveal">
       Got a project<br>in <em>mind?</em>
     </div>
-    <p class="contact-desc reveal">I'm actively looking for data analyst and Python developer roles, especially in UAE and Gulf markets. Whether it's a full-time position or a project collaboration, I'd love to hear from you.</p>
+    <p class="contact-desc reveal">I'm actively looking for Data Analyst and Python Developer roles, especially in UAE, Gulf, and global markets. Whether it's a full-time position or a project collaboration, I'd love to hear from you.</p>
     <div class="reveal">
       <a href="mailto:amennajeeb8418@gmail.com" class="contact-email-big">amennajeeb8418@gmail.com</a>
     </div>
@@ -1045,7 +1593,7 @@
 <!-- FOOTER -->
 <footer>
   <p>© 2026 Muhammed Amen Najeeb M — Kannur, Kerala</p>
-  <div class="footer-badge">Open to opportunities</div>
+  <div class="footer-badge">Open to opportunities (UAE &amp; Global)</div>
 </footer>
 
 <script>
@@ -1070,7 +1618,7 @@
   }
   animateRing();
 
-  document.querySelectorAll('a, button, .skill-card, .project-card, .edu-card, .cert-item').forEach(el => {
+  document.querySelectorAll('a, button, .skill-card, a.project-card, .edu-card, .cert-card.has-cred').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursor.style.transform = 'translate(-50%,-50%) scale(2)';
       cursor.style.background = 'var(--amber)';
@@ -1146,6 +1694,66 @@
       tiltCard.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) scale(1)';
     });
   }
+
+  // CREDENTIAL MODAL LOGIC
+  const certModal = document.getElementById('certModal');
+  const modalClose = document.getElementById('modalClose');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalIssuer = document.getElementById('modalIssuer');
+  const modalDate = document.getElementById('modalDate');
+  const modalId = document.getElementById('modalId');
+  const modalSkills = document.getElementById('modalSkills');
+  const modalUrlBtn = document.getElementById('modalUrlBtn');
+  const modalCopyBtn = document.getElementById('modalCopyBtn');
+
+  let currentCertId = '';
+
+  document.querySelectorAll('.cert-card.has-cred').forEach(card => {
+    card.addEventListener('click', () => {
+      const title = card.getAttribute('data-title');
+      const issuer = card.getAttribute('data-issuer');
+      const date = card.getAttribute('data-date');
+      const id = card.getAttribute('data-id');
+      const url = card.getAttribute('data-url');
+      const skills = card.getAttribute('data-skills');
+
+      modalTitle.textContent = title;
+      modalIssuer.textContent = issuer;
+      modalDate.textContent = date;
+      modalId.textContent = id;
+      modalSkills.textContent = skills || 'Data Analytics & Technical Proficiency';
+      modalUrlBtn.href = url || '#';
+      currentCertId = id;
+      modalCopyBtn.textContent = 'Copy ID';
+
+      certModal.classList.add('active');
+    });
+  });
+
+  modalClose.addEventListener('click', () => {
+    certModal.classList.remove('active');
+  });
+
+  certModal.addEventListener('click', (e) => {
+    if (e.target === certModal) {
+      certModal.classList.remove('active');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && certModal.classList.contains('active')) {
+      certModal.classList.remove('active');
+    }
+  });
+
+  modalCopyBtn.addEventListener('click', () => {
+    if (currentCertId) {
+      navigator.clipboard.writeText(currentCertId).then(() => {
+        modalCopyBtn.textContent = 'Copied! ✓';
+        setTimeout(() => { modalCopyBtn.textContent = 'Copy ID'; }, 2000);
+      });
+    }
+  });
 </script>
 </body>
 </html>
