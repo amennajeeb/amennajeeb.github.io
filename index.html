@@ -2,14 +2,14 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Muhammed Amen Najeeb M — Data Analyst</title>
   <meta name="description" content="Muhammed Amen Najeeb M — Data Analyst specializing in Power BI, Advanced SQL, Python, and automated business intelligence pipelines.">
   
-  <!-- Typography: Outfit (Site Theme) + Inter (Specs) + JetBrains Mono (Metrics) -->
+  <!-- Typography: Outfit (Primary) + Inter (Specs) + JetBrains Mono (Code/Metrics) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -60,27 +60,28 @@
       --gradient-text: linear-gradient(135deg, #34d399 0%, #60a5fa 100%);
     }
 
-    body {
+    html, body {
       background-color: var(--dark-bg);
       color: var(--text-primary);
       font-family: 'Outfit', sans-serif;
       overflow-x: hidden;
+      width: 100%;
     }
     ::selection {
       background: var(--primary);
       color: #000;
     }
 
-    /* Ambient Lighting Mesh (Executive Emerald & Cobalt) */
+    /* Ambient Lighting Mesh (Mobile Optimized) */
     .ambient-glow {
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 0;
       background: 
-        radial-gradient(circle 600px at 10% 20%, rgba(16, 185, 129, 0.04), transparent 70%),
-        radial-gradient(circle 500px at 90% 40%, rgba(59, 130, 246, 0.04), transparent 70%),
-        radial-gradient(circle 600px at 50% 85%, rgba(6, 182, 212, 0.03), transparent 70%);
+        radial-gradient(circle 500px at 10% 20%, rgba(16, 185, 129, 0.04), transparent 70%),
+        radial-gradient(circle 400px at 90% 40%, rgba(59, 130, 246, 0.04), transparent 70%),
+        radial-gradient(circle 500px at 50% 85%, rgba(6, 182, 212, 0.03), transparent 70%);
     }
 
     /* Gradient Text */
@@ -89,28 +90,21 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .gradient-text-emerald {
-      background: linear-gradient(135deg, #ffffff 0%, #34d399 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
 
-    /* Section Titles */
+    /* Section Titles (Responsive & Centered without horizontal overflow) */
     .section-title {
-      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-size: clamp(1.75rem, 6vw, 2.75rem);
       font-weight: 800;
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       background: linear-gradient(135deg, #34d399 0%, #60a5fa 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      display: inline-block;
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
+      display: block;
+      width: 100%;
     }
 
-    /* Executive Buttons */
+    /* Action Buttons */
     .btn-gradient {
       background: linear-gradient(135deg, #10b981 0%, #2563eb 100%);
       color: #ffffff;
@@ -118,6 +112,9 @@
       border-radius: 50px;
       font-weight: 600;
       transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     .btn-gradient:hover {
       transform: translateY(-2px);
@@ -130,6 +127,9 @@
       border-radius: 50px;
       font-weight: 600;
       transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     .btn-outline-cyan:hover {
       background: rgba(16, 185, 129, 0.08);
@@ -140,52 +140,49 @@
     .jobin-card {
       background-color: #0c101c;
       border: 1px solid rgba(255, 255, 255, 0.07);
-      border-radius: 18px;
+      border-radius: 16px;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .jobin-card:hover {
       border-color: rgba(16, 185, 129, 0.3);
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.7);
     }
 
     /* Scroll reveal */
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
 
     /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #060911; }
-    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: #10b981; }
   </style>
 </head>
-<body class="relative min-h-screen">
+<body class="relative min-h-screen antialiased selection:bg-emerald-500 selection:text-black">
 
   <!-- Ambient Glow Background -->
   <div class="ambient-glow"></div>
 
-  <!-- FIXED NAVBAR (Jobin Selvanose Style) -->
+  <!-- FIXED NAVBAR -->
   <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
       
-      <!-- Gradient Brand Logo -->
-      <a href="#about" class="text-2xl font-extrabold tracking-tight cursor-pointer gradient-text">
+      <!-- Brand Logo -->
+      <a href="#about" class="text-xl sm:text-2xl font-extrabold tracking-tight cursor-pointer gradient-text">
         Amen Najeeb<span class="text-white">.</span>
       </a>
 
       <!-- Desktop Nav Links -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
         <a href="#about" class="hover:text-brand-primary transition-colors">About</a>
         <a href="#experience" class="hover:text-brand-primary transition-colors">Experience</a>
         <a href="#projects" class="hover:text-brand-primary transition-colors">Projects</a>
@@ -193,166 +190,174 @@
         <a href="#certifications" class="hover:text-brand-primary transition-colors">Certifications</a>
       </nav>
 
-      <!-- Action Buttons -->
-      <div class="flex items-center gap-3">
-        <a href="Muhammed_Amen_Najeeb_Resume.pdf" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold btn-outline-cyan">
+      <!-- Header Actions -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <a href="Muhammed_Amen_Najeeb_Resume.pdf" target="_blank" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold btn-outline-cyan">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           <span>Resume</span>
         </a>
-        <a href="#contact" class="px-5 py-2 text-xs font-bold btn-gradient">
+        <a href="#contact" class="px-4 sm:px-5 py-2 text-xs font-bold btn-gradient">
           Get in Touch
         </a>
-        <!-- Mobile Toggle -->
-        <button id="mobileToggle" class="md:hidden p-2 text-slate-300 hover:text-white" aria-label="Toggle Navigation">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        
+        <!-- Mobile Hamburger Button (Accessible Tap Target) -->
+        <button id="mobileToggle" class="md:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-200 hover:text-white" aria-label="Toggle Navigation Menu">
+          <svg id="menuIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="closeIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
     </div>
 
-    <!-- Mobile Dropdown -->
-    <div id="mobileMenu" class="hidden md:hidden bg-[#0a0a0a]/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 space-y-4 text-sm font-medium">
-      <a href="#about" class="block text-slate-300 hover:text-brand-primary py-1 mobile-link">About</a>
-      <a href="#experience" class="block text-slate-300 hover:text-brand-primary py-1 mobile-link">Experience</a>
-      <a href="#projects" class="block text-slate-300 hover:text-brand-primary py-1 mobile-link">Projects</a>
-      <a href="#skills" class="block text-slate-300 hover:text-brand-primary py-1 mobile-link">Skills</a>
-      <a href="#certifications" class="block text-slate-300 hover:text-brand-primary py-1 mobile-link">Certifications</a>
-      <a href="Muhammed_Amen_Najeeb_Resume.pdf" target="_blank" class="block text-brand-primary py-1 mobile-link">View Resume 📄</a>
-      <a href="#contact" class="block text-white font-bold py-1 mobile-link">Get in Touch →</a>
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-[#060911]/95 backdrop-blur-2xl border-b border-white/10 px-5 py-6 space-y-3 font-medium text-sm">
+      <a href="#about" class="block text-slate-200 hover:text-brand-primary py-2 px-3 rounded-lg hover:bg-white/5 mobile-link">About</a>
+      <a href="#experience" class="block text-slate-200 hover:text-brand-primary py-2 px-3 rounded-lg hover:bg-white/5 mobile-link">Experience</a>
+      <a href="#projects" class="block text-slate-200 hover:text-brand-primary py-2 px-3 rounded-lg hover:bg-white/5 mobile-link">Projects</a>
+      <a href="#skills" class="block text-slate-200 hover:text-brand-primary py-2 px-3 rounded-lg hover:bg-white/5 mobile-link">Skills &amp; Expertise</a>
+      <a href="#certifications" class="block text-slate-200 hover:text-brand-primary py-2 px-3 rounded-lg hover:bg-white/5 mobile-link">Certifications</a>
+      <div class="pt-2 border-t border-white/10 grid grid-cols-2 gap-2">
+        <a href="Muhammed_Amen_Najeeb_Resume.pdf" target="_blank" class="py-2.5 px-3 text-center text-xs font-semibold btn-outline-cyan mobile-link">
+          📄 Resume
+        </a>
+        <a href="https://linkedin.com/in/amennajeeb" target="_blank" class="py-2.5 px-3 text-center text-xs font-semibold btn-gradient mobile-link">
+          LinkedIn ↗
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- 1. ABOUT / HERO TOP SECTION (STARTS HERE) -->
-  <section id="about" class="relative min-h-[92vh] flex items-center justify-center pt-32 pb-20 px-6 z-10">
+  <!-- 1. ABOUT / HERO SECTION (STARTS HERE) -->
+  <section id="about" class="relative min-h-[85vh] flex items-center justify-center pt-24 sm:pt-32 pb-16 px-4 sm:px-6 z-10">
     <div class="max-w-6xl mx-auto w-full">
       
       <!-- Top Live Role Badge -->
-      <div class="flex justify-start mb-6 reveal">
-        <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-[#111111] border border-white/10">
-          <span class="relative flex h-2.5 w-2.5">
+      <div class="flex justify-start mb-5 sm:mb-6 reveal">
+        <div class="inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-1.5 rounded-full bg-[#0c101c] border border-white/10 text-left">
+          <span class="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 flex-shrink-0">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-emerald-400"></span>
           </span>
-          <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider font-mono">Active Role</span>
-          <span class="text-slate-600">&bull;</span>
-          <span class="text-xs text-slate-200 font-medium">Data Analyst @ Taxpert Pro ACC</span>
+          <span class="text-[11px] sm:text-xs font-bold text-emerald-400 uppercase tracking-wider font-mono">Active Role</span>
+          <span class="text-slate-600 text-xs">&bull;</span>
+          <span class="text-[11px] sm:text-xs text-slate-200 font-medium truncate">Data Analyst @ Taxpert Pro ACC</span>
         </div>
       </div>
 
-      <!-- Main Two-Column Intro -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Main Two-Column Hero Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
         <!-- Left: Statement & Operations -->
-        <div class="lg:col-span-7 space-y-6">
-          <div class="text-xs font-bold font-mono tracking-widest text-brand-primary uppercase reveal">
+        <div class="lg:col-span-7 space-y-5 sm:space-y-6">
+          <div class="text-[11px] sm:text-xs font-bold font-mono tracking-widest text-brand-primary uppercase reveal">
             Data Analyst &bull; Business Intelligence &bull; SQL
           </div>
 
-          <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.08] reveal reveal-delay-1">
-            Hi, I'm <br/>
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.12] reveal">
+            Hi, I'm <br class="hidden sm:block"/>
             <span class="gradient-text">Muhammed Amen Najeeb.</span>
           </h1>
 
-          <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal reveal reveal-delay-2 max-w-2xl">
+          <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed font-normal reveal max-w-2xl">
             <strong class="text-white font-bold">Data Analyst</strong> with a Computer Science foundation, turning raw financial data into executive dashboards, automated pipelines, and predictive insights.
           </p>
 
           <!-- Current Focus Box -->
-          <div class="jobin-card p-6 space-y-3.5 reveal reveal-delay-3 text-left">
+          <div class="jobin-card p-5 sm:p-6 space-y-3 reveal text-left">
             <div class="text-xs font-mono font-bold text-brand-primary uppercase tracking-wider flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-brand-primary"></span>
-              Current Operations &amp; Impact:
+              <span class="w-2 h-2 rounded-full bg-brand-primary flex-shrink-0"></span>
+              <span>Current Operations &amp; Impact:</span>
             </div>
             <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
-              <li class="flex items-start gap-3">
-                <span class="text-brand-primary font-mono font-bold">▸</span>
+              <li class="flex items-start gap-2.5">
+                <span class="text-brand-primary font-mono font-bold flex-shrink-0">▸</span>
                 <span><strong>Financial Analytics:</strong> Analyzing financial &amp; tax data at Taxpert Pro ACC to catch anomalies and guide client decisions.</span>
               </li>
-              <li class="flex items-start gap-3">
-                <span class="text-brand-primary font-mono font-bold">▸</span>
+              <li class="flex items-start gap-2.5">
+                <span class="text-brand-primary font-mono font-bold flex-shrink-0">▸</span>
                 <span><strong>Automated Pipelines:</strong> Building Python/SQL routines to automate manual data ingestion.</span>
               </li>
-              <li class="flex items-start gap-3">
-                <span class="text-brand-primary font-mono font-bold">▸</span>
+              <li class="flex items-start gap-2.5">
+                <span class="text-brand-primary font-mono font-bold flex-shrink-0">▸</span>
                 <span><strong>Power BI Dashboards:</strong> Building executive reporting suites with complex DAX measures.</span>
               </li>
             </ul>
           </div>
 
-          <!-- Hero Action Buttons -->
-          <div class="flex flex-wrap items-center gap-4 pt-2 reveal reveal-delay-3">
-            <a href="#projects" class="px-8 py-3.5 text-xs uppercase font-bold btn-gradient flex items-center gap-2">
+          <!-- Hero Action Buttons (Mobile-Responsive Stack) -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1 reveal">
+            <a href="#projects" class="px-7 py-3.5 text-xs uppercase font-bold btn-gradient gap-2">
               <span>Explore Projects</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </a>
-            <a href="https://linkedin.com/in/amennajeeb" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 text-xs uppercase font-bold btn-outline-cyan flex items-center gap-2">
+            <a href="https://linkedin.com/in/amennajeeb" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 text-xs uppercase font-bold btn-outline-cyan gap-2">
               <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               <span>LinkedIn</span>
               <span class="text-xs">↗</span>
             </a>
-            <a href="#experience" class="px-6 py-3.5 text-xs uppercase font-semibold text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors">
-              <span>View Experience ↓</span>
+            <a href="#experience" class="px-4 py-3 text-xs uppercase font-semibold text-slate-400 hover:text-white text-center transition-colors">
+              <span>Experience ↓</span>
             </a>
           </div>
         </div>
 
-        <!-- Right: Profile Card (Loads photo.jpeg from repo on deploy) -->
-        <div class="lg:col-span-5 reveal reveal-delay-2">
-          <div class="jobin-card p-6 sm:p-7 relative overflow-hidden space-y-6">
+        <!-- Right: Profile Card -->
+        <div class="lg:col-span-5 reveal">
+          <div class="jobin-card p-5 sm:p-7 relative overflow-hidden space-y-5">
             
             <!-- Portrait Image Frame -->
-            <div class="w-full aspect-square sm:aspect-[4/3.5] rounded-2xl overflow-hidden bg-gradient-to-br from-slate-900 via-[#0d121f] to-black border border-white/10 relative group flex items-center justify-center">
+            <div class="w-full aspect-[4/3.2] sm:aspect-[4/3.5] rounded-xl overflow-hidden bg-gradient-to-br from-slate-900 via-[#0d121f] to-black border border-white/10 relative group flex items-center justify-center">
               
-              <!-- Actual Photo (Loads from repository / local photo.jpeg) -->
+              <!-- Photo Image -->
               <img src="photo.jpeg" alt="Muhammed Amen Najeeb M" 
-                   class="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500 relative z-10"
+                   class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500 relative z-10"
                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
               
-              <!-- Elegant Monogram Fallback (Active only if photo.jpeg is not yet uploaded) -->
-              <div class="hidden absolute inset-0 flex-col items-center justify-center text-center p-6 bg-gradient-to-b from-[#0a0f1d] to-[#05070e] z-0">
-                <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-primary/20 via-brand-accent/20 to-transparent border border-brand-primary/30 flex items-center justify-center text-2xl font-extrabold text-white font-mono mb-3">
+              <!-- Monogram Fallback -->
+              <div class="hidden absolute inset-0 flex-col items-center justify-center text-center p-4 bg-gradient-to-b from-[#0a0f1d] to-[#05070e] z-0">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-brand-primary/20 via-brand-accent/20 to-transparent border border-brand-primary/30 flex items-center justify-center text-xl sm:text-2xl font-extrabold text-white font-mono mb-2">
                   AN
                 </div>
-                <div class="text-sm font-bold text-white">Muhammed Amen Najeeb</div>
-                <div class="text-xs font-mono text-brand-primary mt-1">Data Analyst</div>
+                <div class="text-xs sm:text-sm font-bold text-white">Muhammed Amen Najeeb</div>
+                <div class="text-[11px] font-mono text-brand-primary mt-0.5">Data Analyst</div>
               </div>
 
               <!-- Floating Bottom Glass Tag -->
-              <div class="absolute bottom-3 left-3 right-3 px-4 py-2.5 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 flex items-center justify-between z-20">
-                <div class="flex items-center gap-2">
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 px-3 py-2 rounded-lg bg-black/80 backdrop-blur-md border border-white/10 flex items-center justify-between z-20">
+                <div class="flex items-center gap-1.5">
                   <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  <span class="text-white font-bold text-xs sm:text-sm">Amen Najeeb</span>
+                  <span class="text-white font-bold text-xs">Amen Najeeb</span>
                 </div>
-                <span class="text-brand-primary font-mono text-xs font-semibold">Data Analyst</span>
+                <span class="text-brand-primary font-mono text-[11px] font-semibold">Data Analyst</span>
               </div>
             </div>
 
-            <!-- Profile Specs (Inter Semi-Bold Typography) -->
-            <div class="space-y-3 font-inter text-xs sm:text-sm border-t border-white/10 pt-5">
-              <div class="flex justify-between items-center py-0.5">
-                <span class="text-slate-400 font-semibold tracking-wide uppercase text-[11px] sm:text-xs">Experience</span>
-                <span class="text-emerald-400 font-semibold px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs">1+ Year Active</span>
+            <!-- Profile Specs (Mobile Responsive Inter Semi-Bold) -->
+            <div class="space-y-2.5 font-inter text-xs border-t border-white/10 pt-4">
+              <div class="flex items-center justify-between gap-2 py-0.5">
+                <span class="text-slate-400 font-semibold uppercase tracking-wider text-[10px] sm:text-xs">Experience</span>
+                <span class="text-emerald-400 font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[11px] sm:text-xs">1+ Year Active</span>
               </div>
-              <div class="flex justify-between items-center py-0.5">
-                <span class="text-slate-400 font-semibold tracking-wide uppercase text-[11px] sm:text-xs">Education</span>
-                <span class="text-slate-200 font-semibold px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs">B.Tech CS (2021–2025)</span>
+              <div class="flex items-center justify-between gap-2 py-0.5">
+                <span class="text-slate-400 font-semibold uppercase tracking-wider text-[10px] sm:text-xs">Education</span>
+                <span class="text-slate-200 font-semibold px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-xs">B.Tech CS (2021–2025)</span>
               </div>
-              <div class="flex justify-between items-center py-0.5">
-                <span class="text-slate-400 font-semibold tracking-wide uppercase text-[11px] sm:text-xs">Core Tech</span>
-                <span class="text-brand-primary font-semibold px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-xs">Power BI &bull; SQL &bull; Python</span>
+              <div class="flex items-center justify-between gap-2 py-0.5">
+                <span class="text-slate-400 font-semibold uppercase tracking-wider text-[10px] sm:text-xs">Core Tech</span>
+                <span class="text-brand-primary font-semibold px-2.5 py-0.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-[11px] sm:text-xs">Power BI &bull; SQL &bull; Python</span>
               </div>
-              <div class="flex justify-between items-center py-0.5">
-                <span class="text-slate-400 font-semibold tracking-wide uppercase text-[11px] sm:text-xs">Location</span>
-                <span class="text-slate-200 font-semibold px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs">Kannur, Kerala</span>
+              <div class="flex items-center justify-between gap-2 py-0.5">
+                <span class="text-slate-400 font-semibold uppercase tracking-wider text-[10px] sm:text-xs">Location</span>
+                <span class="text-slate-200 font-semibold px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-xs">Kannur, Kerala</span>
               </div>
             </div>
 
-            <!-- Dual Action: Resume & LinkedIn Buttons (Inter Semi-Bold) -->
-            <div class="grid grid-cols-2 gap-3 pt-1 font-inter">
-              <a href="Muhammed_Amen_Najeeb_Resume.pdf" target="_blank" class="py-3 px-3 rounded-xl bg-white/5 hover:bg-brand-primary/15 border border-white/10 hover:border-brand-primary/40 text-xs font-semibold text-slate-300 hover:text-white flex items-center justify-center gap-1.5 transition-all text-center">
+            <!-- Dual Action Buttons -->
+            <div class="grid grid-cols-2 gap-2.5 pt-1 font-inter">
+              <a href="Muhammed_Amen_Najeeb_Resume.pdf" target="_blank" class="py-2.5 px-3 rounded-xl bg-white/5 hover:bg-brand-primary/15 border border-white/10 hover:border-brand-primary/40 text-xs font-semibold text-slate-300 hover:text-white flex items-center justify-center gap-1.5 transition-all text-center">
                 <span>📄 Resume</span>
                 <span class="text-brand-primary font-bold">↗</span>
               </a>
-              <a href="https://linkedin.com/in/amennajeeb" target="_blank" rel="noopener noreferrer" class="py-3 px-3 rounded-xl bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 border border-[#0A66C2]/30 hover:border-[#0A66C2]/60 text-xs font-semibold text-blue-400 hover:text-white flex items-center justify-center gap-1.5 transition-all text-center">
+              <a href="https://linkedin.com/in/amennajeeb" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 border border-[#0A66C2]/30 hover:border-[#0A66C2]/60 text-xs font-semibold text-blue-400 hover:text-white flex items-center justify-center gap-1.5 transition-all text-center">
                 <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 <span>LinkedIn</span>
                 <span class="font-bold">↗</span>
@@ -364,26 +369,26 @@
 
       </div>
 
-      <!-- Quick Metrics Ribbon (Bottom of Hero) -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-16 mt-16 border-t border-white/10 reveal reveal-delay-3">
-        <div class="jobin-card p-6">
-          <div class="text-3xl font-extrabold text-white">1<span class="text-brand-primary">+</span></div>
-          <div class="text-xs font-mono text-slate-400 mt-1 uppercase tracking-wider">Year Industry Exp</div>
+      <!-- Quick Metrics Ribbon (Responsive 2x2 Grid on Mobile) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 pt-12 sm:pt-16 mt-12 sm:mt-16 border-t border-white/10 reveal">
+        <div class="jobin-card p-4 sm:p-6">
+          <div class="text-2xl sm:text-3xl font-extrabold text-white">1<span class="text-brand-primary">+</span></div>
+          <div class="text-[11px] sm:text-xs font-mono text-slate-400 mt-1 uppercase tracking-wider">Year Industry Exp</div>
         </div>
-        <div class="jobin-card p-6">
-          <div class="text-3xl font-extrabold text-white">5<span class="text-brand-primary">+</span></div>
-          <div class="text-xs font-mono text-slate-400 mt-1 uppercase tracking-wider">Major Projects</div>
+        <div class="jobin-card p-4 sm:p-6">
+          <div class="text-2xl sm:text-3xl font-extrabold text-white">5<span class="text-brand-primary">+</span></div>
+          <div class="text-[11px] sm:text-xs font-mono text-slate-400 mt-1 uppercase tracking-wider">Major Projects</div>
         </div>
-        <div class="jobin-card p-6">
-          <div class="text-3xl font-extrabold text-white">6<span class="text-brand-primary">+</span></div>
-          <div class="text-xs font-mono text-slate-400 mt-1 uppercase tracking-wider">Verified Certs</div>
+        <div class="jobin-card p-4 sm:p-6">
+          <div class="text-2xl sm:text-3xl font-extrabold text-white">6<span class="text-brand-primary">+</span></div>
+          <div class="text-[11px] sm:text-xs font-mono text-slate-400 mt-1 uppercase tracking-wider">Verified Certs</div>
         </div>
-        <div class="jobin-card p-6 border border-brand-primary/20">
-          <div class="text-2xl font-extrabold text-white flex items-center gap-1.5">
+        <div class="jobin-card p-4 sm:p-6 border border-brand-primary/20">
+          <div class="text-lg sm:text-2xl font-extrabold text-white flex items-center gap-1.5">
             <span>Google</span>
-            <span class="text-brand-primary text-sm font-mono font-medium">Certified</span>
+            <span class="text-brand-primary text-xs sm:text-sm font-mono font-semibold">Certified</span>
           </div>
-          <div class="text-xs font-mono text-brand-primary mt-1 uppercase tracking-wider">Data Analytics Pro</div>
+          <div class="text-[11px] sm:text-xs font-mono text-brand-primary mt-1 uppercase tracking-wider">Data Analyst</div>
         </div>
       </div>
 
@@ -391,7 +396,7 @@
   </section>
 
   <!-- 2. EXPERIENCE SECTION -->
-  <section id="experience" class="py-24 px-6 border-t border-white/10 relative z-10">
+  <section id="experience" class="py-16 sm:py-24 px-4 sm:px-6 border-t border-white/10 relative z-10">
     <div class="max-w-4xl mx-auto">
       
       <div class="text-center">
@@ -399,31 +404,31 @@
       </div>
 
       <!-- Timeline Items -->
-      <div class="space-y-10 relative before:absolute before:inset-0 before:left-3.5 before:w-px before:bg-gradient-to-b before:from-brand-primary before:via-brand-secondary before:to-transparent">
+      <div class="space-y-8 sm:space-y-10 relative before:absolute before:inset-0 before:left-3 sm:before:left-3.5 before:w-px before:bg-gradient-to-b before:from-brand-primary before:via-brand-secondary before:to-transparent">
         
         <!-- Role 1: Taxpert Pro ACC -->
-        <div class="relative pl-12 reveal">
-          <div class="absolute left-1.5 top-2 w-4 h-4 rounded-full bg-brand-primary border-4 border-[#0a0a0a] shadow-cyan-glow"></div>
+        <div class="relative pl-8 sm:pl-12 reveal">
+          <div class="absolute left-1 sm:left-1.5 top-2 w-4 h-4 rounded-full bg-brand-primary border-4 border-[#060911] shadow-brand-glow"></div>
           
-          <div class="jobin-card p-7">
+          <div class="jobin-card p-5 sm:p-7">
             <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-              <span class="font-mono text-xs font-bold text-brand-primary px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20">May 2026 – Present</span>
+              <span class="font-mono text-xs font-bold text-brand-primary px-2.5 py-0.5 rounded-full bg-brand-primary/10 border border-brand-primary/20">May 2026 – Present</span>
               <span class="font-mono text-xs text-slate-400">Kozhikode, Kerala</span>
             </div>
-            <h3 class="text-xl font-bold text-white">Data Analyst</h3>
-            <div class="text-sm font-semibold text-slate-300 mb-4">Taxpert Pro ACC</div>
+            <h3 class="text-lg sm:text-xl font-bold text-white">Data Analyst</h3>
+            <div class="text-xs sm:text-sm font-semibold text-slate-300 mb-3">Taxpert Pro ACC</div>
             
-            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
-              <li class="flex items-start gap-2.5">
-                <span class="text-brand-primary font-mono font-bold">&bull;</span>
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-primary font-mono font-bold flex-shrink-0">&bull;</span>
                 <span>Analyze complex financial and tax datasets to identify anomalies, evaluate business trends, and surface profitability insights.</span>
               </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-brand-primary font-mono font-bold">&bull;</span>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-primary font-mono font-bold flex-shrink-0">&bull;</span>
                 <span>Build automated Python (Pandas) and SQL ingestion pipelines to eliminate manual spreadsheet reporting.</span>
               </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-brand-primary font-mono font-bold">&bull;</span>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-primary font-mono font-bold flex-shrink-0">&bull;</span>
                 <span>Design and deploy executive Power BI dashboards with tailored DAX measures for executive performance tracking.</span>
               </li>
             </ul>
@@ -431,24 +436,24 @@
         </div>
 
         <!-- Role 2: Bsoft Bangalore -->
-        <div class="relative pl-12 reveal reveal-delay-1">
-          <div class="absolute left-1.5 top-2 w-4 h-4 rounded-full bg-slate-600 border-4 border-[#0a0a0a]"></div>
+        <div class="relative pl-8 sm:pl-12 reveal">
+          <div class="absolute left-1 sm:left-1.5 top-2 w-4 h-4 rounded-full bg-slate-600 border-4 border-[#060911]"></div>
           
-          <div class="jobin-card p-7">
+          <div class="jobin-card p-5 sm:p-7">
             <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-              <span class="font-mono text-xs font-bold text-slate-400 px-3 py-1 rounded-full bg-white/5 border border-white/10">Jul 2025 – Jan 2026</span>
+              <span class="font-mono text-xs font-bold text-slate-400 px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10">Jul 2025 – Jan 2026</span>
               <span class="font-mono text-xs text-slate-400">Bangalore, Karnataka</span>
             </div>
-            <h3 class="text-xl font-bold text-white">Network Engineering Intern</h3>
-            <div class="text-sm font-semibold text-slate-300 mb-4">Bsoft Bangalore</div>
+            <h3 class="text-lg sm:text-xl font-bold text-white">Network Engineering Intern</h3>
+            <div class="text-xs sm:text-sm font-semibold text-slate-300 mb-3">Bsoft Bangalore</div>
             
-            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
-              <li class="flex items-start gap-2.5">
-                <span class="text-slate-500 font-mono font-bold">&bull;</span>
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <li class="flex items-start gap-2">
+                <span class="text-slate-500 font-mono font-bold flex-shrink-0">&bull;</span>
                 <span>Configured enterprise switches, routers, VLANs, and Inter-VLAN routing architectures.</span>
               </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-slate-500 font-mono font-bold">&bull;</span>
+              <li class="flex items-start gap-2">
+                <span class="text-slate-500 font-mono font-bold flex-shrink-0">&bull;</span>
                 <span>Simulated and validated dynamic routing protocols including OSPF, DHCP, and STP in Cisco Packet Tracer &amp; GNS3.</span>
               </li>
             </ul>
@@ -461,89 +466,89 @@
   </section>
 
   <!-- 3. FEATURED PROJECTS SECTION -->
-  <section id="projects" class="py-24 px-6 border-t border-white/10 relative z-10">
+  <section id="projects" class="py-16 sm:py-24 px-4 sm:px-6 border-t border-white/10 relative z-10">
     <div class="max-w-6xl mx-auto">
       
       <div class="text-center">
         <h2 class="section-title reveal">Featured Projects</h2>
       </div>
 
-      <!-- FLAGSHIP HERO PROJECT (E-Commerce Power BI Suite) -->
-      <div class="jobin-card p-8 sm:p-12 mb-12 shadow-card-shadow reveal">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <!-- FLAGSHIP PROJECT (E-Commerce Power BI Suite) -->
+      <div class="jobin-card p-6 sm:p-10 mb-8 sm:mb-12 shadow-card-shadow reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          <div class="lg:col-span-6 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/30 font-mono text-xs font-bold text-brand-primary uppercase">
+          <div class="lg:col-span-6 space-y-4 sm:space-y-5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/30 font-mono text-[11px] font-bold text-brand-primary uppercase">
               <span>FLAGSHIP &bull; POWER BI &amp; SQL</span>
             </div>
 
-            <h3 class="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-tight">
               E-Commerce Analytics &amp; KPI Suite
             </h3>
 
-            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
               An end-to-end 4-page Power BI dashboard driven by multi-table SQL queries aggregating customer cohorts, delivery SLAs, channel attribution, and returns data.
             </p>
 
-            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
-              <li class="flex items-start gap-2.5">
-                <span class="text-brand-primary font-mono font-bold">▸</span>
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-primary font-mono font-bold flex-shrink-0">▸</span>
                 <span><strong>Full-Funnel SQL Architecture:</strong> Joins and aggregations isolating delivery cost leaks.</span>
               </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-brand-primary font-mono font-bold">▸</span>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-primary font-mono font-bold flex-shrink-0">▸</span>
                 <span><strong>DAX Customer Cohorts:</strong> Segments uncovering high-value shoppers and churn risk.</span>
               </li>
             </ul>
 
-            <div class="flex flex-wrap gap-2 pt-2">
-              <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Power BI</span>
-              <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">SQL (Adv)</span>
-              <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">DAX Measures</span>
-              <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">SLA Telemetry</span>
+            <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
+              <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-[11px] text-slate-300">Power BI</span>
+              <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">SQL (Adv)</span>
+              <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">DAX Measures</span>
+              <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">SLA Telemetry</span>
             </div>
 
-            <div class="pt-4">
+            <div class="pt-2">
               <a href="https://github.com/amennajeeb/ecommerce-analytics-powerbi" target="_blank" rel="noopener noreferrer"
-                 class="inline-flex items-center gap-2 px-7 py-3 text-xs font-bold uppercase btn-gradient">
+                 class="w-full sm:w-auto px-6 py-3 text-xs font-bold uppercase btn-gradient gap-2">
                 <span>View on GitHub Repository</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </a>
             </div>
           </div>
 
-          <!-- Telemetry Dashboard Graphic Frame -->
+          <!-- Telemetry Preview Frame -->
           <div class="lg:col-span-6">
-            <div class="rounded-2xl border border-white/10 bg-[#070b16] p-6 shadow-2xl space-y-4">
+            <div class="rounded-xl border border-white/10 bg-[#070b16] p-4 sm:p-5 shadow-2xl space-y-3.5">
               <div class="flex items-center justify-between border-b border-white/10 pb-3">
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-1.5">
                   <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
                   <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
                   <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-                  <span class="font-mono text-xs text-slate-400 ml-2">Executive_KPI.pbix</span>
+                  <span class="font-mono text-xs text-slate-400 ml-2 truncate max-w-[150px] sm:max-w-none">Executive_KPI.pbix</span>
                 </div>
-                <span class="font-mono text-[10px] text-brand-primary uppercase bg-brand-primary/10 px-2.5 py-0.5 rounded-full border border-brand-primary/30">Live Sync</span>
+                <span class="font-mono text-[10px] text-brand-primary uppercase bg-brand-primary/10 px-2 py-0.5 rounded-full border border-brand-primary/30">Live Sync</span>
               </div>
 
-              <div class="grid grid-cols-2 gap-3">
-                <div class="bg-black/50 p-3.5 rounded-xl border border-white/5">
-                  <div class="text-[11px] font-mono text-slate-400 uppercase">Gross Revenue</div>
-                  <div class="text-xl font-bold text-white mt-1 font-mono">$1.24M <span class="text-emerald-400 text-xs font-normal">+18.4%</span></div>
+              <div class="grid grid-cols-2 gap-2.5">
+                <div class="bg-black/50 p-3 rounded-lg border border-white/5">
+                  <div class="text-[10px] font-mono text-slate-400 uppercase">Gross Revenue</div>
+                  <div class="text-lg sm:text-xl font-bold text-white mt-0.5 font-mono">$1.24M <span class="text-emerald-400 text-xs font-normal">+18.4%</span></div>
                 </div>
-                <div class="bg-black/50 p-3.5 rounded-xl border border-white/5">
-                  <div class="text-[11px] font-mono text-slate-400 uppercase">SLA Compliance</div>
-                  <div class="text-xl font-bold text-white mt-1 font-mono">94.2% <span class="text-brand-primary text-xs font-normal">Met</span></div>
+                <div class="bg-black/50 p-3 rounded-lg border border-white/5">
+                  <div class="text-[10px] font-mono text-slate-400 uppercase">SLA Compliance</div>
+                  <div class="text-lg sm:text-xl font-bold text-white mt-0.5 font-mono">94.2% <span class="text-brand-primary text-xs font-normal">Met</span></div>
                 </div>
               </div>
 
-              <div class="bg-black/50 p-4 rounded-xl border border-white/5 space-y-2">
+              <div class="bg-black/50 p-3.5 rounded-lg border border-white/5 space-y-1.5">
                 <div class="flex justify-between text-xs font-mono text-slate-400">
                   <span>Channel Breakdown</span>
                   <span class="text-brand-primary">Organic (45%)</span>
                 </div>
                 <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden flex">
                   <div class="bg-brand-primary h-full w-[45%]"></div>
-                  <div class="bg-brand-accent h-full w-[30%]"></div>
+                  <div class="bg-blue-500 h-full w-[30%]"></div>
                   <div class="bg-emerald-400 h-full w-[15%]"></div>
                   <div class="bg-amber-400 h-full w-[10%]"></div>
                 </div>
@@ -555,67 +560,67 @@
       </div>
 
       <!-- Secondary Projects Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
         
         <!-- Project 02 -->
-        <div class="jobin-card p-8 flex flex-col justify-between reveal">
+        <div class="jobin-card p-6 sm:p-8 flex flex-col justify-between reveal">
           <div>
-            <div class="font-mono text-xs font-bold text-brand-primary uppercase mb-3">02 &bull; Power BI &amp; DAX</div>
-            <h3 class="text-2xl font-bold text-white mb-3">Multi-City Weather &amp; AQI Telemetry</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            <div class="font-mono text-xs font-bold text-brand-primary uppercase mb-2">02 &bull; Power BI &amp; DAX</div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2.5">Multi-City Weather &amp; AQI Telemetry</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5">
               Interactive Power BI dashboard monitoring pollutant indexes (SO2, O3, PM2.5, CO, NO2) across Kerala cities with dynamic city switching and rain risk analytics.
             </p>
           </div>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Power BI</span>
-            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">DAX</span>
-            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Telemetry</span>
+          <div class="flex flex-wrap gap-1.5 sm:gap-2">
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Power BI</span>
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">DAX</span>
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Telemetry</span>
           </div>
         </div>
 
         <!-- Project 03 -->
-        <div class="jobin-card p-8 flex flex-col justify-between reveal reveal-delay-1">
+        <div class="jobin-card p-6 sm:p-8 flex flex-col justify-between reveal">
           <div>
-            <div class="font-mono text-xs font-bold text-brand-primary uppercase mb-3">03 &bull; Machine Learning</div>
-            <h3 class="text-2xl font-bold text-white mb-3">Air Quality Predictive Model</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            <div class="font-mono text-xs font-bold text-brand-primary uppercase mb-2">03 &bull; Machine Learning</div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2.5">Air Quality Predictive Model</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5">
               Trained a Scikit-learn predictive model to forecast pollution indices with regression algorithms, feature scaling, and RMSE accuracy scoring.
             </p>
           </div>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Python</span>
-            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Scikit-learn</span>
-            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Regression</span>
+          <div class="flex flex-wrap gap-1.5 sm:gap-2">
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Python</span>
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Scikit-learn</span>
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Regression</span>
           </div>
         </div>
 
         <!-- Project 04 -->
-        <div class="jobin-card p-8 flex flex-col justify-between reveal">
+        <div class="jobin-card p-6 sm:p-8 flex flex-col justify-between reveal">
           <div>
-            <div class="font-mono text-xs font-bold text-brand-primary uppercase mb-3">04 &bull; Full-Stack Platform</div>
-            <h3 class="text-2xl font-bold text-white mb-3">Re Wastra — Upcycling Platform</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            <div class="font-mono text-xs font-bold text-brand-primary uppercase mb-2">04 &bull; Full-Stack Platform</div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2.5">Re Wastra — Upcycling Platform</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5">
               Full-stack web application with secure authentication, relational database schema architecture, and seamless inventory management.
             </p>
           </div>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Full-Stack</span>
-            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">SQL Schema</span>
+          <div class="flex flex-wrap gap-1.5 sm:gap-2">
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Full-Stack</span>
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">SQL Schema</span>
           </div>
         </div>
 
         <!-- Project 05 -->
-        <div class="jobin-card p-8 flex flex-col justify-between reveal reveal-delay-1">
+        <div class="jobin-card p-6 sm:p-8 flex flex-col justify-between reveal">
           <div>
-            <div class="font-mono text-xs font-bold text-brand-primary uppercase mb-3">05 &bull; Enterprise Infrastructure</div>
-            <h3 class="text-2xl font-bold text-white mb-3">Campus Network Architecture</h3>
-            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            <div class="font-mono text-xs font-bold text-brand-primary uppercase mb-2">05 &bull; Enterprise Infrastructure</div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2.5">Campus Network Architecture</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5">
               Designed multi-department campus network topologies with VLANs, Inter-VLAN routing, and OSPF/DHCP protocols in Cisco Packet Tracer.
             </p>
           </div>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Cisco CCNA</span>
-            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">VLANs</span>
+          <div class="flex flex-wrap gap-1.5 sm:gap-2">
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Cisco CCNA</span>
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">VLANs</span>
           </div>
         </div>
 
@@ -624,78 +629,78 @@
     </div>
   </section>
 
-  <!-- 4. SKILLS & EXPERTISE SECTION (TOP 6 ICON GRID) -->
-  <section id="skills" class="py-24 px-6 border-t border-white/10 relative z-10">
+  <!-- 4. SKILLS & EXPERTISE (TOP 6 ICON GRID) -->
+  <section id="skills" class="py-16 sm:py-24 px-4 sm:px-6 border-t border-white/10 relative z-10">
     <div class="max-w-6xl mx-auto">
       
       <div class="text-center">
         <h2 class="section-title reveal">Skills &amp; Expertise</h2>
       </div>
 
-      <!-- Top 6 Clean Icon Cards Grid (6 Columns on Desktop) -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 reveal">
+      <!-- Top 6 Responsive Icon Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 reveal">
         
         <!-- 1. Power BI -->
-        <div class="jobin-card p-6 flex flex-col items-center justify-center text-center h-44 group cursor-pointer">
-          <div class="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-4 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
-            <svg class="w-7 h-7 text-brand-primary group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+        <div class="jobin-card p-4 sm:p-6 flex flex-col items-center justify-center text-center h-36 sm:h-40 group cursor-pointer">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-3 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+            <svg class="w-6 h-6 text-brand-primary group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
               <path d="M4 13h3v8H4v-8zm5-4h3v12H9V9zm5-5h3v17h-3V4zm5 8h3v9h-3v-9z"/>
             </svg>
           </div>
-          <span class="text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Power BI</span>
+          <span class="text-xs sm:text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Power BI</span>
         </div>
 
         <!-- 2. SQL -->
-        <div class="jobin-card p-6 flex flex-col items-center justify-center text-center h-44 group cursor-pointer">
-          <div class="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-4 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
-            <svg class="w-7 h-7 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <div class="jobin-card p-4 sm:p-6 flex flex-col items-center justify-center text-center h-36 sm:h-40 group cursor-pointer">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-3 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+            <svg class="w-6 h-6 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <ellipse cx="12" cy="5" rx="9" ry="3"/>
               <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
               <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
             </svg>
           </div>
-          <span class="text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">SQL</span>
+          <span class="text-xs sm:text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">SQL</span>
         </div>
 
         <!-- 3. Python -->
-        <div class="jobin-card p-6 flex flex-col items-center justify-center text-center h-44 group cursor-pointer">
-          <div class="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-4 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
-            <svg class="w-7 h-7 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="currentColor">
+        <div class="jobin-card p-4 sm:p-6 flex flex-col items-center justify-center text-center h-36 sm:h-40 group cursor-pointer">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-3 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+            <svg class="w-6 h-6 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2c-4.4 0-4.4 1.9-4.4 1.9v2h4.5v.7H6.1S2 6.5 2 11.2c0 4.6 3.6 4.4 3.6 4.4h1.2v-1.7c0-2 1.7-2 1.7-2h4.4s1.7 0 1.7-1.7V6.2S14.7 2 12 2zm-1.3 1.3c.4 0 .7.3.7.7s-.3.7-.7.7-.7-.3-.7-.7.3-.7.7-.7zm1.3 18.7c4.4 0 4.4-1.9 4.4-1.9v-2h-4.5v-.7h6s4.1.1 4.1-4.6c0-4.6-3.6-4.4-3.6-4.4h-1.2v1.7c0 2-1.7 2-1.7 2h-4.4s-1.7 0-1.7 1.7v4s-.1 4.2 2.6 4.2zm1.3-1.3c-.4 0-.7-.3-.7-.7s.3-.7.7-.7.7.3.7.7-.3.7-.7.7z"/>
             </svg>
           </div>
-          <span class="text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Python</span>
+          <span class="text-xs sm:text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Python</span>
         </div>
 
         <!-- 4. Excel -->
-        <div class="jobin-card p-6 flex flex-col items-center justify-center text-center h-44 group cursor-pointer">
-          <div class="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-4 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
-            <svg class="w-7 h-7 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <div class="jobin-card p-4 sm:p-6 flex flex-col items-center justify-center text-center h-36 sm:h-40 group cursor-pointer">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-3 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+            <svg class="w-6 h-6 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <rect x="3" y="3" width="18" height="18" rx="2"/>
               <path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>
             </svg>
           </div>
-          <span class="text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Excel</span>
+          <span class="text-xs sm:text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Excel</span>
         </div>
 
         <!-- 5. Tableau -->
-        <div class="jobin-card p-6 flex flex-col items-center justify-center text-center h-44 group cursor-pointer">
-          <div class="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-4 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
-            <svg class="w-7 h-7 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="currentColor">
+        <div class="jobin-card p-4 sm:p-6 flex flex-col items-center justify-center text-center h-36 sm:h-40 group cursor-pointer">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-3 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+            <svg class="w-6 h-6 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="currentColor">
               <path d="M11 2v3.5H7.5V7H11v3.5h1.5V7H16V5.5h-3.5V2H11zm-6 6v2.5H2.5V12H5v2.5h1.5V12H9v-1.5H6.5V8H5zm12 0v2.5h-2.5V12H17v2.5h1.5V12H21v-1.5h-2.5V8H17zm-6 6v3.5H7.5V19H11v3.5h1.5V19H16v-1.5h-3.5V14H11z"/>
             </svg>
           </div>
-          <span class="text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Tableau</span>
+          <span class="text-xs sm:text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Tableau</span>
         </div>
 
         <!-- 6. Pandas -->
-        <div class="jobin-card p-6 flex flex-col items-center justify-center text-center h-44 group cursor-pointer">
-          <div class="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-4 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
-            <svg class="w-7 h-7 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <div class="jobin-card p-4 sm:p-6 flex flex-col items-center justify-center text-center h-36 sm:h-40 group cursor-pointer">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-3 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+            <svg class="w-6 h-6 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/>
             </svg>
           </div>
-          <span class="text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Pandas (ETL)</span>
+          <span class="text-xs sm:text-sm font-semibold text-white group-hover:text-brand-primary transition-colors truncate">Pandas (ETL)</span>
         </div>
 
       </div>
@@ -704,17 +709,17 @@
   </section>
 
   <!-- 5. LICENSES & CERTIFICATIONS -->
-  <section id="certifications" class="py-24 px-6 border-t border-white/10 relative z-10">
+  <section id="certifications" class="py-16 sm:py-24 px-4 sm:px-6 border-t border-white/10 relative z-10">
     <div class="max-w-6xl mx-auto">
       
       <div class="text-center">
         <h2 class="section-title reveal">Certifications</h2>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         
-        <!-- 1. GOOGLE DATA ANALYTICS (GOOGLE ACCENT HIGHLIGHT) -->
-        <div class="cert-card has-cred jobin-card p-7 relative overflow-hidden reveal cursor-pointer border border-blue-500/30 hover:border-blue-400"
+        <!-- 1. GOOGLE DATA ANALYTICS -->
+        <div class="cert-card has-cred jobin-card p-5 sm:p-7 relative overflow-hidden reveal cursor-pointer border border-blue-500/30 hover:border-blue-400"
              data-title="Google Data Analytics Professional Certificate"
              data-issuer="Google / Coursera"
              data-date="Jul 2026"
@@ -722,10 +727,9 @@
              data-url="https://www.coursera.org/account/accomplishments/professional-cert/CERGV2D6SJK0"
              data-skills="Data Analysis, Spreadsheets, SQL, Tableau, R Programming, Data Integrity">
           
-          <!-- Google Top Bar -->
           <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4285F4] via-[#EA4335] via-[#FBBC05] to-[#34A853]"></div>
 
-          <div class="flex justify-between items-start mb-4">
+          <div class="flex justify-between items-start mb-3 sm:mb-4">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-[11px] font-mono font-bold uppercase">
               <svg class="w-3.5 h-3.5" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -738,16 +742,16 @@
             <span class="font-mono text-xs text-blue-400 bg-blue-500/10 px-2.5 py-0.5 rounded-full">Jul 2026</span>
           </div>
 
-          <h3 class="text-lg font-bold text-white mb-6 leading-snug">Google Data Analytics Professional Certificate</h3>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-4 sm:mb-6 leading-snug">Google Data Analytics Professional Certificate</h3>
 
-          <div class="flex items-center justify-between pt-4 border-t border-white/10 font-mono text-xs">
+          <div class="flex items-center justify-between pt-3 sm:pt-4 border-t border-white/10 font-mono text-xs">
             <span class="text-slate-400">ID: CERGV2D6SJK0</span>
-            <span class="text-blue-400 font-bold">Show credential ↗</span>
+            <span class="text-blue-400 font-bold">Verify ↗</span>
           </div>
         </div>
 
         <!-- 2. HACKERRANK SQL ADVANCED -->
-        <div class="cert-card has-cred jobin-card p-7 relative overflow-hidden reveal cursor-pointer border border-emerald-500/30 hover:border-emerald-400"
+        <div class="cert-card has-cred jobin-card p-5 sm:p-7 relative overflow-hidden reveal cursor-pointer border border-emerald-500/30 hover:border-emerald-400"
              data-title="SQL (ADVANCED)"
              data-issuer="HackerRank"
              data-date="Jul 2026"
@@ -755,10 +759,9 @@
              data-url="https://www.hackerrank.com/certificates/5fedce8b5332"
              data-skills="Advanced SQL, Joins, Aggregations, Window Functions, Subqueries">
           
-          <!-- HackerRank Top Bar -->
           <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00EA64] via-[#2EC866] to-[#00EA64]"></div>
 
-          <div class="flex justify-between items-start mb-4">
+          <div class="flex justify-between items-start mb-3 sm:mb-4">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] font-mono font-bold uppercase">
               <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.5 5.5h3v5.25h3V5.5h3V18.5h-3v-5.25h-3v5.25h-3V5.5z"/>
@@ -768,16 +771,16 @@
             <span class="font-mono text-xs text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full">Jul 2026</span>
           </div>
 
-          <h3 class="text-lg font-bold text-white mb-6 leading-snug">SQL (ADVANCED)</h3>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-4 sm:mb-6 leading-snug">SQL (ADVANCED)</h3>
 
-          <div class="flex items-center justify-between pt-4 border-t border-white/10 font-mono text-xs">
+          <div class="flex items-center justify-between pt-3 sm:pt-4 border-t border-white/10 font-mono text-xs">
             <span class="text-slate-400">ID: 5FEDCE8B5332</span>
-            <span class="text-emerald-400 font-bold">Show credential ↗</span>
+            <span class="text-emerald-400 font-bold">Verify ↗</span>
           </div>
         </div>
 
         <!-- 3. DUBAI FUTURE FOUNDATION -->
-        <div class="cert-card has-cred jobin-card p-7 relative overflow-hidden reveal cursor-pointer border border-purple-500/30 hover:border-purple-400"
+        <div class="cert-card has-cred jobin-card p-5 sm:p-7 relative overflow-hidden reveal cursor-pointer border border-purple-500/30 hover:border-purple-400"
              data-title="One Million Prompters — Certificate of Completion"
              data-issuer="Dubai Future Foundation"
              data-date="Aug 2026"
@@ -785,29 +788,28 @@
              data-url="https://www.dubaifuture.ae/"
              data-skills="Prompt Engineering, Generative AI, LLMs">
           
-          <!-- DFF Top Bar -->
           <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#7F00FF] via-[#A855F7] to-[#00D2FF]"></div>
 
-          <div class="flex justify-between items-start mb-4">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-[11px] font-mono font-bold uppercase">
-              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+          <div class="flex justify-between items-start mb-3 sm:mb-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-[11px] font-mono font-bold uppercase truncate max-w-[200px]">
+              <svg class="w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2L14.5 8.5L21 11L14.5 13.5L12 20L9.5 13.5L3 11L9.5 8.5L12 2Z"/>
               </svg>
-              Dubai Future Foundation
+              <span>Dubai Future Foundation</span>
             </span>
             <span class="font-mono text-xs text-purple-400 bg-purple-500/10 px-2.5 py-0.5 rounded-full">Aug 2026</span>
           </div>
 
-          <h3 class="text-lg font-bold text-white mb-6 leading-snug">One Million Prompters — AI &amp; Prompt Engineering</h3>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-4 sm:mb-6 leading-snug">One Million Prompters — AI &amp; Prompt Engineering</h3>
 
-          <div class="flex items-center justify-between pt-4 border-t border-white/10 font-mono text-xs">
-            <span class="text-slate-400">HH Sheikh Hamdan</span>
-            <span class="text-purple-400 font-bold">Show credential ↗</span>
+          <div class="flex items-center justify-between pt-3 sm:pt-4 border-t border-white/10 font-mono text-xs">
+            <span class="text-slate-400 truncate">HH Sheikh Hamdan</span>
+            <span class="text-purple-400 font-bold">Verify ↗</span>
           </div>
         </div>
 
         <!-- 4. SIMPLILEARN GOOGLE SHEETS -->
-        <div class="cert-card has-cred jobin-card p-7 relative overflow-hidden reveal cursor-pointer border border-cyan-500/30 hover:border-cyan-400"
+        <div class="cert-card has-cred jobin-card p-5 sm:p-7 relative overflow-hidden reveal cursor-pointer border border-cyan-500/30 hover:border-cyan-400"
              data-title="Google Sheets — Spreadsheet Data Analysis &amp; Productivity"
              data-issuer="Simplilearn"
              data-date="Aug 2026"
@@ -815,10 +817,9 @@
              data-url="https://simplilearn.com/"
              data-skills="Data Analysis, Formulas, Pivot Tables">
           
-          <!-- Simplilearn Top Bar -->
           <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00D2FF] via-[#0099FF] to-[#FF9900]"></div>
 
-          <div class="flex justify-between items-start mb-4">
+          <div class="flex justify-between items-start mb-3 sm:mb-4">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-[11px] font-mono font-bold uppercase">
               <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
@@ -828,16 +829,16 @@
             <span class="font-mono text-xs text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 rounded-full">Aug 2026</span>
           </div>
 
-          <h3 class="text-lg font-bold text-white mb-6 leading-snug">Google Sheets — Data Analysis</h3>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-4 sm:mb-6 leading-snug">Google Sheets — Data Analysis</h3>
 
-          <div class="flex items-center justify-between pt-4 border-t border-white/10 font-mono text-xs">
+          <div class="flex items-center justify-between pt-3 sm:pt-4 border-t border-white/10 font-mono text-xs">
             <span class="text-slate-400">ID: 10656134</span>
-            <span class="text-cyan-400 font-bold">Show credential ↗</span>
+            <span class="text-cyan-400 font-bold">Verify ↗</span>
           </div>
         </div>
 
         <!-- 5. ONEROADMAP SIMULATION -->
-        <div class="cert-card has-cred jobin-card p-7 relative overflow-hidden reveal cursor-pointer border border-indigo-500/30 hover:border-indigo-400"
+        <div class="cert-card has-cred jobin-card p-5 sm:p-7 relative overflow-hidden reveal cursor-pointer border border-indigo-500/30 hover:border-indigo-400"
              data-title="Data Analyst Job Simulation"
              data-issuer="OneRoadmap"
              data-date="Jul 2026"
@@ -845,10 +846,9 @@
              data-url="https://oneroadmap.io/"
              data-skills="Data Analysis, Data Cleaning, KPI Reporting">
           
-          <!-- OneRoadmap Top Bar -->
           <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#6366F1] via-[#8B5CF6] to-[#EC4899]"></div>
 
-          <div class="flex justify-between items-start mb-4">
+          <div class="flex justify-between items-start mb-3 sm:mb-4">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-[11px] font-mono font-bold uppercase">
               <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="10"/>
@@ -859,20 +859,19 @@
             <span class="font-mono text-xs text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded-full">Jul 2026</span>
           </div>
 
-          <h3 class="text-lg font-bold text-white mb-6 leading-snug">Data Analyst Job Simulation</h3>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-4 sm:mb-6 leading-snug">Data Analyst Job Simulation</h3>
 
-          <div class="flex items-center justify-between pt-4 border-t border-white/10 font-mono text-xs">
+          <div class="flex items-center justify-between pt-3 sm:pt-4 border-t border-white/10 font-mono text-xs">
             <span class="text-slate-400">ID: ORA-DA-PXA269</span>
-            <span class="text-indigo-400 font-bold">Show credential ↗</span>
+            <span class="text-indigo-400 font-bold">Verify ↗</span>
           </div>
         </div>
 
         <!-- 6. CISCO CCNA -->
-        <div class="cert-card jobin-card p-7 relative overflow-hidden reveal border border-sky-500/30 hover:border-sky-400">
-          <!-- Cisco Top Bar -->
+        <div class="cert-card jobin-card p-5 sm:p-7 relative overflow-hidden reveal border border-sky-500/30 hover:border-sky-400">
           <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#005073] via-[#00BCEB] to-[#1BA0D7]"></div>
 
-          <div class="flex justify-between items-start mb-4">
+          <div class="flex justify-between items-start mb-3 sm:mb-4">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-[11px] font-mono font-bold uppercase">
               <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M4 10v4h2v-4H4zm4-3v10h2V7H8zm4-4v16h2V3h-2zm4 4v10h2V7h-2zm4 3v4h2v-4h-2z"/>
@@ -882,9 +881,9 @@
             <span class="font-mono text-xs text-sky-400 bg-sky-500/10 px-2.5 py-0.5 rounded-full">Nov 2025</span>
           </div>
 
-          <h3 class="text-lg font-bold text-white mb-6 leading-snug">Cisco CCNA (Routing &amp; Switching)</h3>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-4 sm:mb-6 leading-snug">Cisco CCNA (Routing &amp; Switching)</h3>
 
-          <div class="flex items-center justify-between pt-4 border-t border-white/10 font-mono text-xs">
+          <div class="flex items-center justify-between pt-3 sm:pt-4 border-t border-white/10 font-mono text-xs">
             <span class="text-slate-400">Enterprise Networking</span>
             <span class="text-sky-400 font-bold">Verified</span>
           </div>
@@ -896,31 +895,31 @@
   </section>
 
   <!-- 6. CONTACT & FOOTER -->
-  <section id="contact" class="py-24 px-6 border-t border-white/10 relative z-10 text-center">
-    <div class="max-w-3xl mx-auto jobin-card p-10 sm:p-14 shadow-card-shadow reveal">
+  <section id="contact" class="py-16 sm:py-24 px-4 sm:px-6 border-t border-white/10 relative z-10 text-center">
+    <div class="max-w-3xl mx-auto jobin-card p-6 sm:p-12 shadow-card-shadow reveal">
       
-      <h2 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+      <h2 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-3 sm:mb-4">
         Let's build something <br/><span class="gradient-text">intelligent together.</span>
       </h2>
-      <p class="text-slate-300 text-sm sm:text-base mb-8 max-w-md mx-auto">
+      <p class="text-slate-300 text-xs sm:text-sm md:text-base mb-6 sm:mb-8 max-w-md mx-auto leading-relaxed">
         Actively exploring high-impact Data Analyst opportunities and collaborative analytics initiatives.
       </p>
 
-      <div class="mb-8">
-        <a href="mailto:amennajeeb8418@gmail.com" class="text-lg sm:text-2xl font-mono font-bold text-white hover:text-brand-primary transition-colors underline decoration-brand-primary/50 underline-offset-8">
+      <div class="mb-6 sm:mb-8">
+        <a href="mailto:amennajeeb8418@gmail.com" class="text-base sm:text-xl md:text-2xl font-mono font-bold text-white hover:text-brand-primary transition-colors underline decoration-brand-primary/50 underline-offset-6 break-all">
           amennajeeb8418@gmail.com
         </a>
       </div>
 
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="mailto:amennajeeb8418@gmail.com" class="px-8 py-3.5 text-xs font-bold uppercase btn-gradient">
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+        <a href="mailto:amennajeeb8418@gmail.com" class="px-7 py-3.5 text-xs font-bold uppercase btn-gradient">
           Send Email ✉️
         </a>
-        <a href="https://linkedin.com/in/amennajeeb" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 text-xs font-bold uppercase btn-outline-cyan flex items-center gap-2">
+        <a href="https://linkedin.com/in/amennajeeb" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 text-xs font-bold uppercase btn-outline-cyan gap-2">
           <span>LinkedIn</span>
           <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
         </a>
-        <a href="https://github.com/amennajeeb" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 text-xs font-bold uppercase btn-outline-cyan flex items-center gap-2">
+        <a href="https://github.com/amennajeeb" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 text-xs font-bold uppercase btn-outline-cyan gap-2">
           <span>GitHub</span>
           <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
         </a>
@@ -930,12 +929,12 @@
   </section>
 
   <!-- MICRO-FOOTER -->
-  <footer class="py-12 px-6 border-t border-white/10 text-slate-500 font-mono text-xs relative z-10">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+  <footer class="py-8 sm:py-12 px-4 sm:px-6 border-t border-white/10 text-slate-500 font-mono text-[11px] sm:text-xs relative z-10">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
       <div>
         <p>&copy; 2026 Muhammed Amen Najeeb M. Designed with modern precision.</p>
       </div>
-      <div class="flex items-center gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
         <a href="#about" class="hover:text-white transition-colors">About</a>
         <a href="#experience" class="hover:text-white transition-colors">Experience</a>
         <a href="#projects" class="hover:text-white transition-colors">Projects</a>
@@ -948,23 +947,23 @@
   </footer>
 
   <!-- CREDENTIAL MODAL POPUP -->
-  <div id="certModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-xl flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
-    <div class="jobin-card max-w-lg w-full p-8 relative border border-brand-primary/40 shadow-cyan-glow-lg transform scale-95 transition-transform duration-300" id="modalBox">
-      <button id="modalClose" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/20 transition-all">
+  <div id="certModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-xl flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div class="jobin-card max-w-lg w-full p-6 sm:p-8 relative border border-brand-primary/40 shadow-brand-glow-lg transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto" id="modalBox">
+      <button id="modalClose" class="absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/20 transition-all">
         ✕
       </button>
       
       <div class="font-mono text-xs font-bold text-brand-primary uppercase tracking-wider mb-1" id="modalIssuer">Issuing Organization</div>
-      <h3 class="text-2xl font-bold text-white mb-6 leading-snug" id="modalTitle">Certificate Title</h3>
+      <h3 class="text-xl sm:text-2xl font-bold text-white mb-5 sm:mb-6 leading-snug" id="modalTitle">Certificate Title</h3>
 
-      <div class="bg-black/60 rounded-2xl p-5 border border-white/5 space-y-3 mb-6 font-mono text-xs">
-        <div class="flex justify-between">
+      <div class="bg-black/60 rounded-xl p-4 sm:p-5 border border-white/5 space-y-3 mb-5 sm:mb-6 font-mono text-xs">
+        <div class="flex justify-between items-center">
           <span class="text-slate-400">ISSUE DATE</span>
           <span class="text-white font-semibold" id="modalDate">—</span>
         </div>
-        <div class="flex justify-between">
+        <div class="flex justify-between items-center">
           <span class="text-slate-400">CREDENTIAL ID</span>
-          <span class="text-brand-primary font-bold" id="modalId">—</span>
+          <span class="text-brand-primary font-bold truncate max-w-[180px] sm:max-w-none" id="modalId">—</span>
         </div>
         <div class="pt-2 border-t border-white/5">
           <span class="text-slate-400 block mb-1">SKILLS COVERED</span>
@@ -972,7 +971,7 @@
         </div>
       </div>
 
-      <div class="flex gap-3">
+      <div class="flex flex-col sm:flex-row gap-2.5">
         <a href="#" id="modalUrlBtn" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-5 rounded-full font-mono text-xs font-bold uppercase btn-gradient text-center flex items-center justify-center gap-2">
           <span>Verify Online</span>
           <span>↗</span>
@@ -989,20 +988,35 @@
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 20) {
-        header.classList.add('bg-[#0a0a0a]/85', 'backdrop-blur-xl', 'border-b', 'border-white/10', 'h-18');
+        header.classList.add('bg-[#060911]/90', 'backdrop-blur-xl', 'border-b', 'border-white/10');
       } else {
-        header.classList.remove('bg-[#0a0a0a]/85', 'backdrop-blur-xl', 'border-b', 'border-white/10', 'h-18');
+        header.classList.remove('bg-[#060911]/90', 'backdrop-blur-xl', 'border-b', 'border-white/10');
       }
     });
 
-    // MOBILE MENU
+    // MOBILE MENU WITH ANIMATION & ACCESSIBLE ICON TOGGLE
     const mobileToggle = document.getElementById('mobileToggle');
     const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+
     mobileToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      if (isHidden) {
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      } else {
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
     });
+
     document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
     });
 
     // SCROLL REVEAL (IntersectionObserver)
@@ -1013,7 +1027,7 @@
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
     reveals.forEach(el => observer.observe(el));
 
     // CREDENTIAL MODAL LOGIC
@@ -1043,6 +1057,7 @@
         certModal.classList.remove('opacity-0', 'pointer-events-none');
         modalBox.classList.remove('scale-95');
         modalBox.classList.add('scale-100');
+        document.body.style.overflow = 'hidden';
       });
     });
 
@@ -1050,6 +1065,7 @@
       certModal.classList.add('opacity-0', 'pointer-events-none');
       modalBox.classList.remove('scale-100');
       modalBox.classList.add('scale-95');
+      document.body.style.overflow = '';
     }
 
     modalClose.addEventListener('click', closeModal);
