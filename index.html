@@ -1,1759 +1,1073 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Muhammed Amen Najeeb M — Data Analyst</title>
-<meta name="description" content="Portfolio of Muhammed Amen Najeeb M - Data Analyst specializing in Power BI, SQL, Machine Learning, and automated data pipelines.">
-<meta name="keywords" content="Data Analyst, Power BI, SQL, DAX, Machine Learning, Portfolio, Kerala, UAE, Dubai Future Foundation">
-
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-<style>
-  :root {
-    --ink: #0a0d14;
-    --paper: #f4f0e8;
-    --teal: #00c9a7;
-    --amber: #f5a623;
-    --slate: #1c2333;
-    --slate2: #242d42;
-    --muted: #6b7a99;
-    --light-muted: #a8b4cc;
-    --white: #ffffff;
-    --card-bg: rgba(28, 35, 51, 0.7);
-    --border: rgba(255,255,255,0.07);
-    --glow-teal: 0 0 40px rgba(0,201,167,0.15);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; font-size: 16px; }
-
-  body {
-    background: var(--ink);
-    color: var(--white);
-    font-family: 'Syne', sans-serif;
-    overflow-x: hidden;
-    cursor: none;
-  }
-
-  /* CUSTOM CURSOR */
-  .cursor {
-    width: 12px; height: 12px;
-    background: var(--teal);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 9999;
-    transition: transform 0.15s ease, background 0.2s;
-    transform: translate(-50%, -50%);
-  }
-  .cursor-ring {
-    width: 38px; height: 38px;
-    border: 1.5px solid rgba(0,201,167,0.5);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 9998;
-    transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), border-color 0.2s;
-    transform: translate(-50%, -50%);
-  }
-  body:hover .cursor { transform: translate(-50%,-50%) scale(1); }
-
-  /* SCROLLBAR */
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--ink); }
-  ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 2px; }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1.4rem 5vw;
-    background: rgba(10,13,20,0.85);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    transition: padding 0.3s;
-  }
-  nav.scrolled { padding: 1rem 5vw; }
-  .nav-logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.3rem;
-    color: var(--white);
-    letter-spacing: -0.02em;
-  }
-  .nav-logo span { color: var(--teal); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-  .nav-links a {
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--light-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-    position: relative;
-  }
-  .nav-links a::after {
-    content: '';
-    position: absolute; bottom: -4px; left: 0; right: 0;
-    height: 1px; background: var(--teal);
-    transform: scaleX(0); transition: transform 0.3s;
-  }
-  .nav-links a:hover { color: var(--white); }
-  .nav-links a:hover::after { transform: scaleX(1); }
-  .nav-cta {
-    padding: 0.55rem 1.3rem;
-    background: var(--teal);
-    color: var(--ink) !important;
-    border-radius: 4px;
-    font-weight: 800 !important;
-    letter-spacing: 0.08em !important;
-  }
-  .nav-cta:hover { background: var(--amber); color: var(--ink); }
-  .nav-cta::after { display: none !important; }
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: none; background: none; border: none; padding: 4px; }
-  .hamburger span { width: 24px; height: 2px; background: var(--white); transition: all 0.3s; display: block; }
-
-  /* HERO */
-  #hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 10rem 5vw 6rem;
-    position: relative; overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0; z-index: 0;
-    background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(0,201,167,0.06) 0%, transparent 70%),
-                radial-gradient(ellipse 40% 50% at 10% 80%, rgba(245,166,35,0.04) 0%, transparent 60%);
-  }
-  .hero-grid {
-    position: absolute; inset: 0; z-index: 0;
-    background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
-  }
-  .hero-tag {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--teal);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    display: flex; align-items: center; gap: 0.8rem;
-    opacity: 0; animation: fadeUp 0.8s 0.3s forwards;
-  }
-  .hero-tag::before {
-    content: ''; width: 30px; height: 1px; background: var(--teal);
-  }
-  h1.hero-name {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(3rem, 8vw, 7rem);
-    line-height: 0.95;
-    letter-spacing: -0.03em;
-    margin-bottom: 0.3rem;
-    opacity: 0; animation: fadeUp 0.9s 0.5s forwards;
-  }
-  h1.hero-name em {
-    font-style: italic;
-    color: transparent;
-    -webkit-text-stroke: 1.5px rgba(255,255,255,0.4);
-  }
-  .hero-title {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    color: var(--amber);
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-    opacity: 0; animation: fadeUp 0.9s 0.7s forwards;
-  }
-  .hero-desc {
-    max-width: 550px;
-    color: var(--light-muted);
-    font-size: 1.05rem;
-    line-height: 1.75;
-    margin-bottom: 3rem;
-    opacity: 0; animation: fadeUp 0.9s 0.9s forwards;
-  }
-  .hero-btns {
-    display: flex; gap: 1rem; flex-wrap: wrap;
-    opacity: 0; animation: fadeUp 0.9s 1.1s forwards;
-  }
-  .btn-primary {
-    padding: 0.9rem 2.2rem;
-    background: var(--teal);
-    color: var(--ink);
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 0.82rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    display: inline-flex; align-items: center; gap: 0.6rem;
-  }
-  .btn-primary:hover { background: var(--amber); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,201,167,0.3); }
-  .btn-secondary {
-    padding: 0.9rem 2.2rem;
-    border: 1px solid rgba(255,255,255,0.2);
-    color: var(--white);
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 0.82rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: border-color 0.2s, transform 0.2s;
-    display: inline-flex; align-items: center; gap: 0.6rem;
-  }
-  .btn-secondary:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
-  .hero-stats {
-    display: flex; gap: 3rem; margin-top: 5rem;
-    border-top: 1px solid var(--border); padding-top: 2.5rem;
-    opacity: 0; animation: fadeUp 0.9s 1.3s forwards;
-    flex-wrap: wrap;
-  }
-  .stat-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.5rem;
-    color: var(--white);
-    line-height: 1;
-  }
-  .stat-num span { color: var(--teal); }
-  .stat-label {
-    font-size: 0.7rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-top: 0.3rem;
-  }
-  .hero-scroll {
-    position: absolute; bottom: 2.5rem; left: 5vw;
-    display: flex; align-items: center; gap: 0.8rem;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--muted); letter-spacing: 0.15em;
-    text-transform: uppercase;
-    opacity: 0; animation: fadeIn 1s 1.8s forwards;
-  }
-  .scroll-line {
-    width: 40px; height: 1px; background: var(--muted);
-    animation: scrollPulse 2s infinite;
-  }
-
-  /* SECTIONS COMMON */
-  section { padding: 7rem 5vw; position: relative; }
-  .section-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--teal);
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    margin-bottom: 0.8rem;
-    display: flex; align-items: center; gap: 0.8rem;
-  }
-  .section-label::before { content: '//'; opacity: 0.5; }
-  h2.section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.5rem;
-  }
-  h2.section-title em { font-style: italic; color: var(--teal); }
-  .section-sub {
-    color: var(--muted);
-    font-size: 0.9rem;
-    max-width: 550px;
-    line-height: 1.7;
-    margin-bottom: 4rem;
-  }
-
-  /* ABOUT */
-  #about { background: var(--slate); overflow: hidden; }
-  .about-inner {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-  }
-  .about-img-wrap {
-    position: relative;
-  }
-  .about-avatar {
-    width: 75%; aspect-ratio: 4/5;
-    background: linear-gradient(135deg, var(--slate2) 0%, rgba(0,201,167,0.1) 100%);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-    border: 1px solid var(--border);
-  }
-  .about-avatar img {
-    width: 100%; height: 100%; object-fit: cover; border-radius: 8px;
-  }
-  .about-avatar::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(0,201,167,0.02) 30px, rgba(0,201,167,0.02) 31px);
-    pointer-events: none;
-  }
-  .about-content {}
-  .about-text {
-    color: var(--light-muted);
-    line-height: 1.85;
-    font-size: 0.95rem;
-    margin-bottom: 1.2rem;
-  }
-  .about-highlights {
-    display: flex; flex-direction: column; gap: 0.8rem; margin-top: 2.5rem;
-  }
-  .highlight-row {
-    display: flex; align-items: center; gap: 1rem;
-    font-size: 0.85rem; color: var(--light-muted);
-  }
-  .highlight-row::before {
-    content: '▸';
-    color: var(--teal);
-    font-size: 0.75rem;
-    flex-shrink: 0;
-  }
-  .highlight-row strong { color: var(--white); margin-right: 0.3rem; }
-
-  /* SKILLS */
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
-  .skill-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.8rem;
-    backdrop-filter: blur(10px);
-    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    position: relative; overflow: hidden;
-  }
-  .skill-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--teal), var(--amber));
-    transform: scaleX(0); transform-origin: left;
-    transition: transform 0.4s;
-  }
-  .skill-card:hover { border-color: rgba(0,201,167,0.3); transform: translateY(-4px); box-shadow: var(--glow-teal); }
-  .skill-card:hover::before { transform: scaleX(1); }
-  .skill-cat {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 1.2rem;
-  }
-  .skill-card h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.3rem;
-    margin-bottom: 1.2rem;
-    color: var(--white);
-  }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .tag {
-    padding: 0.35rem 0.75rem;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 3px;
-    font-size: 0.72rem;
-    color: var(--light-muted);
-    font-family: 'Space Mono', monospace;
-    transition: all 0.2s;
-  }
-  .tag:hover { background: rgba(0,201,167,0.1); border-color: var(--teal); color: var(--teal); }
-
-  /* EXPERIENCE */
-  #experience { background: var(--slate); }
-  .timeline { position: relative; padding-left: 2rem; }
-  .timeline::before {
-    content: ''; position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 1px; background: linear-gradient(to bottom, var(--teal), transparent);
-  }
-  .exp-item {
-    position: relative; margin-bottom: 3.5rem;
-    padding-left: 2.5rem;
-  }
-  .exp-item:last-child { margin-bottom: 0; }
-  .exp-dot {
-    position: absolute; left: -2.5rem; top: 0.3rem;
-    width: 10px; height: 10px;
-    background: var(--teal); border-radius: 50%;
-    box-shadow: 0 0 0 4px rgba(0,201,167,0.15);
-  }
-  .exp-meta {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem;
-    margin-bottom: 0.5rem;
-  }
-  .exp-date {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--amber);
-    letter-spacing: 0.08em;
-    background: rgba(245,166,35,0.1);
-    padding: 0.2rem 0.6rem;
-    border-radius: 3px;
-  }
-  .exp-company {
-    font-size: 0.75rem;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-  .exp-role {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--white);
-  }
-  .exp-location {
-    font-size: 0.75rem;
-    color: var(--muted);
-    margin-bottom: 1rem;
-    display: flex; align-items: center; gap: 0.4rem;
-  }
-  .exp-bullets { list-style: none; }
-  .exp-bullets li {
-    font-size: 0.88rem;
-    color: var(--light-muted);
-    line-height: 1.7;
-    padding: 0.4rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.03);
-    padding-left: 1rem;
-    position: relative;
-  }
-  .exp-bullets li::before {
-    content: '→';
-    position: absolute; left: 0;
-    color: var(--teal); font-size: 0.75rem;
-  }
-
-  /* PROJECTS */
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
-  .project-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2rem;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: relative; overflow: hidden;
-    display: flex; flex-direction: column;
-    text-decoration: none;
-    color: inherit;
-  }
-  a.project-card {
-    cursor: pointer;
-  }
-  .project-card::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(circle at 80% 0%, rgba(0,201,167,0.06) 0%, transparent 60%);
-    opacity: 0; transition: opacity 0.3s;
-    pointer-events: none;
-  }
-  a.project-card:hover { border-color: rgba(0,201,167,0.4); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.35), var(--glow-teal); }
-  a.project-card:hover::after { opacity: 1; }
-  .project-card:not(a):hover { border-color: rgba(255,255,255,0.15); transform: translateY(-3px); }
-  .project-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 3.5rem;
-    color: rgba(255,255,255,0.04);
-    line-height: 1;
-    position: absolute; top: 1rem; right: 1.5rem;
-    font-style: italic;
-  }
-  .project-icon {
-    width: 44px; height: 44px;
-    background: rgba(0,201,167,0.1);
-    border: 1px solid rgba(0,201,167,0.2);
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-  }
-  .project-card h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-    line-height: 1.2;
-    color: var(--white);
-  }
-  .project-card p {
-    font-size: 0.85rem;
-    color: var(--light-muted);
-    line-height: 1.7;
-    flex: 1;
-    margin-bottom: 1.5rem;
-  }
-  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .project-tag {
-    padding: 0.25rem 0.6rem;
-    background: rgba(0,201,167,0.08);
-    border: 1px solid rgba(0,201,167,0.15);
-    border-radius: 2px;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.63rem;
-    color: var(--teal);
-    letter-spacing: 0.05em;
-  }
-  .project-footer {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-  .project-gh-link {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.68rem;
-    font-weight: 700;
-    color: var(--teal);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    background: rgba(0,201,167,0.1);
-    border: 1px solid rgba(0,201,167,0.25);
-    padding: 0.35rem 0.75rem;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-  }
-  a.project-card:hover .project-gh-link {
-    background: var(--teal);
-    color: var(--ink);
-    border-color: var(--teal);
-    transform: translateX(3px);
-  }
-
-  /* EDUCATION */
-  #education { background: var(--slate); }
-  .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
-  .edu-card {
-    background: rgba(10,13,20,0.6);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 2rem;
-    transition: all 0.3s;
-    position: relative; overflow: hidden;
-  }
-  .edu-card:hover { border-color: rgba(245,166,35,0.3); transform: translateY(-3px); }
-  .edu-year {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--amber);
-    letter-spacing: 0.15em;
-    margin-bottom: 1rem;
-  }
-  .edu-card h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-  }
-  .edu-card p {
-    font-size: 0.8rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-  .edu-badge {
-    position: absolute; top: 1.5rem; right: 1.5rem;
-    width: 36px; height: 36px;
-    background: rgba(245,166,35,0.1);
-    border: 1px solid rgba(245,166,35,0.2);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem;
-  }
-
-  /* CERTIFICATIONS GRID */
-  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1.3rem; }
-  .cert-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-decoration: none;
-    color: inherit;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  }
-  .cert-card.has-cred {
-    cursor: pointer;
-  }
-  .cert-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--teal), var(--amber));
-    transform: scaleX(0); transform-origin: left;
-    transition: transform 0.35s ease;
-  }
-  .cert-card.has-cred:hover {
-    border-color: rgba(0,201,167,0.4);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.35), var(--glow-teal);
-  }
-  .cert-card.has-cred:hover::before { transform: scaleX(1); }
-  .cert-card:not(.has-cred):hover {
-    border-color: rgba(255,255,255,0.15);
-    transform: translateY(-2px);
-  }
-  .cert-issuer {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--teal);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 0.4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .cert-date {
-    color: var(--amber);
-    font-size: 0.65rem;
-    background: rgba(245,166,35,0.1);
-    padding: 0.15rem 0.5rem;
-    border-radius: 3px;
-  }
-  .cert-title {
-    font-size: 0.96rem;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 0.6rem;
-    line-height: 1.4;
-  }
-  .cert-meta {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    padding-top: 0.8rem;
-  }
-  .cert-id {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-  }
-  .cert-btn {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.68rem;
-    font-weight: 700;
-    color: var(--teal);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    background: rgba(0,201,167,0.1);
-    border: 1px solid rgba(0,201,167,0.25);
-    padding: 0.3rem 0.65rem;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-  }
-  .cert-card.has-cred:hover .cert-btn {
-    background: var(--teal);
-    color: var(--ink);
-    border-color: var(--teal);
-    transform: translateX(2px);
-  }
-
-  /* GOOGLE THEME HIGHLIGHT */
-  .cert-card.google-highlight {
-    background: linear-gradient(145deg, rgba(66, 133, 244, 0.12) 0%, rgba(28, 35, 51, 0.85) 60%, rgba(52, 168, 83, 0.08) 100%);
-    border: 1.5px solid rgba(66, 133, 244, 0.4);
-    box-shadow: 0 8px 30px rgba(66, 133, 244, 0.12);
-  }
-  .cert-card.google-highlight::before {
-    background: linear-gradient(90deg, #4285F4 0% 25%, #EA4335 25% 50%, #FBBC05 50% 75%, #34A853 75% 100%);
-    height: 3px;
-    transform: scaleX(1);
-  }
-  .cert-card.google-highlight:hover {
-    border-color: rgba(66, 133, 244, 0.8);
-    box-shadow: 0 16px 45px rgba(66, 133, 244, 0.25), 0 0 30px rgba(52, 168, 83, 0.2);
-    transform: translateY(-5px);
-  }
-  .cert-card.google-highlight .cert-issuer {
-    color: #6ba4ff;
-    font-weight: 700;
-  }
-  .google-tag-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: rgba(66, 133, 244, 0.12);
-    border: 1px solid rgba(66, 133, 244, 0.35);
-    color: #8ab4f8;
-    padding: 0.22rem 0.55rem;
-    border-radius: 4px;
-    margin-bottom: 0.7rem;
-    width: fit-content;
-  }
-  .cert-card.google-highlight .cert-btn {
-    background: rgba(66, 133, 244, 0.15);
-    border-color: rgba(66, 133, 244, 0.4);
-    color: #8ab4f8;
-  }
-  .cert-card.google-highlight:hover .cert-btn {
-    background: #4285F4;
-    color: #ffffff;
-    border-color: #4285F4;
-    box-shadow: 0 4px 15px rgba(66, 133, 244, 0.4);
-  }
-
-  /* CREDENTIAL MODAL */
-  .modal-overlay {
-    position: fixed; inset: 0;
-    background: rgba(10, 13, 20, 0.85);
-    backdrop-filter: blur(12px);
-    z-index: 10000;
-    display: flex; align-items: center; justify-content: center;
-    padding: 1.5rem;
-    opacity: 0; visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-  .modal-overlay.active {
-    opacity: 1; visibility: visible;
-  }
-  .modal-box {
-    background: #151b28;
-    border: 1px solid rgba(0, 201, 167, 0.3);
-    border-radius: 14px;
-    padding: 2.2rem;
-    max-width: 520px;
-    width: 100%;
-    position: relative;
-    box-shadow: 0 25px 70px rgba(0,0,0,0.6), 0 0 50px rgba(0,201,167,0.15);
-    transform: translateY(20px) scale(0.96);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-  .modal-overlay.active .modal-box {
-    transform: translateY(0) scale(1);
-  }
-  .modal-close {
-    position: absolute; top: 1.2rem; right: 1.2rem;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid var(--border);
-    color: var(--light-muted);
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.2s;
-  }
-  .modal-close:hover {
-    background: rgba(245,166,35,0.2);
-    color: var(--amber);
-    border-color: var(--amber);
-  }
-  .modal-badge {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--teal);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 0.6rem;
-  }
-  .modal-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.5rem;
-    color: var(--white);
-    line-height: 1.25;
-    margin-bottom: 1.2rem;
-  }
-  .modal-details {
-    background: rgba(28, 35, 51, 0.8);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.2rem;
-    margin-bottom: 1.8rem;
-    display: flex; flex-direction: column; gap: 0.8rem;
-  }
-  .modal-row {
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.82rem;
-  }
-  .modal-row-label { color: var(--muted); font-family: 'Space Mono', monospace; font-size: 0.72rem; }
-  .modal-row-val { color: var(--white); font-weight: 600; }
-  .modal-actions {
-    display: flex; gap: 0.8rem; flex-wrap: wrap;
-  }
-  .modal-btn-primary {
-    flex: 1; min-width: 180px;
-    padding: 0.85rem 1.4rem;
-    background: var(--teal);
-    color: var(--ink);
-    border-radius: 6px;
-    font-weight: 800;
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .modal-btn-primary:hover { background: var(--amber); transform: translateY(-2px); }
-  .modal-btn-secondary {
-    padding: 0.85rem 1.2rem;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid var(--border);
-    color: var(--light-muted);
-    border-radius: 6px;
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .modal-btn-secondary:hover { border-color: var(--teal); color: var(--white); }
-
-  /* CONTACT */
-  #contact {
-    background: var(--slate);
-    text-align: center;
-  }
-  .contact-inner { max-width: 700px; margin: 0 auto; }
-  .contact-big {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.5rem;
-  }
-  .contact-big em { font-style: italic; color: var(--teal); }
-  .contact-desc {
-    color: var(--muted);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 3rem;
-  }
-  .contact-links {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
-    margin-bottom: 3rem;
-  }
-  .contact-link {
-    display: flex; align-items: center; gap: 0.7rem;
-    padding: 1rem 1.8rem;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    text-decoration: none;
-    color: var(--light-muted);
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    transition: all 0.2s;
-  }
-  .contact-link:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
-  .contact-link .cl-icon { font-size: 1.1rem; }
-  .contact-email-big {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(1rem, 2.5vw, 1.6rem);
-    color: var(--white);
-    text-decoration: none;
-    border-bottom: 2px solid var(--teal);
-    padding-bottom: 0.3rem;
-    transition: color 0.2s;
-    display: inline-block;
-    margin-bottom: 3rem;
-  }
-  .contact-email-big:hover { color: var(--teal); }
-
-  /* FOOTER */
-  footer {
-    padding: 2rem 5vw;
-    display: flex; justify-content: space-between; align-items: center;
-    border-top: 1px solid var(--border);
-    flex-wrap: wrap; gap: 1rem;
-  }
-  footer p { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.08em; }
-  .footer-badge {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--muted);
-    display: flex; align-items: center; gap: 0.5rem;
-  }
-  .footer-badge::before { content: ''; width: 6px; height: 6px; background: var(--teal); border-radius: 50%; animation: pulse 2s infinite; }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(25px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; } to { opacity: 1; }
-  }
-  @keyframes scrollPulse {
-    0%, 100% { opacity: 0.4; width: 40px; }
-    50% { opacity: 1; width: 60px; }
-  }
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.5); opacity: 0.6; }
-  }
-
-  /* REVEAL */
-  .reveal {
-    opacity: 0; transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-  .reveal-delay-4 { transition-delay: 0.4s; }
-
-  /* 3D TILT */
-  #tiltCard {
-    transform-style: preserve-3d;
-    transition: transform 0.1s ease;
-    will-change: transform;
-  }
-  #tiltCard img {
-    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
-    transition: box-shadow 0.3s;
-  }
-  #tiltCard:hover img {
-    box-shadow: 0 40px 80px rgba(0,201,167,0.2);
-  }
-
-  /* MOBILE RESPONSIVENESS */
-  @media (max-width: 768px) {
-    .hamburger { display: flex; }
-    .nav-links {
-      position: fixed; top: 0; right: -100%; bottom: 0;
-      width: 75%;
-      background: var(--slate);
-      flex-direction: column; gap: 0;
-      padding: 5rem 2rem 2rem;
-      transition: right 0.3s;
-      border-left: 1px solid var(--border);
-      z-index: 200;
-    }
-    .nav-links.open { right: 0; }
-    .nav-links li { width: 100%; }
-    .nav-links li a {
-      display: block; padding: 1rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.85rem;
-    }
-    .nav-links .nav-cta { margin-top: 1.5rem; display: block; text-align: center; padding: 0.7rem 1.5rem; }
-    .about-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .about-img-wrap { order: -1; max-width: 300px; margin: 0 auto; }
-    .cursor, .cursor-ring { display: none; }
-    body { cursor: auto; }
-    a, button { cursor: pointer; }
-    .hero-stats { gap: 2rem; }
-    footer { flex-direction: column; text-align: center; }
-  }
-</style>
-</head>
-<body>
-
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<!-- NAV -->
-<nav id="navbar">
-  <div class="nav-logo">Amen<span>.</span></div>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education &amp; Certs</a></li>
-    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-tag">Available for new opportunities</div>
-  <h1 class="hero-name">Muhammed<br><em>Amen</em> Najeeb</h1>
-  <div class="hero-title">Data Analyst</div>
-  <p class="hero-desc">Transforming raw data into strategic intelligence. I build automated pipelines, predictive models, and visual dashboards that help businesses move with confidence.</p>
-  <div class="hero-btns">
-    <a href="#projects" class="btn-primary">
-      <span>View My Work</span>
-      <span>→</span>
-    </a>
-    <a href="#contact" class="btn-secondary">
-      <span>Get In Touch</span>
-    </a>
-  </div>
-  <div class="hero-stats">
-    <div>
-      <div class="stat-num">1<span>+</span></div>
-      <div class="stat-label">Years Experience</div>
-    </div>
-    <div>
-      <div class="stat-num">5<span>+</span></div>
-      <div class="stat-label">Major Projects</div>
-    </div>
-    <div>
-      <div class="stat-num">6<span>+</span></div>
-      <div class="stat-label">Verified Certs</div>
-    </div>
-    <div>
-      <div class="stat-num">6<span>+</span></div>
-      <div class="stat-label">Core Tech Domains</div>
-    </div>
-  </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    Scroll to explore
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-inner">
-    <div class="about-img-wrap reveal" id="tiltCard">
-      <div class="about-avatar">
-        <img src="photo.jpeg" alt="Amen Najeeb" onerror="this.style.display='none'">
-      </div>
-    </div>
-    <div class="about-content reveal reveal-delay-2">
-      <div class="section-label">About Me</div>
-      <h2 class="section-title">Data-driven<br>by <em>nature</em></h2>
-      <p class="about-text">I'm a results-driven Data Analyst based in Kannur, Kerala, with hands-on experience in Python, SQL, and machine learning. My work centers on transforming complex datasets into clear, actionable stories for stakeholders.</p>
-      <p class="about-text">Currently working at Taxpert Pro ACC, I build automated pipelines and Power BI dashboards that help accounting teams make smarter, faster decisions. My background in network engineering gives me a unique edge in understanding data infrastructure end-to-end.</p>
-      <div class="about-highlights">
-        <div class="highlight-row"><strong>Location:</strong> Kannur, Kerala, India (Targeting UAE / Gulf &amp; Global Roles)</div>
-        <div class="highlight-row"><strong>Education:</strong> B.Tech Computer Science, SNGCET 2025</div>
-        <div class="highlight-row"><strong>Currently:</strong> Data Analyst @ Taxpert Pro ACC, Kozhikode</div>
-        <div class="highlight-row"><strong>Interests:</strong> ML, Prompt Engineering, Data Storytelling, Automation, Cloud</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-label reveal">Technical Skills</div>
-  <h2 class="section-title reveal">What I <em>work with</em></h2>
-  <p class="section-sub reveal">A toolkit built across data analysis, machine learning, programming, and cloud — refined through real projects and professional certifications.</p>
-  <div class="skills-grid">
-    <div class="skill-card reveal">
-      <div class="skill-cat">Analytics &amp; BI</div>
-      <h3>Data Analysis &amp; Visualization</h3>
-      <div class="skill-tags">
-        <span class="tag">Power BI</span>
-        <span class="tag">DAX</span>
-        <span class="tag">Python</span>
-        <span class="tag">Pandas</span>
-        <span class="tag">NumPy</span>
-        <span class="tag">Matplotlib</span>
-        <span class="tag">Seaborn</span>
-        <span class="tag">Google Sheets</span>
-        <span class="tag">Excel (VLOOKUP, Pivot)</span>
-      </div>
-    </div>
-    <div class="skill-card reveal reveal-delay-1">
-      <div class="skill-cat">Databases &amp; Querying</div>
-      <h3>SQL (HackerRank Advanced)</h3>
-      <div class="skill-tags">
-        <span class="tag">MySQL</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">Complex Joins</span>
-        <span class="tag">Aggregations</span>
-        <span class="tag">Subqueries</span>
-        <span class="tag">Window Functions</span>
-        <span class="tag">Data Cleaning</span>
-        <span class="tag">DB Schema Design</span>
-      </div>
-    </div>
-    <div class="skill-card reveal reveal-delay-2">
-      <div class="skill-cat">Intelligent Systems</div>
-      <h3>Machine Learning &amp; AI</h3>
-      <div class="skill-tags">
-        <span class="tag">Scikit-learn</span>
-        <span class="tag">Prompt Engineering</span>
-        <span class="tag">Generative AI</span>
-        <span class="tag">Regression</span>
-        <span class="tag">Classification</span>
-        <span class="tag">Deep Learning</span>
-        <span class="tag">Model Evaluation (RMSE)</span>
-      </div>
-    </div>
-    <div class="skill-card reveal reveal-delay-3">
-      <div class="skill-cat">Development</div>
-      <h3>Programming &amp; Automation</h3>
-      <div class="skill-tags">
-        <span class="tag">Python (OOP)</span>
-        <span class="tag">ETL Automation</span>
-        <span class="tag">Web Scraping</span>
-        <span class="tag">Java</span>
-        <span class="tag">Web Development</span>
-        <span class="tag">Git &amp; GitHub</span>
-        <span class="tag">Jupyter</span>
-      </div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-cat">Infrastructure</div>
-      <h3>Cloud &amp; Networking</h3>
-      <div class="skill-tags">
-        <span class="tag">AWS</span>
-        <span class="tag">Azure</span>
-        <span class="tag">Google Cloud</span>
-        <span class="tag">Cisco CCNA</span>
-        <span class="tag">OSPF / VLANs</span>
-        <span class="tag">TCP/IP</span>
-        <span class="tag">Wireshark</span>
-      </div>
-    </div>
-    <div class="skill-card reveal reveal-delay-1">
-      <div class="skill-cat">Interpersonal</div>
-      <h3>Professional Skills</h3>
-      <div class="skill-tags">
-        <span class="tag">Business Intelligence</span>
-        <span class="tag">Data Storytelling</span>
-        <span class="tag">SLA Performance Tracking</span>
-        <span class="tag">Problem Solving</span>
-        <span class="tag">Stakeholder Presentation</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-label reveal">Career</div>
-  <h2 class="section-title reveal">Work <em>Experience</em></h2>
-  <p class="section-sub reveal">From network engineering to data analytics — every role has sharpened a different dimension of my technical and professional toolkit.</p>
-  <div class="timeline">
-    <div class="exp-item reveal">
-      <div class="exp-dot"></div>
-      <div class="exp-meta">
-        <span class="exp-date">May 2026 – Present</span>
-        <span class="exp-company">Taxpert Pro ACC</span>
-      </div>
-      <div class="exp-role">Data Analyst</div>
-      <div class="exp-location">Kozhikode, Kerala</div>
-      <ul class="exp-bullets">
-        <li>Analyze financial and tax data to identify trends, anomalies, and actionable insights for clients.</li>
-        <li>Build automated data pipelines and reports using Python (Pandas) and Excel to reduce manual effort.</li>
-        <li>Create dashboards and visualizations using Power BI to present KPIs to stakeholders.</li>
-        <li>Collaborate with accountants and management to deliver data-driven recommendations.</li>
-      </ul>
-    </div>
-    <div class="exp-item reveal reveal-delay-2">
-      <div class="exp-dot" style="background:var(--amber)"></div>
-      <div class="exp-meta">
-        <span class="exp-date" style="color:var(--amber); background:rgba(245,166,35,0.1)">Jul 2025 – Jan 2026</span>
-        <span class="exp-company">Bsoft Bangalore</span>
-      </div>
-      <div class="exp-role">Network Engineering Intern</div>
-      <div class="exp-location">Bangalore, Karnataka</div>
-      <ul class="exp-bullets">
-        <li>Configured routers, switches, VLANs, trunking, and inter-VLAN routing in enterprise environments.</li>
-        <li>Worked with OSPF, EIGRP, RIP, STP, DHCP, and static/dynamic routing protocols.</li>
-        <li>Performed network troubleshooting, subnetting, and IP addressing for complex network topologies.</li>
-        <li>Used Cisco Packet Tracer and GNS3 for network design and simulation tasks.</li>
-      </ul>
-    </div>
-    <div class="exp-item reveal reveal-delay-3">
-      <div class="exp-dot" style="background:var(--muted)"></div>
-      <div class="exp-meta">
-        <span class="exp-date" style="color:var(--muted); background:rgba(107,122,153,0.15)">Additional Experience</span>
-      </div>
-      <div class="exp-role" style="font-size:1.1rem">Other Internships &amp; Simulations</div>
-      <ul class="exp-bullets">
-        <li>Data Analyst Job Simulation — OneRoadmap (Jul 2026)</li>
-        <li>Data Science Internship — Pacelab (1 week)</li>
-        <li>Android App Development Internship (5 days)</li>
-        <li>Workshop on Automotive Diagnostics &amp; Tuning — Techmaghi (2 days)</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-label reveal">Portfolio</div>
-  <h2 class="section-title reveal">Featured <em>Projects</em></h2>
-  <p class="section-sub reveal">A selection of projects spanning Power BI intelligence dashboards, machine learning systems, full-stack platforms, and network architecture.</p>
-  <div class="projects-grid">
-    <!-- PROJECT 1: E-COMMERCE DASHBOARD (WITH GITHUB LINK) -->
-    <a href="https://github.com/amennajeeb/ecommerce-analytics-powerbi" target="_blank" rel="noopener noreferrer" class="project-card reveal">
-      <div class="project-num">01</div>
-      <div class="project-icon">🛒</div>
-      <h3>E-Commerce Analytics Dashboard</h3>
-      <p>Built an end-to-end 4-page e-commerce intelligence dashboard in Power BI, backed by custom SQL queries extracting customer, product, marketing, delivery, and returns data. Configured DAX measures to analyze sales and profit trends, customer segmentation, marketing channel efficiency, delivery SLAs, and return anomalies to surface at-risk customers and cost leaks.</p>
-      <div class="project-tags">
-        <span class="project-tag">Power BI</span>
-        <span class="project-tag">SQL</span>
-        <span class="project-tag">DAX</span>
-        <span class="project-tag">Data Modeling</span>
-        <span class="project-tag">Customer Segments</span>
-        <span class="project-tag">SLA Tracking</span>
-      </div>
-      <div class="project-footer">
-        <span class="project-gh-link">View on GitHub ↗</span>
-      </div>
-    </a>
-
-    <!-- PROJECT 2: AIR QUALITY PREDICTION -->
-    <div class="project-card reveal reveal-delay-1">
-      <div class="project-num">02</div>
-      <div class="project-icon">🌫️</div>
-      <h3>Air Quality Prediction System</h3>
-      <p>Developed a machine learning model to forecast air quality index using real-time pollutant data. Applied regression and classification techniques with Scikit-learn; evaluated model performance using RMSE and accuracy metrics.</p>
-      <div class="project-tags">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">Scikit-learn</span>
-        <span class="project-tag">Regression</span>
-        <span class="project-tag">Classification</span>
-        <span class="project-tag">RMSE</span>
-      </div>
-    </div>
-
-    <!-- PROJECT 3: MULTI-CITY WEATHER INTELLIGENCE -->
-    <div class="project-card reveal reveal-delay-2">
-      <div class="project-num">03</div>
-      <div class="project-icon">📊</div>
-      <h3>Multi-City Weather Intelligence Dashboard</h3>
-      <p>Designed an interactive Power BI dashboard tracking live weather and air quality metrics across multiple Kerala cities. Built a custom dark-themed UI with city-switching cards, a 7-day forecast trendline, AQI gauge with pollutant breakdown (SO2, O3, PM10, PM2.5, CO, NO2), and rain-probability indicators.</p>
-      <div class="project-tags">
-        <span class="project-tag">Power BI</span>
-        <span class="project-tag">DAX</span>
-        <span class="project-tag">Data Modeling</span>
-        <span class="project-tag">Dashboard Design</span>
-        <span class="project-tag">UI/UX</span>
-      </div>
-    </div>
-
-    <!-- PROJECT 4: RE WASTRA -->
-    <div class="project-card reveal reveal-delay-3">
-      <div class="project-num">04</div>
-      <div class="project-icon">♻️</div>
-      <h3>Re Wastra — Sustainable Fashion Platform</h3>
-      <p>Built a full-stack responsive web platform for upcycling garments with secure user authentication, dynamic listings, and a clean UI. Focused on backend logic, database design, and user experience.</p>
-      <div class="project-tags">
-        <span class="project-tag">Full-Stack</span>
-        <span class="project-tag">Web Dev</span>
-        <span class="project-tag">Auth</span>
-        <span class="project-tag">DB Design</span>
-        <span class="project-tag">UI/UX</span>
-      </div>
-    </div>
-
-    <!-- PROJECT 5: CAMPUS NETWORK -->
-    <div class="project-card reveal">
-      <div class="project-num">05</div>
-      <div class="project-icon">🌐</div>
-      <h3>Campus Network Implementation</h3>
-      <p>Designed a multi-department campus network using VLANs, VTP, Inter-VLAN routing, and DHCP in Cisco Packet Tracer, simulating real-world enterprise network architecture at scale.</p>
-      <div class="project-tags">
-        <span class="project-tag">Cisco</span>
-        <span class="project-tag">VLANs</span>
-        <span class="project-tag">DHCP</span>
-        <span class="project-tag">Packet Tracer</span>
-        <span class="project-tag">OSPF</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION & CERTIFICATIONS -->
-<section id="education">
-  <div class="section-label reveal">Academic</div>
-  <h2 class="section-title reveal">Education &amp; <em>Background</em></h2>
-  <p class="section-sub reveal">A strong computer science foundation, complemented by industry credentials and job simulations.</p>
-  <div class="edu-grid" style="margin-bottom: 4.5rem;">
-    <div class="edu-card reveal">
-      <div class="edu-badge">🎓</div>
-      <div class="edu-year">2021 – 2025</div>
-      <h3>B.Tech in Computer Science</h3>
-      <p>Sree Narayana Guru College of Engineering &amp; Technology, Kannur, Kerala</p>
-    </div>
-    <div class="edu-card reveal reveal-delay-2">
-      <div class="edu-badge">📖</div>
-      <div class="edu-year">2019 – 2021</div>
-      <h3>Higher Secondary (HSE)</h3>
-      <p>GHSS Valapattanam, Kerala</p>
-    </div>
-    <div class="edu-card reveal reveal-delay-3">
-      <div class="edu-badge">🏫</div>
-      <div class="edu-year">2019</div>
-      <h3>SSLC (Class 10)</h3>
-      <p>Kasturba Public School</p>
-    </div>
-  </div>
-
-  <div class="section-label reveal" id="certs">Credentials</div>
-  <h3 class="reveal" style="font-family:'DM Serif Display',serif; font-size:2rem; margin-bottom:2rem;">Licenses &amp; <em style="font-style:italic;color:var(--teal)">Certifications</em></h3>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammed Amen Najeeb M — Data Analyst</title>
+  <meta name="description" content="Muhammed Amen Najeeb M — Data Analyst specializing in Power BI, Advanced SQL, Python, and automated business intelligence pipelines.">
   
-  <div class="certs-grid reveal">
-    <!-- 1. HackerRank SQL Advanced (WITH CREDENTIAL URL) -->
-    <div class="cert-card has-cred" 
-         data-title="SQL (ADVANCED)" 
-         data-issuer="HackerRank" 
-         data-date="Jul 2026" 
-         data-id="5FEDCE8B5332" 
-         data-url="https://www.hackerrank.com/certificates/5fedce8b5332" 
-         data-skills="Advanced SQL, Joins, Aggregations, Window Functions, Subqueries, Query Optimization">
-      <div>
-        <div class="cert-issuer">
-          <span>HackerRank</span>
-          <span class="cert-date">Jul 2026</span>
-        </div>
-        <div class="cert-title">SQL (ADVANCED)</div>
-      </div>
-      <div class="cert-meta">
-        <span class="cert-id">ID: 5FEDCE8B5332</span>
-        <span class="cert-btn">Show credential ↗</span>
-      </div>
-    </div>
+  <!-- Typography: Outfit (Site Theme) + Inter (Specs) + JetBrains Mono (Metrics) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Outfit"', 'sans-serif'],
+            heading: ['"Outfit"', 'sans-serif'],
+            inter: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              primary: '#10b981',
+              secondary: '#3b82f6',
+              accent: '#06b6d4',
+              dark: '#060911',
+              card: '#0c101c',
+              cardHover: '#111728',
+              border: 'rgba(255, 255, 255, 0.08)',
+              borderHover: 'rgba(16, 185, 129, 0.35)',
+              textSec: '#94a3b8'
+            }
+          },
+          boxShadow: {
+            'brand-glow': '0 2px 10px rgba(16, 185, 129, 0.15)',
+            'brand-glow-lg': '0 4px 16px rgba(59, 130, 246, 0.18)',
+            'card-shadow': '0 15px 30px -10px rgba(0, 0, 0, 0.7)'
+          }
+        }
+      }
+    }
+  </script>
 
-    <!-- 2. Google Data Analytics (WITH GOOGLE THEME HIGHLIGHT) -->
-    <div class="cert-card has-cred google-highlight" 
-         data-title="Google Data Analytics Professional Certificate" 
-         data-issuer="Google / Coursera" 
-         data-date="Jul 2026" 
-         data-id="CERGV2D6SJK0" 
-         data-url="https://www.coursera.org/account/accomplishments/professional-cert/CERGV2D6SJK0" 
-         data-skills="Data Analysis, Spreadsheets, SQL, Tableau, R Programming, Data Cleaning &amp; Integrity">
-      <div>
-        <div class="google-tag-pill">
-          <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;">
-            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-          </svg>
-          Google Certified
-        </div>
-        <div class="cert-issuer">
-          <span>Google / Coursera</span>
-          <span class="cert-date" style="background:rgba(66,133,244,0.18); color:#8ab4f8;">Jul 2026</span>
-        </div>
-        <div class="cert-title">Google Data Analytics Professional Certificate</div>
-      </div>
-      <div class="cert-meta" style="border-top-color:rgba(66,133,244,0.2);">
-        <span class="cert-id" style="color:#8ab4f8; font-weight:600;">ID: CERGV2D6SJK0</span>
-        <span class="cert-btn">Show credential ↗</span>
-      </div>
-    </div>
+  <style>
+    :root {
+      --primary: #10b981;
+      --secondary: #3b82f6;
+      --accent: #06b6d4;
+      --dark-bg: #060911;
+      --card-bg: #0c101c;
+      --text-primary: #ffffff;
+      --text-secondary: #94a3b8;
+      --gradient-main: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+      --gradient-text: linear-gradient(135deg, #34d399 0%, #60a5fa 100%);
+    }
 
-    <!-- 3. Dubai Future Foundation (WITH CREDENTIAL URL) -->
-    <div class="cert-card has-cred" 
-         data-title="One Million Prompters – Certificate of Completion" 
-         data-issuer="Dubai Future Foundation" 
-         data-date="Aug 2026" 
-         data-id="Initiative by HH Sheikh Hamdan bin Mohammed" 
-         data-url="https://www.dubaifuture.ae/" 
-         data-skills="Prompt Engineering, Artificial Intelligence (AI), Generative AI, LLMs">
-      <div>
-        <div class="cert-issuer">
-          <span>Dubai Future Foundation</span>
-          <span class="cert-date">Aug 2026</span>
-        </div>
-        <div class="cert-title">One Million Prompters — AI &amp; Prompt Engineering</div>
-      </div>
-      <div class="cert-meta">
-        <span class="cert-id">Dubai Future Foundation</span>
-        <span class="cert-btn">Show credential ↗</span>
-      </div>
-    </div>
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text-primary);
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+    }
+    ::selection {
+      background: var(--primary);
+      color: #000;
+    }
 
-    <!-- 4. Simplilearn Google Sheets (WITH CREDENTIAL URL) -->
-    <div class="cert-card has-cred" 
-         data-title="Google Sheets — Spreadsheet Data Analysis &amp; Productivity" 
-         data-issuer="Simplilearn" 
-         data-date="Aug 2026" 
-         data-id="10656134" 
-         data-url="https://simplilearn.com/" 
-         data-skills="Spreadsheet Data Analysis, Formulas, Pivot Tables, Data Organization &amp; Collaboration">
-      <div>
-        <div class="cert-issuer">
-          <span>Simplilearn</span>
-          <span class="cert-date">Aug 2026</span>
-        </div>
-        <div class="cert-title">Google Sheets — Data Analysis &amp; Productivity</div>
-      </div>
-      <div class="cert-meta">
-        <span class="cert-id">ID: 10656134</span>
-        <span class="cert-btn">Show credential ↗</span>
-      </div>
-    </div>
+    /* Ambient Lighting Mesh (Executive Emerald & Cobalt) */
+    .ambient-glow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background: 
+        radial-gradient(circle 600px at 10% 20%, rgba(16, 185, 129, 0.04), transparent 70%),
+        radial-gradient(circle 500px at 90% 40%, rgba(59, 130, 246, 0.04), transparent 70%),
+        radial-gradient(circle 600px at 50% 85%, rgba(6, 182, 212, 0.03), transparent 70%);
+    }
 
-    <!-- 5. OneRoadmap Job Sim (WITH CREDENTIAL URL) -->
-    <div class="cert-card has-cred" 
-         data-title="Data Analyst Job Simulation" 
-         data-issuer="OneRoadmap" 
-         data-date="Jul 2026" 
-         data-id="ORA-DA-PXA269" 
-         data-url="https://oneroadmap.io/" 
-         data-skills="Data Analysis, Data Cleaning, Real-world KPI Problem Solving, Stakeholder Presentation">
-      <div>
-        <div class="cert-issuer">
-          <span>OneRoadmap</span>
-          <span class="cert-date">Jul 2026</span>
-        </div>
-        <div class="cert-title">Data Analyst Job Simulation</div>
-      </div>
-      <div class="cert-meta">
-        <span class="cert-id">ID: ORA-DA-PXA269</span>
-        <span class="cert-btn">Show credential ↗</span>
-      </div>
-    </div>
+    /* Gradient Text */
+    .gradient-text {
+      background: linear-gradient(135deg, #34d399 0%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gradient-text-emerald {
+      background: linear-gradient(135deg, #ffffff 0%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-    <!-- 6. OneRoadmap Big 4 Ready (WITH CREDENTIAL URL) -->
-    <div class="cert-card has-cred" 
-         data-title="Data Analyst – Big 4 Ready" 
-         data-issuer="OneRoadmap" 
-         data-date="May 2026" 
-         data-id="ORA-DA-BIG4" 
-         data-url="https://oneroadmap.io/" 
-         data-skills="Financial Data Analytics, Business Case Studies, Stakeholder Reporting, Accounting KPIs">
-      <div>
-        <div class="cert-issuer">
-          <span>OneRoadmap</span>
-          <span class="cert-date">May 2026</span>
-        </div>
-        <div class="cert-title">Data Analyst – Big 4 Ready</div>
-      </div>
-      <div class="cert-meta">
-        <span class="cert-id">Verified Credential</span>
-        <span class="cert-btn">Show credential ↗</span>
-      </div>
-    </div>
+    /* Section Titles */
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 3rem;
+      background: linear-gradient(135deg, #34d399 0%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
-    <!-- 7. Cisco CCNA -->
-    <div class="cert-card">
-      <div>
-        <div class="cert-issuer">
-          <span>Cisco</span>
-          <span class="cert-date">Nov 2025</span>
-        </div>
-        <div class="cert-title">Cisco CCNA (Routing &amp; Switching)</div>
-      </div>
-      <div class="cert-meta">
-        <span class="cert-id">Enterprise Networking</span>
-      </div>
-    </div>
+    /* Executive Buttons */
+    .btn-gradient {
+      background: linear-gradient(135deg, #10b981 0%, #2563eb 100%);
+      color: #ffffff;
+      box-shadow: 0 2px 10px rgba(16, 185, 129, 0.2);
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
+    }
+    .btn-outline-cyan {
+      background: transparent;
+      border: 1.5px solid #10b981;
+      color: #10b981;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn-outline-cyan:hover {
+      background: rgba(16, 185, 129, 0.08);
+      transform: translateY(-2px);
+    }
 
-    <!-- 8. Tata Cybersecurity -->
-    <div class="cert-card">
-      <div>
-        <div class="cert-issuer">
-          <span>Tata Group</span>
-          <span class="cert-date">Completed</span>
-        </div>
-        <div class="cert-title">Tata Cybersecurity Analyst Simulation</div>
-      </div>
-      <div class="cert-meta">
-        <span class="cert-id">Threat Analysis &amp; Security</span>
-      </div>
-    </div>
+    /* Card Styling */
+    .jobin-card {
+      background-color: #0c101c;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 18px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .jobin-card:hover {
+      border-color: rgba(16, 185, 129, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.7);
+    }
 
-    <!-- 9. Machine Learning for Engineers -->
-    <div class="cert-card">
-      <div>
-        <div class="cert-issuer">
-          <span>Technical Certification</span>
-          <span class="cert-date">Completed</span>
-        </div>
-        <div class="cert-title">Machine Learning for Engineers</div>
-      </div>
-      <div class="cert-meta">
-        <span class="cert-id">Scikit-learn &amp; Predictive Models</span>
-      </div>
-    </div>
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
 
-    <!-- 10. Google Ads Certification -->
-    <div class="cert-card">
-      <div>
-        <div class="cert-issuer">
-          <span>Google</span>
-          <span class="cert-date">Certified</span>
-        </div>
-        <div class="cert-title">Google Ads Certification</div>
-      </div>
-      <div class="cert-meta">
-        <span class="cert-id">Campaign Analytics &amp; Optimization</span>
-      </div>
-    </div>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #060911; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+  </style>
+</head>
+<body class="relative min-h-screen">
 
-    <!-- 11. Pacelab Data Science -->
-    <div class="cert-card">
-      <div>
-        <div class="cert-issuer">
-          <span>Pacelab</span>
-          <span class="cert-date">Completed</span>
-        </div>
-        <div class="cert-title">Data Science Internship Certification</div>
-      </div>
-      <div class="cert-meta">
-        <span class="cert-id">Data Cleaning &amp; EDA</span>
-      </div>
-    </div>
+  <!-- Ambient Glow Background -->
+  <div class="ambient-glow"></div>
 
-    <!-- 12. AI for All -->
-    <div class="cert-card">
-      <div>
-        <div class="cert-issuer">
-          <span>AI for All</span>
-          <span class="cert-date">Badge</span>
-        </div>
-        <div class="cert-title">AI Appreciate Badge</div>
-      </div>
-      <div class="cert-meta">
-        <span class="cert-id">AI &amp; Emerging Tech Literacy</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CREDENTIAL MODAL -->
-<div class="modal-overlay" id="certModal">
-  <div class="modal-box">
-    <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
-    <div class="modal-badge" id="modalIssuer">Issuing Organization</div>
-    <div class="modal-title" id="modalTitle">Certificate Title</div>
-    <div class="modal-details">
-      <div class="modal-row">
-        <span class="modal-row-label">ISSUE DATE</span>
-        <span class="modal-row-val" id="modalDate">—</span>
-      </div>
-      <div class="modal-row">
-        <span class="modal-row-label">CREDENTIAL ID</span>
-        <span class="modal-row-val" id="modalId" style="font-family:'Space Mono',monospace; color:var(--teal)">—</span>
-      </div>
-      <div class="modal-row" style="flex-direction:column; align-items:flex-start; gap:0.3rem;">
-        <span class="modal-row-label">SKILLS COVERED</span>
-        <span class="modal-row-val" id="modalSkills" style="font-size:0.8rem; font-weight:400; color:var(--light-muted)">—</span>
-      </div>
-    </div>
-    <div class="modal-actions">
-      <a href="#" target="_blank" rel="noopener noreferrer" class="modal-btn-primary" id="modalUrlBtn">
-        <span>Verify &amp; Show Credential</span>
-        <span>↗</span>
+  <!-- FIXED NAVBAR (Jobin Selvanose Style) -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Gradient Brand Logo -->
+      <a href="#about" class="text-2xl font-extrabold tracking-tight cursor-pointer gradient-text">
+        Amen Najeeb<span class="text-white">.</span>
       </a>
-      <button class="modal-btn-secondary" id="modalCopyBtn">
-        <span>Copy ID</span>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-brand-primary transition-colors">About</a>
+        <a href="#experience" class="hover:text-brand-primary transition-colors">Experience</a>
+        <a href="#projects" class="hover:text-brand-primary transition-colors">Projects</a>
+        <a href="#skills" class="hover:text-brand-primary transition-colors">Skills</a>
+        <a href="#certifications" class="hover:text-brand-primary transition-colors">Certifications</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <a href="resume.pdf" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold btn-outline-cyan">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <span>Resume</span>
+        </a>
+        <a href="#contact" class="px-5 py-2 text-xs font-bold btn-gradient">
+          Get in Touch
+        </a>
+        <!-- Mobile Toggle -->
+        <button id="mobileToggle" class="md:hidden p-2 text-slate-300 hover:text-white" aria-label="Toggle Navigation">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden bg-[#0a0a0a]/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 space-y-4 text-sm font-medium">
+      <a href="#about" class="block text-slate-300 hover:text-brand-primary py-1 mobile-link">About</a>
+      <a href="#experience" class="block text-slate-300 hover:text-brand-primary py-1 mobile-link">Experience</a>
+      <a href="#projects" class="block text-slate-300 hover:text-brand-primary py-1 mobile-link">Projects</a>
+      <a href="#skills" class="block text-slate-300 hover:text-brand-primary py-1 mobile-link">Skills</a>
+      <a href="#certifications" class="block text-slate-300 hover:text-brand-primary py-1 mobile-link">Certifications</a>
+      <a href="resume.pdf" target="_blank" class="block text-brand-primary py-1 mobile-link">View Resume 📄</a>
+      <a href="#contact" class="block text-white font-bold py-1 mobile-link">Get in Touch →</a>
+    </div>
+  </header>
+
+  <!-- 1. ABOUT / HERO TOP SECTION (STARTS HERE) -->
+  <section id="about" class="relative min-h-[92vh] flex items-center justify-center pt-32 pb-20 px-6 z-10">
+    <div class="max-w-6xl mx-auto w-full">
+      
+      <!-- Top Live Role Badge -->
+      <div class="flex justify-start mb-6 reveal">
+        <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-[#111111] border border-white/10">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+          </span>
+          <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider font-mono">Active Role</span>
+          <span class="text-slate-600">&bull;</span>
+          <span class="text-xs text-slate-200 font-medium">Data Analyst @ Taxpert Pro ACC</span>
+        </div>
+      </div>
+
+      <!-- Main Two-Column Intro -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Statement & Operations -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="text-xs font-bold font-mono tracking-widest text-brand-primary uppercase reveal">
+            Data Analyst &bull; Business Intelligence &bull; SQL
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.08] reveal reveal-delay-1">
+            Hi, I'm <br/>
+            <span class="gradient-text">Muhammed Amen Najeeb.</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal reveal reveal-delay-2 max-w-2xl">
+            <strong class="text-white font-bold">Data Analyst</strong> with a Computer Science foundation, turning raw financial data into executive dashboards, automated pipelines, and predictive insights.
+          </p>
+
+          <!-- Current Focus Box -->
+          <div class="jobin-card p-6 space-y-3.5 reveal reveal-delay-3 text-left">
+            <div class="text-xs font-mono font-bold text-brand-primary uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-primary"></span>
+              Current Operations &amp; Impact:
+            </div>
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-3">
+                <span class="text-brand-primary font-mono font-bold">▸</span>
+                <span><strong>Financial Analytics:</strong> Analyzing financial &amp; tax data at Taxpert Pro ACC to catch anomalies and guide client decisions.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-primary font-mono font-bold">▸</span>
+                <span><strong>Automated Pipelines:</strong> Building Python/SQL routines to automate manual data ingestion.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-primary font-mono font-bold">▸</span>
+                <span><strong>Power BI Dashboards:</strong> Building executive reporting suites with complex DAX measures.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-2 reveal reveal-delay-3">
+            <a href="#projects" class="px-8 py-3.5 text-xs uppercase font-bold btn-gradient flex items-center gap-2">
+              <span>Explore Projects</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/amennajeeb" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 text-xs uppercase font-bold btn-outline-cyan flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>LinkedIn</span>
+              <span class="text-xs">↗</span>
+            </a>
+            <a href="#experience" class="px-6 py-3.5 text-xs uppercase font-semibold text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors">
+              <span>View Experience ↓</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Profile Card (Loads photo.jpeg from repo on deploy) -->
+        <div class="lg:col-span-5 reveal reveal-delay-2">
+          <div class="jobin-card p-6 sm:p-7 relative overflow-hidden space-y-6">
+            
+            <!-- Portrait Image Frame -->
+            <div class="w-full aspect-square sm:aspect-[4/3.5] rounded-2xl overflow-hidden bg-gradient-to-br from-slate-900 via-[#0d121f] to-black border border-white/10 relative group flex items-center justify-center">
+              
+              <!-- Actual Photo (Loads from repository / local photo.jpeg) -->
+              <img src="photo.jpeg" alt="Muhammed Amen Najeeb M" 
+                   class="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500 relative z-10"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              
+              <!-- Elegant Monogram Fallback (Active only if photo.jpeg is not yet uploaded) -->
+              <div class="hidden absolute inset-0 flex-col items-center justify-center text-center p-6 bg-gradient-to-b from-[#0a0f1d] to-[#05070e] z-0">
+                <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-primary/20 via-brand-accent/20 to-transparent border border-brand-primary/30 flex items-center justify-center text-2xl font-extrabold text-white font-mono mb-3">
+                  AN
+                </div>
+                <div class="text-sm font-bold text-white">Muhammed Amen Najeeb</div>
+                <div class="text-xs font-mono text-brand-primary mt-1">Data Analyst</div>
+              </div>
+
+              <!-- Floating Bottom Glass Tag -->
+              <div class="absolute bottom-3 left-3 right-3 px-4 py-2.5 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 flex items-center justify-between z-20">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span class="text-white font-bold text-xs sm:text-sm">Amen Najeeb</span>
+                </div>
+                <span class="text-brand-primary font-mono text-xs font-semibold">Data Analyst</span>
+              </div>
+            </div>
+
+            <!-- Profile Specs (Inter Semi-Bold Typography) -->
+            <div class="space-y-3 font-inter text-xs sm:text-sm border-t border-white/10 pt-5">
+              <div class="flex justify-between items-center py-0.5">
+                <span class="text-slate-400 font-semibold tracking-wide uppercase text-[11px] sm:text-xs">Experience</span>
+                <span class="text-emerald-400 font-semibold px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs">1+ Year Active</span>
+              </div>
+              <div class="flex justify-between items-center py-0.5">
+                <span class="text-slate-400 font-semibold tracking-wide uppercase text-[11px] sm:text-xs">Education</span>
+                <span class="text-slate-200 font-semibold px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs">B.Tech CS (2021–2025)</span>
+              </div>
+              <div class="flex justify-between items-center py-0.5">
+                <span class="text-slate-400 font-semibold tracking-wide uppercase text-[11px] sm:text-xs">Core Tech</span>
+                <span class="text-brand-primary font-semibold px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-xs">Power BI &bull; SQL &bull; Python</span>
+              </div>
+              <div class="flex justify-between items-center py-0.5">
+                <span class="text-slate-400 font-semibold tracking-wide uppercase text-[11px] sm:text-xs">Location</span>
+                <span class="text-slate-200 font-semibold px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs">Kannur, Kerala</span>
+              </div>
+            </div>
+
+            <!-- Dual Action: Resume & LinkedIn Buttons (Inter Semi-Bold) -->
+            <div class="grid grid-cols-2 gap-3 pt-1 font-inter">
+              <a href="resume.pdf" target="_blank" class="py-3 px-3 rounded-xl bg-white/5 hover:bg-brand-primary/15 border border-white/10 hover:border-brand-primary/40 text-xs font-semibold text-slate-300 hover:text-white flex items-center justify-center gap-1.5 transition-all text-center">
+                <span>📄 Resume</span>
+                <span class="text-brand-primary font-bold">↗</span>
+              </a>
+              <a href="https://linkedin.com/in/amennajeeb" target="_blank" rel="noopener noreferrer" class="py-3 px-3 rounded-xl bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 border border-[#0A66C2]/30 hover:border-[#0A66C2]/60 text-xs font-semibold text-blue-400 hover:text-white flex items-center justify-center gap-1.5 transition-all text-center">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <span>LinkedIn</span>
+                <span class="font-bold">↗</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Metrics Ribbon (Bottom of Hero) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-16 mt-16 border-t border-white/10 reveal reveal-delay-3">
+        <div class="jobin-card p-6">
+          <div class="text-3xl font-extrabold text-white">1<span class="text-brand-primary">+</span></div>
+          <div class="text-xs font-mono text-slate-400 mt-1 uppercase tracking-wider">Year Industry Exp</div>
+        </div>
+        <div class="jobin-card p-6">
+          <div class="text-3xl font-extrabold text-white">5<span class="text-brand-primary">+</span></div>
+          <div class="text-xs font-mono text-slate-400 mt-1 uppercase tracking-wider">Major Projects</div>
+        </div>
+        <div class="jobin-card p-6">
+          <div class="text-3xl font-extrabold text-white">6<span class="text-brand-primary">+</span></div>
+          <div class="text-xs font-mono text-slate-400 mt-1 uppercase tracking-wider">Verified Certs</div>
+        </div>
+        <div class="jobin-card p-6 border border-brand-primary/20">
+          <div class="text-2xl font-extrabold text-white flex items-center gap-1.5">
+            <span>Google</span>
+            <span class="text-brand-primary text-sm font-mono font-medium">Certified</span>
+          </div>
+          <div class="text-xs font-mono text-brand-primary mt-1 uppercase tracking-wider">Data Analytics Pro</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 2. EXPERIENCE SECTION -->
+  <section id="experience" class="py-24 px-6 border-t border-white/10 relative z-10">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="text-center">
+        <h2 class="section-title reveal">Work Experience</h2>
+      </div>
+
+      <!-- Timeline Items -->
+      <div class="space-y-10 relative before:absolute before:inset-0 before:left-3.5 before:w-px before:bg-gradient-to-b before:from-brand-primary before:via-brand-secondary before:to-transparent">
+        
+        <!-- Role 1: Taxpert Pro ACC -->
+        <div class="relative pl-12 reveal">
+          <div class="absolute left-1.5 top-2 w-4 h-4 rounded-full bg-brand-primary border-4 border-[#0a0a0a] shadow-cyan-glow"></div>
+          
+          <div class="jobin-card p-7">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="font-mono text-xs font-bold text-brand-primary px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20">May 2026 – Present</span>
+              <span class="font-mono text-xs text-slate-400">Kozhikode, Kerala</span>
+            </div>
+            <h3 class="text-xl font-bold text-white">Data Analyst</h3>
+            <div class="text-sm font-semibold text-slate-300 mb-4">Taxpert Pro ACC</div>
+            
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <li class="flex items-start gap-2.5">
+                <span class="text-brand-primary font-mono font-bold">&bull;</span>
+                <span>Analyze complex financial and tax datasets to identify anomalies, evaluate business trends, and surface profitability insights.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-brand-primary font-mono font-bold">&bull;</span>
+                <span>Build automated Python (Pandas) and SQL ingestion pipelines to eliminate manual spreadsheet reporting.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-brand-primary font-mono font-bold">&bull;</span>
+                <span>Design and deploy executive Power BI dashboards with tailored DAX measures for executive performance tracking.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Role 2: Bsoft Bangalore -->
+        <div class="relative pl-12 reveal reveal-delay-1">
+          <div class="absolute left-1.5 top-2 w-4 h-4 rounded-full bg-slate-600 border-4 border-[#0a0a0a]"></div>
+          
+          <div class="jobin-card p-7">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="font-mono text-xs font-bold text-slate-400 px-3 py-1 rounded-full bg-white/5 border border-white/10">Jul 2025 – Jan 2026</span>
+              <span class="font-mono text-xs text-slate-400">Bangalore, Karnataka</span>
+            </div>
+            <h3 class="text-xl font-bold text-white">Network Engineering Intern</h3>
+            <div class="text-sm font-semibold text-slate-300 mb-4">Bsoft Bangalore</div>
+            
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <li class="flex items-start gap-2.5">
+                <span class="text-slate-500 font-mono font-bold">&bull;</span>
+                <span>Configured enterprise switches, routers, VLANs, and Inter-VLAN routing architectures.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-slate-500 font-mono font-bold">&bull;</span>
+                <span>Simulated and validated dynamic routing protocols including OSPF, DHCP, and STP in Cisco Packet Tracer &amp; GNS3.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. FEATURED PROJECTS SECTION -->
+  <section id="projects" class="py-24 px-6 border-t border-white/10 relative z-10">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center">
+        <h2 class="section-title reveal">Featured Projects</h2>
+      </div>
+
+      <!-- FLAGSHIP HERO PROJECT (E-Commerce Power BI Suite) -->
+      <div class="jobin-card p-8 sm:p-12 mb-12 shadow-card-shadow reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <div class="lg:col-span-6 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/30 font-mono text-xs font-bold text-brand-primary uppercase">
+              <span>FLAGSHIP &bull; POWER BI &amp; SQL</span>
+            </div>
+
+            <h3 class="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+              E-Commerce Analytics &amp; KPI Suite
+            </h3>
+
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              An end-to-end 4-page Power BI dashboard driven by multi-table SQL queries aggregating customer cohorts, delivery SLAs, channel attribution, and returns data.
+            </p>
+
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <span class="text-brand-primary font-mono font-bold">▸</span>
+                <span><strong>Full-Funnel SQL Architecture:</strong> Joins and aggregations isolating delivery cost leaks.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-brand-primary font-mono font-bold">▸</span>
+                <span><strong>DAX Customer Cohorts:</strong> Segments uncovering high-value shoppers and churn risk.</span>
+              </li>
+            </ul>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Power BI</span>
+              <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">SQL (Adv)</span>
+              <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">DAX Measures</span>
+              <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">SLA Telemetry</span>
+            </div>
+
+            <div class="pt-4">
+              <a href="https://github.com/amennajeeb/ecommerce-analytics-powerbi" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center gap-2 px-7 py-3 text-xs font-bold uppercase btn-gradient">
+                <span>View on GitHub Repository</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Telemetry Dashboard Graphic Frame -->
+          <div class="lg:col-span-6">
+            <div class="rounded-2xl border border-white/10 bg-[#070b16] p-6 shadow-2xl space-y-4">
+              <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                  <span class="font-mono text-xs text-slate-400 ml-2">Executive_KPI.pbix</span>
+                </div>
+                <span class="font-mono text-[10px] text-brand-primary uppercase bg-brand-primary/10 px-2.5 py-0.5 rounded-full border border-brand-primary/30">Live Sync</span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div class="bg-black/50 p-3.5 rounded-xl border border-white/5">
+                  <div class="text-[11px] font-mono text-slate-400 uppercase">Gross Revenue</div>
+                  <div class="text-xl font-bold text-white mt-1 font-mono">$1.24M <span class="text-emerald-400 text-xs font-normal">+18.4%</span></div>
+                </div>
+                <div class="bg-black/50 p-3.5 rounded-xl border border-white/5">
+                  <div class="text-[11px] font-mono text-slate-400 uppercase">SLA Compliance</div>
+                  <div class="text-xl font-bold text-white mt-1 font-mono">94.2% <span class="text-brand-primary text-xs font-normal">Met</span></div>
+                </div>
+              </div>
+
+              <div class="bg-black/50 p-4 rounded-xl border border-white/5 space-y-2">
+                <div class="flex justify-between text-xs font-mono text-slate-400">
+                  <span>Channel Breakdown</span>
+                  <span class="text-brand-primary">Organic (45%)</span>
+                </div>
+                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden flex">
+                  <div class="bg-brand-primary h-full w-[45%]"></div>
+                  <div class="bg-brand-accent h-full w-[30%]"></div>
+                  <div class="bg-emerald-400 h-full w-[15%]"></div>
+                  <div class="bg-amber-400 h-full w-[10%]"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Secondary Projects Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Project 02 -->
+        <div class="jobin-card p-8 flex flex-col justify-between reveal">
+          <div>
+            <div class="font-mono text-xs font-bold text-brand-primary uppercase mb-3">02 &bull; Power BI &amp; DAX</div>
+            <h3 class="text-2xl font-bold text-white mb-3">Multi-City Weather &amp; AQI Telemetry</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+              Interactive Power BI dashboard monitoring pollutant indexes (SO2, O3, PM2.5, CO, NO2) across Kerala cities with dynamic city switching and rain risk analytics.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Power BI</span>
+            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">DAX</span>
+            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Telemetry</span>
+          </div>
+        </div>
+
+        <!-- Project 03 -->
+        <div class="jobin-card p-8 flex flex-col justify-between reveal reveal-delay-1">
+          <div>
+            <div class="font-mono text-xs font-bold text-brand-primary uppercase mb-3">03 &bull; Machine Learning</div>
+            <h3 class="text-2xl font-bold text-white mb-3">Air Quality Predictive Model</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+              Trained a Scikit-learn predictive model to forecast pollution indices with regression algorithms, feature scaling, and RMSE accuracy scoring.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Python</span>
+            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Scikit-learn</span>
+            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Regression</span>
+          </div>
+        </div>
+
+        <!-- Project 04 -->
+        <div class="jobin-card p-8 flex flex-col justify-between reveal">
+          <div>
+            <div class="font-mono text-xs font-bold text-brand-primary uppercase mb-3">04 &bull; Full-Stack Platform</div>
+            <h3 class="text-2xl font-bold text-white mb-3">Re Wastra — Upcycling Platform</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+              Full-stack web application with secure authentication, relational database schema architecture, and seamless inventory management.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Full-Stack</span>
+            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">SQL Schema</span>
+          </div>
+        </div>
+
+        <!-- Project 05 -->
+        <div class="jobin-card p-8 flex flex-col justify-between reveal reveal-delay-1">
+          <div>
+            <div class="font-mono text-xs font-bold text-brand-primary uppercase mb-3">05 &bull; Enterprise Infrastructure</div>
+            <h3 class="text-2xl font-bold text-white mb-3">Campus Network Architecture</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+              Designed multi-department campus network topologies with VLANs, Inter-VLAN routing, and OSPF/DHCP protocols in Cisco Packet Tracer.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Cisco CCNA</span>
+            <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">VLANs</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. SKILLS & EXPERTISE SECTION (TOP 6 ICON GRID) -->
+  <section id="skills" class="py-24 px-6 border-t border-white/10 relative z-10">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center">
+        <h2 class="section-title reveal">Skills &amp; Expertise</h2>
+      </div>
+
+      <!-- Top 6 Clean Icon Cards Grid (6 Columns on Desktop) -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 reveal">
+        
+        <!-- 1. Power BI -->
+        <div class="jobin-card p-6 flex flex-col items-center justify-center text-center h-44 group cursor-pointer">
+          <div class="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-4 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+            <svg class="w-7 h-7 text-brand-primary group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M4 13h3v8H4v-8zm5-4h3v12H9V9zm5-5h3v17h-3V4zm5 8h3v9h-3v-9z"/>
+            </svg>
+          </div>
+          <span class="text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Power BI</span>
+        </div>
+
+        <!-- 2. SQL -->
+        <div class="jobin-card p-6 flex flex-col items-center justify-center text-center h-44 group cursor-pointer">
+          <div class="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-4 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+            <svg class="w-7 h-7 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <ellipse cx="12" cy="5" rx="9" ry="3"/>
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+            </svg>
+          </div>
+          <span class="text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">SQL</span>
+        </div>
+
+        <!-- 3. Python -->
+        <div class="jobin-card p-6 flex flex-col items-center justify-center text-center h-44 group cursor-pointer">
+          <div class="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-4 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+            <svg class="w-7 h-7 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2c-4.4 0-4.4 1.9-4.4 1.9v2h4.5v.7H6.1S2 6.5 2 11.2c0 4.6 3.6 4.4 3.6 4.4h1.2v-1.7c0-2 1.7-2 1.7-2h4.4s1.7 0 1.7-1.7V6.2S14.7 2 12 2zm-1.3 1.3c.4 0 .7.3.7.7s-.3.7-.7.7-.7-.3-.7-.7.3-.7.7-.7zm1.3 18.7c4.4 0 4.4-1.9 4.4-1.9v-2h-4.5v-.7h6s4.1.1 4.1-4.6c0-4.6-3.6-4.4-3.6-4.4h-1.2v1.7c0 2-1.7 2-1.7 2h-4.4s-1.7 0-1.7 1.7v4s-.1 4.2 2.6 4.2zm1.3-1.3c-.4 0-.7-.3-.7-.7s.3-.7.7-.7.7.3.7.7-.3.7-.7.7z"/>
+            </svg>
+          </div>
+          <span class="text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Python</span>
+        </div>
+
+        <!-- 4. Excel -->
+        <div class="jobin-card p-6 flex flex-col items-center justify-center text-center h-44 group cursor-pointer">
+          <div class="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-4 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+            <svg class="w-7 h-7 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>
+            </svg>
+          </div>
+          <span class="text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Excel</span>
+        </div>
+
+        <!-- 5. Tableau -->
+        <div class="jobin-card p-6 flex flex-col items-center justify-center text-center h-44 group cursor-pointer">
+          <div class="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-4 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+            <svg class="w-7 h-7 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M11 2v3.5H7.5V7H11v3.5h1.5V7H16V5.5h-3.5V2H11zm-6 6v2.5H2.5V12H5v2.5h1.5V12H9v-1.5H6.5V8H5zm12 0v2.5h-2.5V12H17v2.5h1.5V12H21v-1.5h-2.5V8H17zm-6 6v3.5H7.5V19H11v3.5h1.5V19H16v-1.5h-3.5V14H11z"/>
+            </svg>
+          </div>
+          <span class="text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Tableau</span>
+        </div>
+
+        <!-- 6. Pandas -->
+        <div class="jobin-card p-6 flex flex-col items-center justify-center text-center h-44 group cursor-pointer">
+          <div class="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-4 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+            <svg class="w-7 h-7 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/>
+            </svg>
+          </div>
+          <span class="text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Pandas (ETL)</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. LICENSES & CERTIFICATIONS -->
+  <section id="certifications" class="py-24 px-6 border-t border-white/10 relative z-10">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center">
+        <h2 class="section-title reveal">Certifications</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- 1. GOOGLE DATA ANALYTICS (GOOGLE ACCENT HIGHLIGHT) -->
+        <div class="cert-card has-cred jobin-card p-7 relative overflow-hidden reveal cursor-pointer border border-blue-500/30 hover:border-blue-400"
+             data-title="Google Data Analytics Professional Certificate"
+             data-issuer="Google / Coursera"
+             data-date="Jul 2026"
+             data-id="CERGV2D6SJK0"
+             data-url="https://www.coursera.org/account/accomplishments/professional-cert/CERGV2D6SJK0"
+             data-skills="Data Analysis, Spreadsheets, SQL, Tableau, R Programming, Data Integrity">
+          
+          <!-- Google Top Bar -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4285F4] via-[#EA4335] via-[#FBBC05] to-[#34A853]"></div>
+
+          <div class="flex justify-between items-start mb-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-[11px] font-mono font-bold uppercase">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+              Google Certified
+            </span>
+            <span class="font-mono text-xs text-blue-400 bg-blue-500/10 px-2.5 py-0.5 rounded-full">Jul 2026</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-white mb-6 leading-snug">Google Data Analytics Professional Certificate</h3>
+
+          <div class="flex items-center justify-between pt-4 border-t border-white/10 font-mono text-xs">
+            <span class="text-slate-400">ID: CERGV2D6SJK0</span>
+            <span class="text-blue-400 font-bold">Show credential ↗</span>
+          </div>
+        </div>
+
+        <!-- 2. HACKERRANK SQL ADVANCED -->
+        <div class="cert-card has-cred jobin-card p-7 relative overflow-hidden reveal cursor-pointer border border-emerald-500/30 hover:border-emerald-400"
+             data-title="SQL (ADVANCED)"
+             data-issuer="HackerRank"
+             data-date="Jul 2026"
+             data-id="5FEDCE8B5332"
+             data-url="https://www.hackerrank.com/certificates/5fedce8b5332"
+             data-skills="Advanced SQL, Joins, Aggregations, Window Functions, Subqueries">
+          
+          <!-- HackerRank Top Bar -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00EA64] via-[#2EC866] to-[#00EA64]"></div>
+
+          <div class="flex justify-between items-start mb-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] font-mono font-bold uppercase">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.5 5.5h3v5.25h3V5.5h3V18.5h-3v-5.25h-3v5.25h-3V5.5z"/>
+              </svg>
+              HackerRank Verified
+            </span>
+            <span class="font-mono text-xs text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full">Jul 2026</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-white mb-6 leading-snug">SQL (ADVANCED)</h3>
+
+          <div class="flex items-center justify-between pt-4 border-t border-white/10 font-mono text-xs">
+            <span class="text-slate-400">ID: 5FEDCE8B5332</span>
+            <span class="text-emerald-400 font-bold">Show credential ↗</span>
+          </div>
+        </div>
+
+        <!-- 3. DUBAI FUTURE FOUNDATION -->
+        <div class="cert-card has-cred jobin-card p-7 relative overflow-hidden reveal cursor-pointer border border-purple-500/30 hover:border-purple-400"
+             data-title="One Million Prompters — Certificate of Completion"
+             data-issuer="Dubai Future Foundation"
+             data-date="Aug 2026"
+             data-id="HH Sheikh Hamdan Initiative"
+             data-url="https://www.dubaifuture.ae/"
+             data-skills="Prompt Engineering, Generative AI, LLMs">
+          
+          <!-- DFF Top Bar -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#7F00FF] via-[#A855F7] to-[#00D2FF]"></div>
+
+          <div class="flex justify-between items-start mb-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-[11px] font-mono font-bold uppercase">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L14.5 8.5L21 11L14.5 13.5L12 20L9.5 13.5L3 11L9.5 8.5L12 2Z"/>
+              </svg>
+              Dubai Future Foundation
+            </span>
+            <span class="font-mono text-xs text-purple-400 bg-purple-500/10 px-2.5 py-0.5 rounded-full">Aug 2026</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-white mb-6 leading-snug">One Million Prompters — AI &amp; Prompt Engineering</h3>
+
+          <div class="flex items-center justify-between pt-4 border-t border-white/10 font-mono text-xs">
+            <span class="text-slate-400">HH Sheikh Hamdan</span>
+            <span class="text-purple-400 font-bold">Show credential ↗</span>
+          </div>
+        </div>
+
+        <!-- 4. SIMPLILEARN GOOGLE SHEETS -->
+        <div class="cert-card has-cred jobin-card p-7 relative overflow-hidden reveal cursor-pointer border border-cyan-500/30 hover:border-cyan-400"
+             data-title="Google Sheets — Spreadsheet Data Analysis &amp; Productivity"
+             data-issuer="Simplilearn"
+             data-date="Aug 2026"
+             data-id="10656134"
+             data-url="https://simplilearn.com/"
+             data-skills="Data Analysis, Formulas, Pivot Tables">
+          
+          <!-- Simplilearn Top Bar -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00D2FF] via-[#0099FF] to-[#FF9900]"></div>
+
+          <div class="flex justify-between items-start mb-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-[11px] font-mono font-bold uppercase">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              Simplilearn Certified
+            </span>
+            <span class="font-mono text-xs text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 rounded-full">Aug 2026</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-white mb-6 leading-snug">Google Sheets — Data Analysis</h3>
+
+          <div class="flex items-center justify-between pt-4 border-t border-white/10 font-mono text-xs">
+            <span class="text-slate-400">ID: 10656134</span>
+            <span class="text-cyan-400 font-bold">Show credential ↗</span>
+          </div>
+        </div>
+
+        <!-- 5. ONEROADMAP SIMULATION -->
+        <div class="cert-card has-cred jobin-card p-7 relative overflow-hidden reveal cursor-pointer border border-indigo-500/30 hover:border-indigo-400"
+             data-title="Data Analyst Job Simulation"
+             data-issuer="OneRoadmap"
+             data-date="Jul 2026"
+             data-id="ORA-DA-PXA269"
+             data-url="https://oneroadmap.io/"
+             data-skills="Data Analysis, Data Cleaning, KPI Reporting">
+          
+          <!-- OneRoadmap Top Bar -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#6366F1] via-[#8B5CF6] to-[#EC4899]"></div>
+
+          <div class="flex justify-between items-start mb-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-[11px] font-mono font-bold uppercase">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+              </svg>
+              OneRoadmap Verified
+            </span>
+            <span class="font-mono text-xs text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded-full">Jul 2026</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-white mb-6 leading-snug">Data Analyst Job Simulation</h3>
+
+          <div class="flex items-center justify-between pt-4 border-t border-white/10 font-mono text-xs">
+            <span class="text-slate-400">ID: ORA-DA-PXA269</span>
+            <span class="text-indigo-400 font-bold">Show credential ↗</span>
+          </div>
+        </div>
+
+        <!-- 6. CISCO CCNA -->
+        <div class="cert-card jobin-card p-7 relative overflow-hidden reveal border border-sky-500/30 hover:border-sky-400">
+          <!-- Cisco Top Bar -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#005073] via-[#00BCEB] to-[#1BA0D7]"></div>
+
+          <div class="flex justify-between items-start mb-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-[11px] font-mono font-bold uppercase">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4 10v4h2v-4H4zm4-3v10h2V7H8zm4-4v16h2V3h-2zm4 4v10h2V7h-2zm4 3v4h2v-4h-2z"/>
+              </svg>
+              Cisco Certified
+            </span>
+            <span class="font-mono text-xs text-sky-400 bg-sky-500/10 px-2.5 py-0.5 rounded-full">Nov 2025</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-white mb-6 leading-snug">Cisco CCNA (Routing &amp; Switching)</h3>
+
+          <div class="flex items-center justify-between pt-4 border-t border-white/10 font-mono text-xs">
+            <span class="text-slate-400">Enterprise Networking</span>
+            <span class="text-sky-400 font-bold">Verified</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. CONTACT & FOOTER -->
+  <section id="contact" class="py-24 px-6 border-t border-white/10 relative z-10 text-center">
+    <div class="max-w-3xl mx-auto jobin-card p-10 sm:p-14 shadow-card-shadow reveal">
+      
+      <h2 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+        Let's build something <br/><span class="gradient-text">intelligent together.</span>
+      </h2>
+      <p class="text-slate-300 text-sm sm:text-base mb-8 max-w-md mx-auto">
+        Actively exploring high-impact Data Analyst opportunities and collaborative analytics initiatives.
+      </p>
+
+      <div class="mb-8">
+        <a href="mailto:amennajeeb8418@gmail.com" class="text-lg sm:text-2xl font-mono font-bold text-white hover:text-brand-primary transition-colors underline decoration-brand-primary/50 underline-offset-8">
+          amennajeeb8418@gmail.com
+        </a>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="mailto:amennajeeb8418@gmail.com" class="px-8 py-3.5 text-xs font-bold uppercase btn-gradient">
+          Send Email ✉️
+        </a>
+        <a href="https://linkedin.com/in/amennajeeb" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 text-xs font-bold uppercase btn-outline-cyan flex items-center gap-2">
+          <span>LinkedIn</span>
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <a href="https://github.com/amennajeeb" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 text-xs font-bold uppercase btn-outline-cyan flex items-center gap-2">
+          <span>GitHub</span>
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MICRO-FOOTER -->
+  <footer class="py-12 px-6 border-t border-white/10 text-slate-500 font-mono text-xs relative z-10">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <p>&copy; 2026 Muhammed Amen Najeeb M. Designed with modern precision.</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+        <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+        <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+        <a href="#certifications" class="hover:text-white transition-colors">Certifications</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+        <a href="#" class="text-brand-primary hover:underline">↑ Top</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CREDENTIAL MODAL POPUP -->
+  <div id="certModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-xl flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div class="jobin-card max-w-lg w-full p-8 relative border border-brand-primary/40 shadow-cyan-glow-lg transform scale-95 transition-transform duration-300" id="modalBox">
+      <button id="modalClose" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/20 transition-all">
+        ✕
       </button>
+      
+      <div class="font-mono text-xs font-bold text-brand-primary uppercase tracking-wider mb-1" id="modalIssuer">Issuing Organization</div>
+      <h3 class="text-2xl font-bold text-white mb-6 leading-snug" id="modalTitle">Certificate Title</h3>
+
+      <div class="bg-black/60 rounded-2xl p-5 border border-white/5 space-y-3 mb-6 font-mono text-xs">
+        <div class="flex justify-between">
+          <span class="text-slate-400">ISSUE DATE</span>
+          <span class="text-white font-semibold" id="modalDate">—</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-400">CREDENTIAL ID</span>
+          <span class="text-brand-primary font-bold" id="modalId">—</span>
+        </div>
+        <div class="pt-2 border-t border-white/5">
+          <span class="text-slate-400 block mb-1">SKILLS COVERED</span>
+          <span class="text-slate-300 font-sans font-normal text-xs" id="modalSkills">—</span>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <a href="#" id="modalUrlBtn" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-5 rounded-full font-mono text-xs font-bold uppercase btn-gradient text-center flex items-center justify-center gap-2">
+          <span>Verify Online</span>
+          <span>↗</span>
+        </a>
+        <button id="modalCopyBtn" class="py-3 px-5 rounded-full font-mono text-xs font-semibold bg-white/10 hover:bg-white/20 text-white transition-all">
+          Copy ID
+        </button>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-inner">
-    <div class="section-label reveal" style="justify-content:center">Let's Connect</div>
-    <div class="contact-big reveal">
-      Got a project<br>in <em>mind?</em>
-    </div>
-    <p class="contact-desc reveal">I'm actively looking for Data Analyst roles, especially in UAE, Gulf, and global markets. Whether it's a full-time position or a project collaboration, I'd love to hear from you.</p>
-    <div class="reveal">
-      <a href="mailto:amennajeeb8418@gmail.com" class="contact-email-big">amennajeeb8418@gmail.com</a>
-    </div>
-    <div class="contact-links reveal">
-      <a href="mailto:amennajeeb8418@gmail.com" class="contact-link">
-        <span class="cl-icon">✉️</span>
-        <span>Email Me</span>
-      </a>
-      <a href="https://linkedin.com/in/amennajeeb" target="_blank" rel="noopener noreferrer" class="contact-link">
-        <span class="cl-icon">💼</span>
-        <span>LinkedIn</span>
-      </a>
-      <a href="https://github.com/amennajeeb" target="_blank" rel="noopener noreferrer" class="contact-link">
-        <span class="cl-icon">🐙</span>
-        <span>GitHub</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 Muhammed Amen Najeeb M — Kannur, Kerala</p>
-  <div class="footer-badge">Open to opportunities (UAE &amp; Global)</div>
-</footer>
-
-<script>
-  // CURSOR
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mouseX = 0, mouseY = 0;
-  let ringX = 0, ringY = 0;
-
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX; mouseY = e.clientY;
-    cursor.style.left = mouseX + 'px';
-    cursor.style.top = mouseY + 'px';
-  });
-
-  function animateRing() {
-    ringX += (mouseX - ringX) * 0.12;
-    ringY += (mouseY - ringY) * 0.12;
-    ring.style.left = ringX + 'px';
-    ring.style.top = ringY + 'px';
-    requestAnimationFrame(animateRing);
-  }
-  animateRing();
-
-  document.querySelectorAll('a, button, .skill-card, a.project-card, .edu-card, .cert-card.has-cred').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.transform = 'translate(-50%,-50%) scale(2)';
-      cursor.style.background = 'var(--amber)';
-      ring.style.borderColor = 'rgba(245,166,35,0.6)';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-      cursor.style.background = 'var(--teal)';
-      ring.style.borderColor = 'rgba(0,201,167,0.5)';
-    });
-  });
-
-  // NAV SCROLL
-  window.addEventListener('scroll', () => {
-    const nav = document.getElementById('navbar');
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  // HAMBURGER
-  const ham = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  ham.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
-  // REVEAL on scroll
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+  <script>
+    // HEADER BLUR ON SCROLL
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('bg-[#0a0a0a]/85', 'backdrop-blur-xl', 'border-b', 'border-white/10', 'h-18');
+      } else {
+        header.classList.remove('bg-[#0a0a0a]/85', 'backdrop-blur-xl', 'border-b', 'border-white/10', 'h-18');
       }
     });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => observer.observe(el));
 
-  // SMOOTH COUNT-UP for stats
-  function countUp(el, target) {
-    let count = 0;
-    const step = target / 40;
-    const timer = setInterval(() => {
-      count += step;
-      if (count >= target) { count = target; clearInterval(timer); }
-      el.textContent = Math.floor(count);
-    }, 35);
-  }
-  const statsObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        document.querySelectorAll('.stat-num').forEach(el => {
-          const num = parseInt(el.textContent);
-          const span = el.querySelector('span');
-          el.textContent = '0';
-          if (span) el.appendChild(span);
-          countUp(el, num);
-        });
-        statsObserver.disconnect();
-      }
+    // MOBILE MENU
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
-  }, { threshold: 0.5 });
-  const heroStats = document.querySelector('.hero-stats');
-  if (heroStats) statsObserver.observe(heroStats);
-
-  // 3D TILT EFFECT
-  const tiltCard = document.getElementById('tiltCard');
-  if (tiltCard) {
-    tiltCard.addEventListener('mousemove', e => {
-      const rect = tiltCard.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      tiltCard.style.transform = `perspective(800px) rotateY(${x * 18}deg) rotateX(${-y * 18}deg) scale(1.03)`;
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
     });
-    tiltCard.addEventListener('mouseleave', () => {
-      tiltCard.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) scale(1)';
-    });
-  }
 
-  // CREDENTIAL MODAL LOGIC
-  const certModal = document.getElementById('certModal');
-  const modalClose = document.getElementById('modalClose');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalIssuer = document.getElementById('modalIssuer');
-  const modalDate = document.getElementById('modalDate');
-  const modalId = document.getElementById('modalId');
-  const modalSkills = document.getElementById('modalSkills');
-  const modalUrlBtn = document.getElementById('modalUrlBtn');
-  const modalCopyBtn = document.getElementById('modalCopyBtn');
-
-  let currentCertId = '';
-
-  document.querySelectorAll('.cert-card.has-cred').forEach(card => {
-    card.addEventListener('click', () => {
-      const title = card.getAttribute('data-title');
-      const issuer = card.getAttribute('data-issuer');
-      const date = card.getAttribute('data-date');
-      const id = card.getAttribute('data-id');
-      const url = card.getAttribute('data-url');
-      const skills = card.getAttribute('data-skills');
-
-      modalTitle.textContent = title;
-      modalIssuer.textContent = issuer;
-      modalDate.textContent = date;
-      modalId.textContent = id;
-      modalSkills.textContent = skills || 'Data Analytics & Technical Proficiency';
-      modalUrlBtn.href = url || '#';
-      currentCertId = id;
-      modalCopyBtn.textContent = 'Copy ID';
-
-      certModal.classList.add('active');
-    });
-  });
-
-  modalClose.addEventListener('click', () => {
-    certModal.classList.remove('active');
-  });
-
-  certModal.addEventListener('click', (e) => {
-    if (e.target === certModal) {
-      certModal.classList.remove('active');
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && certModal.classList.contains('active')) {
-      certModal.classList.remove('active');
-    }
-  });
-
-  modalCopyBtn.addEventListener('click', () => {
-    if (currentCertId) {
-      navigator.clipboard.writeText(currentCertId).then(() => {
-        modalCopyBtn.textContent = 'Copied! ✓';
-        setTimeout(() => { modalCopyBtn.textContent = 'Copy ID'; }, 2000);
+    // SCROLL REVEAL (IntersectionObserver)
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
       });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // CREDENTIAL MODAL LOGIC
+    const certModal = document.getElementById('certModal');
+    const modalBox = document.getElementById('modalBox');
+    const modalClose = document.getElementById('modalClose');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalIssuer = document.getElementById('modalIssuer');
+    const modalDate = document.getElementById('modalDate');
+    const modalId = document.getElementById('modalId');
+    const modalSkills = document.getElementById('modalSkills');
+    const modalUrlBtn = document.getElementById('modalUrlBtn');
+    const modalCopyBtn = document.getElementById('modalCopyBtn');
+    let currentId = '';
+
+    document.querySelectorAll('.cert-card.has-cred').forEach(card => {
+      card.addEventListener('click', () => {
+        modalTitle.textContent = card.getAttribute('data-title');
+        modalIssuer.textContent = card.getAttribute('data-issuer');
+        modalDate.textContent = card.getAttribute('data-date');
+        currentId = card.getAttribute('data-id') || '';
+        modalId.textContent = currentId || 'Verified Credential';
+        modalSkills.textContent = card.getAttribute('data-skills') || 'Data Analytics & Technical Proficiency';
+        modalUrlBtn.href = card.getAttribute('data-url') || '#';
+        modalCopyBtn.textContent = 'Copy ID';
+
+        certModal.classList.remove('opacity-0', 'pointer-events-none');
+        modalBox.classList.remove('scale-95');
+        modalBox.classList.add('scale-100');
+      });
+    });
+
+    function closeModal() {
+      certModal.classList.add('opacity-0', 'pointer-events-none');
+      modalBox.classList.remove('scale-100');
+      modalBox.classList.add('scale-95');
     }
-  });
-</script>
+
+    modalClose.addEventListener('click', closeModal);
+    certModal.addEventListener('click', (e) => {
+      if (e.target === certModal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    modalCopyBtn.addEventListener('click', () => {
+      if (currentId) {
+        navigator.clipboard.writeText(currentId).then(() => {
+          modalCopyBtn.textContent = 'Copied! ✓';
+          setTimeout(() => { modalCopyBtn.textContent = 'Copy ID'; }, 2000);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
