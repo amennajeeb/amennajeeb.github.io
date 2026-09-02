@@ -1,3 +1,11 @@
+<!--
+  ====================================================================
+  Muhammed Amen Najeeb M — Data Analyst Portfolio
+  Specializing in Power BI, Advanced SQL, Python & Automated BI Pipelines
+  Email: amennajeeb8418@gmail.com | LinkedIn: /in/amennajeeb
+  Looking at the source? Feel free to reach out!
+  ====================================================================
+-->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -5,6 +13,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muhammed Amen Najeeb M — Data Analyst</title>
   
+  <!-- Schema.org Structured Data (JSON-LD Person Markup) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Muhammed Amen Najeeb M",
+    "alternateName": "Amen Najeeb",
+    "url": "https://amennajeeb.github.io/",
+    "image": "https://amennajeeb.github.io/photo.jpeg",
+    "jobTitle": "Data Analyst",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Taxpert Pro ACC",
+      "location": {
+        "@type": "Place",
+        "name": "Kozhikode, Kerala, India"
+      }
+    },
+    "sameAs": [
+      "https://linkedin.com/in/amennajeeb",
+      "https://github.com/amennajeeb"
+    ],
+    "email": "amennajeeb8418@gmail.com",
+    "knowsAbout": [
+      "Data Analytics",
+      "Business Intelligence",
+      "Power BI",
+      "SQL (Advanced)",
+      "Python (Pandas, NumPy, Scikit-learn)",
+      "DAX Time Intelligence",
+      "Microsoft Excel",
+      "Tableau",
+      "ETL Pipelines",
+      "Machine Learning",
+      "Relational Data Modeling"
+    ]
+  }
+  </script>
+
   <!-- Google Analytics 4 (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XV3WLBDDK2"></script>
   <script>
@@ -68,6 +115,9 @@
       }
     }
   </script>
+
+  <!-- Chart.js for Flagship Project Live Preview -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
   <style>
     :root {
@@ -182,11 +232,63 @@
       transform: translateY(0);
     }
 
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #060911; }
-    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+    /* Print Stylesheet (Ctrl+P / Save as PDF) */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        font-size: 10.5pt;
+      }
+      .ambient-glow,
+      #header,
+      #mobileMenu,
+      #certModal,
+      .no-print,
+      canvas,
+      video {
+        display: none !important;
+      }
+      .jobin-card {
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #0f172a !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 12pt;
+      }
+      .gradient-text, .section-title {
+        color: #047857 !important;
+        -webkit-text-fill-color: #047857 !important;
+        background: none !important;
+      }
+      h1, h2, h3, h4 {
+        color: #0f172a !important;
+        break-after: avoid;
+      }
+      p, li, span, div {
+        color: #334155 !important;
+      }
+      .text-white {
+        color: #0f172a !important;
+      }
+      .text-slate-300, .text-slate-400 {
+        color: #475569 !important;
+      }
+      .border-white\/10, .border-white\/5 {
+        border-color: #e2e8f0 !important;
+      }
+      a {
+        text-decoration: none !important;
+        color: #047857 !important;
+      }
+      section {
+        padding-top: 14pt !important;
+        padding-bottom: 14pt !important;
+        border-top: 1px solid #e2e8f0 !important;
+        break-inside: avoid;
+      }
+    }
   </style>
 </head>
 <body class="relative min-h-screen antialiased selection:bg-emerald-500 selection:text-black">
@@ -222,8 +324,8 @@
           Get in Touch
         </a>
         
-        <!-- Mobile Hamburger Button -->
-        <button id="mobileToggle" class="md:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-200 hover:text-white" aria-label="Toggle Navigation Menu">
+        <!-- Mobile Hamburger Button with Accessibility aria-expanded -->
+        <button id="mobileToggle" class="md:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-200 hover:text-white" aria-label="Toggle Navigation Menu" aria-expanded="false">
           <svg id="menuIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
           <svg id="closeIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
@@ -237,18 +339,15 @@
       <a href="#projects" class="block text-slate-200 hover:text-brand-primary py-2 px-3 rounded-lg hover:bg-white/5 mobile-link">Projects</a>
       <a href="#skills" class="block text-slate-200 hover:text-brand-primary py-2 px-3 rounded-lg hover:bg-white/5 mobile-link">Skills &amp; Expertise</a>
       <a href="#certifications" class="block text-slate-200 hover:text-brand-primary py-2 px-3 rounded-lg hover:bg-white/5 mobile-link">Certifications</a>
-      <div class="pt-2 border-t border-white/10 grid grid-cols-2 gap-2">
-        <a href="Muhammed_Amen_Najeeb_Resume.pdf" target="_blank" class="py-2.5 px-3 text-center text-xs font-semibold btn-outline-cyan mobile-link">
-          Resume
-        </a>
-        <a href="https://linkedin.com/in/amennajeeb" target="_blank" class="py-2.5 px-3 text-center text-xs font-semibold btn-gradient mobile-link">
-          LinkedIn ↗
+      <div class="pt-2 border-t border-white/10">
+        <a href="Muhammed_Amen_Najeeb_Resume.pdf" target="_blank" class="block py-2.5 px-3 text-center text-xs font-semibold btn-outline-cyan mobile-link">
+          Resume ↗
         </a>
       </div>
     </div>
   </header>
 
-  <!-- 1. ABOUT / HERO SECTION (STARTS HERE) -->
+  <!-- 1. ABOUT / HERO SECTION -->
   <section id="about" class="relative min-h-[85vh] flex items-center justify-center pt-24 sm:pt-32 pb-16 px-4 sm:px-6 z-10">
     <div class="max-w-6xl mx-auto w-full">
       
@@ -279,9 +378,15 @@
             <span class="gradient-text">Muhammed Amen Najeeb.</span>
           </h1>
 
-          <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed font-normal reveal max-w-2xl">
-            <strong class="text-white font-bold">Data Analyst</strong> with a Computer Science foundation, turning raw financial data into executive dashboards, automated pipelines, and predictive insights.
-          </p>
+          <div class="space-y-2.5 reveal">
+            <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed font-normal max-w-2xl">
+              <strong class="text-white font-bold">Data Analyst</strong> with a Computer Science foundation, turning raw financial data into executive dashboards, automated pipelines, and predictive insights.
+            </p>
+            <!-- Personal Motivation / Curiosity Sentence -->
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed font-normal max-w-2xl border-l-2 border-brand-primary/50 pl-3.5 py-0.5">
+              I discovered my passion for analytics while solving algorithmic optimization problems in computer science — captivated by how raw transactional data uncovers hidden business narratives, and currently exploring how agentic AI can automate real-time decision intelligence.
+            </p>
+          </div>
 
           <!-- Current Focus Box -->
           <div class="jobin-card p-5 sm:p-6 space-y-3 reveal text-left">
@@ -391,18 +496,18 @@
 
       </div>
 
-      <!-- Quick Metrics Ribbon -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 pt-12 sm:pt-16 mt-12 sm:mt-16 border-t border-white/10 reveal">
+      <!-- Quick Metrics Ribbon with Vanilla JS Scroll-Triggered Count-Up Animation -->
+      <div id="metricsStrip" class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 pt-12 sm:pt-16 mt-12 sm:mt-16 border-t border-white/10 reveal">
         <div class="jobin-card p-4 sm:p-6">
-          <div class="text-2xl sm:text-3xl font-extrabold text-white">1<span class="text-brand-primary">+</span></div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-white"><span class="counter" data-target="1">0</span><span class="text-brand-primary">+</span></div>
           <div class="text-[11px] sm:text-xs font-mono text-slate-400 mt-1 uppercase tracking-wider">Year Industry Exp</div>
         </div>
         <div class="jobin-card p-4 sm:p-6">
-          <div class="text-2xl sm:text-3xl font-extrabold text-white">5<span class="text-brand-primary">+</span></div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-white"><span class="counter" data-target="5">0</span><span class="text-brand-primary">+</span></div>
           <div class="text-[11px] sm:text-xs font-mono text-slate-400 mt-1 uppercase tracking-wider">Major Projects</div>
         </div>
         <div class="jobin-card p-4 sm:p-6">
-          <div class="text-2xl sm:text-3xl font-extrabold text-white">6<span class="text-brand-primary">+</span></div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-white"><span class="counter" data-target="7">0</span><span class="text-brand-primary">+</span></div>
           <div class="text-[11px] sm:text-xs font-mono text-slate-400 mt-1 uppercase tracking-wider">Verified Certs</div>
         </div>
         <div class="jobin-card p-4 sm:p-6 border border-brand-primary/20">
@@ -410,7 +515,7 @@
             <span>Google</span>
             <span class="text-brand-primary text-xs sm:text-sm font-mono font-semibold">Certified</span>
           </div>
-          <div class="text-[11px] sm:text-xs font-mono text-brand-primary mt-1 uppercase tracking-wider">Data Analyst</div>
+          <div class="text-[11px] sm:text-xs font-mono text-brand-primary mt-1 uppercase tracking-wider">Data &amp; AI Analyst</div>
         </div>
       </div>
 
@@ -487,7 +592,7 @@
     </div>
   </section>
 
-  <!-- 3. FEATURED PROJECTS SECTION -->
+  <!-- 3. FEATURED PROJECTS SECTION WITH CASE STUDY MODAL SUPPORT -->
   <section id="projects" class="py-16 sm:py-24 px-4 sm:px-6 border-t border-white/10 relative z-10">
     <div class="max-w-6xl mx-auto">
       
@@ -495,7 +600,7 @@
         <h2 class="section-title reveal">Featured Projects</h2>
       </div>
 
-      <!-- FLAGSHIP PROJECT (E-Commerce Power BI Suite) -->
+      <!-- FLAGSHIP PROJECT (E-Commerce Power BI Suite) WITH LIVE CHART.JS PREVIEW -->
       <div class="jobin-card p-6 sm:p-10 mb-8 sm:mb-12 shadow-card-shadow reveal">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
@@ -539,7 +644,7 @@
             </div>
           </div>
 
-          <!-- Telemetry Preview Frame -->
+          <!-- Real Chart.js Preview Frame -->
           <div class="lg:col-span-6">
             <div class="rounded-xl border border-white/10 bg-[#070b16] p-4 sm:p-5 shadow-2xl space-y-3.5">
               <div class="flex items-center justify-between border-b border-white/10 pb-3">
@@ -547,32 +652,28 @@
                   <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
                   <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
                   <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-                  <span class="font-mono text-xs text-slate-400 ml-2 truncate max-w-[150px] sm:max-w-none">Executive_KPI.pbix</span>
+                  <span class="font-mono text-xs text-slate-300 ml-2 truncate max-w-[150px] sm:max-w-none">Executive_KPI.pbix &bull; Telemetry</span>
                 </div>
-                <span class="font-mono text-[10px] text-brand-primary uppercase bg-brand-primary/10 px-2 py-0.5 rounded-full border border-brand-primary/30">Live Sync</span>
+                <span class="font-mono text-[10px] text-brand-primary uppercase bg-brand-primary/10 px-2.5 py-0.5 rounded-full border border-brand-primary/30 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse"></span>
+                  <span>Live Chart.js</span>
+                </span>
               </div>
 
-              <div class="grid grid-cols-2 gap-2.5">
-                <div class="bg-black/50 p-3 rounded-lg border border-white/5">
+              <!-- Live Chart Canvas -->
+              <div class="relative w-full h-44 sm:h-48 pt-1">
+                <canvas id="flagshipChart"></canvas>
+              </div>
+
+              <!-- Metric Pills below chart -->
+              <div class="grid grid-cols-2 gap-2.5 pt-1">
+                <div class="bg-black/50 p-2.5 rounded-lg border border-white/5">
                   <div class="text-[10px] font-mono text-slate-400 uppercase">Gross Revenue</div>
-                  <div class="text-lg sm:text-xl font-bold text-white mt-0.5 font-mono">$1.24M <span class="text-emerald-400 text-xs font-normal">+18.4%</span></div>
+                  <div class="text-base sm:text-lg font-bold text-white font-mono mt-0.5">$1.24M <span class="text-emerald-400 text-xs font-normal">+18.4%</span></div>
                 </div>
-                <div class="bg-black/50 p-3 rounded-lg border border-white/5">
+                <div class="bg-black/50 p-2.5 rounded-lg border border-white/5">
                   <div class="text-[10px] font-mono text-slate-400 uppercase">SLA Compliance</div>
-                  <div class="text-lg sm:text-xl font-bold text-white mt-0.5 font-mono">94.2% <span class="text-brand-primary text-xs font-normal">Met</span></div>
-                </div>
-              </div>
-
-              <div class="bg-black/50 p-3.5 rounded-lg border border-white/5 space-y-1.5">
-                <div class="flex justify-between text-xs font-mono text-slate-400">
-                  <span>Channel Breakdown</span>
-                  <span class="text-brand-primary">Organic (45%)</span>
-                </div>
-                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden flex">
-                  <div class="bg-brand-primary h-full w-[45%]"></div>
-                  <div class="bg-blue-500 h-full w-[30%]"></div>
-                  <div class="bg-emerald-400 h-full w-[15%]"></div>
-                  <div class="bg-amber-400 h-full w-[10%]"></div>
+                  <div class="text-base sm:text-lg font-bold text-white font-mono mt-0.5">94.2% <span class="text-brand-primary text-xs font-normal">Met</span></div>
                 </div>
               </div>
             </div>
@@ -581,68 +682,146 @@
         </div>
       </div>
 
-      <!-- Secondary Projects Grid -->
+      <!-- Secondary Projects Grid (02–05) with Visual Schematics & Case Study Modals -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
         
-        <!-- Project 02 -->
+        <!-- Project 02: Multi-City Weather & AQI Telemetry -->
         <div class="jobin-card p-6 sm:p-8 flex flex-col justify-between reveal">
           <div>
+            <!-- Visual Schematic: AQI Telemetry Bar Chart -->
+            <div class="w-full bg-[#070b16] rounded-lg p-3 border border-white/5 mb-4 space-y-2">
+              <div class="flex items-center justify-between text-[10px] font-mono text-slate-400">
+                <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>Kochi &bull; AQI Sensor Feed</span>
+                <span class="text-emerald-400 font-bold font-mono">AQI 42 (Good)</span>
+              </div>
+              <div class="grid grid-cols-5 gap-1.5 h-12 items-end pt-1">
+                <div class="bg-emerald-500/20 rounded-t h-[45%] relative flex items-end justify-center"><div class="w-full bg-emerald-400 rounded-t h-[60%]"></div><span class="text-[8px] font-mono text-slate-400 absolute -bottom-3.5">SO2</span></div>
+                <div class="bg-blue-500/20 rounded-t h-[70%] relative flex items-end justify-center"><div class="w-full bg-blue-400 rounded-t h-[80%]"></div><span class="text-[8px] font-mono text-slate-400 absolute -bottom-3.5">NO2</span></div>
+                <div class="bg-cyan-500/20 rounded-t h-[50%] relative flex items-end justify-center"><div class="w-full bg-cyan-400 rounded-t h-[70%]"></div><span class="text-[8px] font-mono text-slate-400 absolute -bottom-3.5">CO</span></div>
+                <div class="bg-amber-500/20 rounded-t h-[85%] relative flex items-end justify-center"><div class="w-full bg-amber-400 rounded-t h-[85%]"></div><span class="text-[8px] font-mono text-slate-400 absolute -bottom-3.5">O3</span></div>
+                <div class="bg-emerald-500/20 rounded-t h-[40%] relative flex items-end justify-center"><div class="w-full bg-emerald-400 rounded-t h-[65%]"></div><span class="text-[8px] font-mono text-slate-400 absolute -bottom-3.5">PM2.5</span></div>
+              </div>
+            </div>
+
             <div class="font-mono text-xs font-bold text-brand-primary uppercase mb-2">02 &bull; Power BI &amp; DAX</div>
             <h3 class="text-xl sm:text-2xl font-bold text-white mb-2.5">Multi-City Weather &amp; AQI Telemetry</h3>
             <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5">
               Interactive Power BI dashboard monitoring pollutant indexes (SO2, O3, PM2.5, CO, NO2) across Kerala cities with dynamic city switching and rain risk analytics.
             </p>
           </div>
-          <div class="flex flex-wrap gap-1.5 sm:gap-2">
-            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Power BI</span>
-            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">DAX</span>
-            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Telemetry</span>
+
+          <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-2 border-t border-white/5 font-mono text-xs">
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-slate-300">Power BI</span>
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-slate-300">DAX</span>
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-slate-300">Telemetry</span>
           </div>
         </div>
 
-        <!-- Project 03 -->
+        <!-- Project 03: ML Air Quality Model -->
         <div class="jobin-card p-6 sm:p-8 flex flex-col justify-between reveal">
           <div>
+            <!-- Visual Schematic: Regression Sparkline -->
+            <div class="w-full bg-[#070b16] rounded-lg p-3 border border-white/5 mb-4">
+              <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
+                <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-blue-400"></span>Scikit-Learn Model</span>
+                <span class="text-blue-400 font-bold font-mono">RMSE: 0.14 &bull; R²: 0.89</span>
+              </div>
+              <svg class="w-full h-12 overflow-visible" viewBox="0 0 240 40" fill="none">
+                <path d="M0,36 C50,30 90,22 140,16 C190,12 210,8 240,6" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+                <path d="M0,36 C50,30 90,22 140,16 C190,12 210,8 240,6 L240,40 L0,40 Z" fill="url(#blueGrad03)" opacity="0.15"/>
+                <circle cx="45" cy="31" r="2.5" fill="#10b981"/>
+                <circle cx="95" cy="21" r="2.5" fill="#3b82f6"/>
+                <circle cx="150" cy="15" r="2.5" fill="#10b981"/>
+                <circle cx="205" cy="9" r="2.5" fill="#06b6d4"/>
+                <defs>
+                  <linearGradient id="blueGrad03" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#3b82f6"/>
+                    <stop offset="100%" stop-color="transparent"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+
             <div class="font-mono text-xs font-bold text-brand-primary uppercase mb-2">03 &bull; Machine Learning</div>
             <h3 class="text-xl sm:text-2xl font-bold text-white mb-2.5">Air Quality Predictive Model</h3>
             <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5">
               Trained a Scikit-learn predictive model to forecast pollution indices with regression algorithms, feature scaling, and RMSE accuracy scoring.
             </p>
           </div>
-          <div class="flex flex-wrap gap-1.5 sm:gap-2">
-            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Python</span>
-            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Scikit-learn</span>
-            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Regression</span>
+
+          <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-2 border-t border-white/5 font-mono text-xs">
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-slate-300">Python</span>
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-slate-300">Scikit-learn</span>
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-slate-300">Regression</span>
           </div>
         </div>
 
-        <!-- Project 04 -->
+        <!-- Project 04: Re Wastra Upcycling Platform -->
         <div class="jobin-card p-6 sm:p-8 flex flex-col justify-between reveal">
           <div>
+            <!-- Visual Schematic: Relational Catalog Metrics -->
+            <div class="w-full bg-[#070b16] rounded-lg p-3 border border-white/5 mb-4 space-y-2">
+              <div class="flex items-center justify-between text-[10px] font-mono text-slate-400">
+                <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-cyan-400"></span>Relational Inventory Schema</span>
+                <span class="text-cyan-400 font-bold font-mono">2.4k Items Managed</span>
+              </div>
+              <div class="grid grid-cols-3 gap-2">
+                <div class="bg-white/[0.03] p-1.5 rounded border border-white/5 text-[9px] font-mono">
+                  <span class="text-slate-400 block">Donated</span>
+                  <span class="text-emerald-400 font-bold">840 kg</span>
+                </div>
+                <div class="bg-white/[0.03] p-1.5 rounded border border-white/5 text-[9px] font-mono">
+                  <span class="text-slate-400 block">Upcycled</span>
+                  <span class="text-cyan-400 font-bold">1,120 pcs</span>
+                </div>
+                <div class="bg-white/[0.03] p-1.5 rounded border border-white/5 text-[9px] font-mono">
+                  <span class="text-slate-400 block">Diverted</span>
+                  <span class="text-blue-400 font-bold">98.4%</span>
+                </div>
+              </div>
+            </div>
+
             <div class="font-mono text-xs font-bold text-brand-primary uppercase mb-2">04 &bull; Full-Stack Platform</div>
             <h3 class="text-xl sm:text-2xl font-bold text-white mb-2.5">Re Wastra — Upcycling Platform</h3>
             <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5">
               Full-stack web application with secure authentication, relational database schema architecture, and seamless inventory management.
             </p>
           </div>
-          <div class="flex flex-wrap gap-1.5 sm:gap-2">
-            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Full-Stack</span>
-            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">SQL Schema</span>
+
+          <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-2 border-t border-white/5 font-mono text-xs">
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-slate-300">Full-Stack</span>
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-slate-300">SQL Schema</span>
           </div>
         </div>
 
-        <!-- Project 05 -->
+        <!-- Project 05: Campus Network Architecture -->
         <div class="jobin-card p-6 sm:p-8 flex flex-col justify-between reveal">
           <div>
+            <!-- Visual Schematic: Network Topology Nodes -->
+            <div class="w-full bg-[#070b16] rounded-lg p-3 border border-white/5 mb-4 space-y-1.5">
+              <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
+                <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span>Cisco OSPF &bull; Topology</span>
+                <span class="text-emerald-400 font-bold font-mono">Multi-VLAN Mesh</span>
+              </div>
+              <div class="flex items-center justify-between px-2.5 py-1.5 font-mono text-[9px] bg-black/40 rounded border border-white/5">
+                <span class="text-blue-400 font-bold">&bull; Core L3</span>
+                <span class="text-slate-600">&bull;&bull;&bull;</span>
+                <span class="text-emerald-400 font-bold">&bull; VLAN 10/20</span>
+                <span class="text-slate-600">&bull;&bull;&bull;</span>
+                <span class="text-cyan-400 font-bold">&bull; Edge DHCP</span>
+              </div>
+            </div>
+
             <div class="font-mono text-xs font-bold text-brand-primary uppercase mb-2">05 &bull; Enterprise Infrastructure</div>
             <h3 class="text-xl sm:text-2xl font-bold text-white mb-2.5">Campus Network Architecture</h3>
             <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5">
               Designed multi-department campus network topologies with VLANs, Inter-VLAN routing, and OSPF/DHCP protocols in Cisco Packet Tracer.
             </p>
           </div>
-          <div class="flex flex-wrap gap-1.5 sm:gap-2">
-            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">Cisco CCNA</span>
-            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 font-mono text-xs text-slate-300">VLANs</span>
+
+          <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-2 border-t border-white/5 font-mono text-xs">
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-slate-300">Cisco CCNA</span>
+            <span class="px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-slate-300">VLANs</span>
           </div>
         </div>
 
@@ -651,30 +830,35 @@
     </div>
   </section>
 
-  <!-- 4. SKILLS & EXPERTISE (TOP 6 ICON GRID) -->
+  <!-- 4. SKILLS & EXPERTISE (TOP 6 ICON GRID WITH HOVER-REVEAL PROOF POINTS) -->
   <section id="skills" class="py-16 sm:py-24 px-4 sm:px-6 border-t border-white/10 relative z-10">
     <div class="max-w-6xl mx-auto">
       
       <div class="text-center">
         <h2 class="section-title reveal">Skills &amp; Expertise</h2>
+        <p class="text-xs sm:text-sm text-slate-400 font-mono -mt-6 mb-10 reveal">Hover any skill tile to inspect concrete project evidence &amp; applications</p>
       </div>
 
-      <!-- Top 6 Responsive Icon Grid -->
+      <!-- Top 6 Responsive Icon Grid with Smooth Hover-Reveal Proof Points -->
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 reveal">
         
         <!-- 1. Power BI -->
-        <div class="jobin-card p-4 sm:p-6 flex flex-col items-center justify-center text-center h-36 sm:h-40 group cursor-pointer">
-          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-3 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+        <div class="jobin-card p-4 sm:p-5 flex flex-col items-center justify-center text-center min-h-[145px] sm:min-h-[160px] group cursor-pointer overflow-hidden transition-all duration-300">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-2.5 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
             <svg class="w-6 h-6 text-brand-primary group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
               <path d="M4 13h3v8H4v-8zm5-4h3v12H9V9zm5-5h3v17h-3V4zm5 8h3v9h-3v-9z"/>
             </svg>
           </div>
           <span class="text-xs sm:text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Power BI</span>
+          <!-- Concrete Hover Proof Point -->
+          <p class="text-[11px] text-emerald-300/90 font-inter leading-tight mt-1.5 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-16 transition-all duration-300 ease-out">
+            4-page executive suite, DAX cohort segmentation
+          </p>
         </div>
 
         <!-- 2. SQL -->
-        <div class="jobin-card p-4 sm:p-6 flex flex-col items-center justify-center text-center h-36 sm:h-40 group cursor-pointer">
-          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-3 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+        <div class="jobin-card p-4 sm:p-5 flex flex-col items-center justify-center text-center min-h-[145px] sm:min-h-[160px] group cursor-pointer overflow-hidden transition-all duration-300">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-2.5 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
             <svg class="w-6 h-6 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <ellipse cx="12" cy="5" rx="9" ry="3"/>
               <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
@@ -682,55 +866,76 @@
             </svg>
           </div>
           <span class="text-xs sm:text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">SQL</span>
+          <!-- Concrete Hover Proof Point -->
+          <p class="text-[11px] text-emerald-300/90 font-inter leading-tight mt-1.5 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-16 transition-all duration-300 ease-out">
+            HackerRank Advanced, multi-table joins &amp; window functions
+          </p>
         </div>
 
         <!-- 3. Python -->
-        <div class="jobin-card p-4 sm:p-6 flex flex-col items-center justify-center text-center h-36 sm:h-40 group cursor-pointer">
-          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-3 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+        <div class="jobin-card p-4 sm:p-5 flex flex-col items-center justify-center text-center min-h-[145px] sm:min-h-[160px] group cursor-pointer overflow-hidden transition-all duration-300">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-2.5 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
             <svg class="w-6 h-6 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2c-4.4 0-4.4 1.9-4.4 1.9v2h4.5v.7H6.1S2 6.5 2 11.2c0 4.6 3.6 4.4 3.6 4.4h1.2v-1.7c0-2 1.7-2 1.7-2h4.4s1.7 0 1.7-1.7V6.2S14.7 2 12 2zm-1.3 1.3c.4 0 .7.3.7.7s-.3.7-.7.7-.7-.3-.7-.7.3-.7.7-.7zm1.3 18.7c4.4 0 4.4-1.9 4.4-1.9v-2h-4.5v-.7h6s4.1.1 4.1-4.6c0-4.6-3.6-4.4-3.6-4.4h-1.2v1.7c0 2-1.7 2-1.7 2h-4.4s-1.7 0-1.7 1.7v4s-.1 4.2 2.6 4.2zm1.3-1.3c-.4 0-.7-.3-.7-.7s.3-.7.7-.7.7.3.7.7-.3.7-.7.7z"/>
             </svg>
           </div>
           <span class="text-xs sm:text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Python</span>
+          <!-- Concrete Hover Proof Point -->
+          <p class="text-[11px] text-emerald-300/90 font-inter leading-tight mt-1.5 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-16 transition-all duration-300 ease-out">
+            Automated Pandas ETL pipelines &amp; ML regression models
+          </p>
         </div>
 
         <!-- 4. Excel -->
-        <div class="jobin-card p-4 sm:p-6 flex flex-col items-center justify-center text-center h-36 sm:h-40 group cursor-pointer">
-          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-3 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+        <div class="jobin-card p-4 sm:p-5 flex flex-col items-center justify-center text-center min-h-[145px] sm:min-h-[160px] group cursor-pointer overflow-hidden transition-all duration-300">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-2.5 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
             <svg class="w-6 h-6 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <rect x="3" y="3" width="18" height="18" rx="2"/>
               <path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>
             </svg>
           </div>
           <span class="text-xs sm:text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Excel</span>
+          <!-- Concrete Hover Proof Point -->
+          <p class="text-[11px] text-emerald-300/90 font-inter leading-tight mt-1.5 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-16 transition-all duration-300 ease-out">
+            Financial models, dynamic formulas &amp; pivot reporting
+          </p>
         </div>
 
         <!-- 5. Tableau -->
-        <div class="jobin-card p-4 sm:p-6 flex flex-col items-center justify-center text-center h-36 sm:h-40 group cursor-pointer">
-          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-3 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+        <div class="jobin-card p-4 sm:p-5 flex flex-col items-center justify-center text-center min-h-[145px] sm:min-h-[160px] group cursor-pointer overflow-hidden transition-all duration-300">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-2.5 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
             <svg class="w-6 h-6 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="currentColor">
               <path d="M11 2v3.5H7.5V7H11v3.5h1.5V7H16V5.5h-3.5V2H11zm-6 6v2.5H2.5V12H5v2.5h1.5V12H9v-1.5H6.5V8H5zm12 0v2.5h-2.5V12H17v2.5h1.5V12H21v-1.5h-2.5V8H17zm-6 6v3.5H7.5V19H11v3.5h1.5V19H16v-1.5h-3.5V14H11z"/>
             </svg>
           </div>
           <span class="text-xs sm:text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">Tableau</span>
+          <!-- Concrete Hover Proof Point -->
+          <p class="text-[11px] text-emerald-300/90 font-inter leading-tight mt-1.5 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-16 transition-all duration-300 ease-out">
+            Visual storytelling, KPI tracking &amp; interactive dashboards
+          </p>
         </div>
 
         <!-- 6. Pandas -->
-        <div class="jobin-card p-4 sm:p-6 flex flex-col items-center justify-center text-center h-36 sm:h-40 group cursor-pointer">
-          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-3 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
+        <div class="jobin-card p-4 sm:p-5 flex flex-col items-center justify-center text-center min-h-[145px] sm:min-h-[160px] group cursor-pointer overflow-hidden transition-all duration-300">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-2.5 group-hover:border-brand-primary/40 group-hover:bg-brand-primary/10 transition-all">
             <svg class="w-6 h-6 text-white group-hover:text-brand-primary group-hover:scale-110 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/>
             </svg>
           </div>
           <span class="text-xs sm:text-sm font-semibold text-white group-hover:text-brand-primary transition-colors truncate">Pandas (ETL)</span>
+          <!-- Concrete Hover Proof Point -->
+          <p class="text-[11px] text-emerald-300/90 font-inter leading-tight mt-1.5 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-16 transition-all duration-300 ease-out">
+            Automated ingestion routines, data cleaning &amp; transforms
+          </p>
         </div>
 
       </div>
 
+
     </div>
   </section>
 
-  <!-- 5. LICENSES & CERTIFICATIONS -->
+  <!-- 5. LICENSES & CERTIFICATIONS (CONSISTENT 3-COLOR CYCLED PALETTE + FULL CISCO CCNA INTERACTION) -->
   <section id="certifications" class="py-16 sm:py-24 px-4 sm:px-6 border-t border-white/10 relative z-10">
     <div class="max-w-6xl mx-auto">
       
@@ -740,7 +945,7 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         
-        <!-- 1. GOOGLE DATA ANALYTICS -->
+        <!-- 1. GOOGLE DATA ANALYTICS (BLUE) -->
         <div class="cert-card has-cred jobin-card p-5 sm:p-7 relative overflow-hidden reveal cursor-pointer border border-blue-500/30 hover:border-blue-400"
              data-title="Google Data Analytics Professional Certificate"
              data-issuer="Google / Coursera"
@@ -772,7 +977,39 @@
           </div>
         </div>
 
-        <!-- 2. HACKERRANK SQL ADVANCED -->
+        <!-- 2. GOOGLE AI PROFESSIONAL CERTIFICATE (CYAN) -->
+        <div class="cert-card has-cred jobin-card p-5 sm:p-7 relative overflow-hidden reveal cursor-pointer border border-cyan-500/30 hover:border-cyan-400"
+             data-title="Google AI Professional Certificate"
+             data-issuer="Google / Coursera"
+             data-date="Aug 2026"
+             data-id="08Y5AJ8AL4FF"
+             data-url="https://coursera.org/verify/professional-cert/08Y5AJ8AL4FF"
+             data-skills="AI Fundamentals, Prompting, AI for Data Analysis, Research &amp; Insights, App Building &amp; Deployment, Generative AI">
+          
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4285F4] via-[#EA4335] via-[#FBBC05] to-[#34A853]"></div>
+
+          <div class="flex justify-between items-start mb-3 sm:mb-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-[11px] font-mono font-bold uppercase">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+              Google Certified
+            </span>
+            <span class="font-mono text-xs text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 rounded-full">Aug 2026</span>
+          </div>
+
+          <h3 class="text-base sm:text-lg font-bold text-white mb-4 sm:mb-6 leading-snug">Google AI Professional Certificate</h3>
+
+          <div class="flex items-center justify-between pt-3 sm:pt-4 border-t border-white/10 font-mono text-xs">
+            <span class="text-slate-400">ID: 08Y5AJ8AL4FF</span>
+            <span class="text-cyan-400 font-bold">Verify ↗</span>
+          </div>
+        </div>
+
+        <!-- 3. HACKERRANK SQL ADVANCED (EMERALD) -->
         <div class="cert-card has-cred jobin-card p-5 sm:p-7 relative overflow-hidden reveal cursor-pointer border border-emerald-500/30 hover:border-emerald-400"
              data-title="SQL (ADVANCED)"
              data-issuer="HackerRank"
@@ -801,8 +1038,8 @@
           </div>
         </div>
 
-        <!-- 3. DUBAI FUTURE FOUNDATION -->
-        <div class="cert-card has-cred jobin-card p-5 sm:p-7 relative overflow-hidden reveal cursor-pointer border border-purple-500/30 hover:border-purple-400"
+        <!-- 4. DUBAI FUTURE FOUNDATION (BLUE) -->
+        <div class="cert-card has-cred jobin-card p-5 sm:p-7 relative overflow-hidden reveal cursor-pointer border border-blue-500/30 hover:border-blue-400"
              data-title="One Million Prompters — Certificate of Completion"
              data-issuer="Dubai Future Foundation"
              data-date="Aug 2026"
@@ -810,27 +1047,27 @@
              data-url="https://www.dubaifuture.ae/"
              data-skills="Prompt Engineering, Generative AI, LLMs">
           
-          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#7F00FF] via-[#A855F7] to-[#00D2FF]"></div>
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-400"></div>
 
           <div class="flex justify-between items-start mb-3 sm:mb-4">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-[11px] font-mono font-bold uppercase truncate max-w-[200px]">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-[11px] font-mono font-bold uppercase truncate max-w-[200px]">
               <svg class="w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2L14.5 8.5L21 11L14.5 13.5L12 20L9.5 13.5L3 11L9.5 8.5L12 2Z"/>
               </svg>
               <span>Dubai Future Foundation</span>
             </span>
-            <span class="font-mono text-xs text-purple-400 bg-purple-500/10 px-2.5 py-0.5 rounded-full">Aug 2026</span>
+            <span class="font-mono text-xs text-blue-400 bg-blue-500/10 px-2.5 py-0.5 rounded-full">Aug 2026</span>
           </div>
 
           <h3 class="text-base sm:text-lg font-bold text-white mb-4 sm:mb-6 leading-snug">One Million Prompters — AI &amp; Prompt Engineering</h3>
 
           <div class="flex items-center justify-between pt-3 sm:pt-4 border-t border-white/10 font-mono text-xs">
             <span class="text-slate-400 truncate">HH Sheikh Hamdan</span>
-            <span class="text-purple-400 font-bold">Verify ↗</span>
+            <span class="text-blue-400 font-bold">Verify ↗</span>
           </div>
         </div>
 
-        <!-- 4. SIMPLILEARN GOOGLE SHEETS -->
+        <!-- 5. SIMPLILEARN GOOGLE SHEETS (CYAN) -->
         <div class="cert-card has-cred jobin-card p-5 sm:p-7 relative overflow-hidden reveal cursor-pointer border border-cyan-500/30 hover:border-cyan-400"
              data-title="Google Sheets — Spreadsheet Data Analysis &amp; Productivity"
              data-issuer="Simplilearn"
@@ -839,7 +1076,7 @@
              data-url="https://simplilearn.com/"
              data-skills="Data Analysis, Formulas, Pivot Tables">
           
-          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00D2FF] via-[#0099FF] to-[#FF9900]"></div>
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400"></div>
 
           <div class="flex justify-between items-start mb-3 sm:mb-4">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-[11px] font-mono font-bold uppercase">
@@ -859,8 +1096,8 @@
           </div>
         </div>
 
-        <!-- 5. ONEROADMAP SIMULATION -->
-        <div class="cert-card has-cred jobin-card p-5 sm:p-7 relative overflow-hidden reveal cursor-pointer border border-indigo-500/30 hover:border-indigo-400"
+        <!-- 6. ONEROADMAP SIMULATION (EMERALD) -->
+        <div class="cert-card has-cred jobin-card p-5 sm:p-7 relative overflow-hidden reveal cursor-pointer border border-emerald-500/30 hover:border-emerald-400"
              data-title="Data Analyst Job Simulation"
              data-issuer="OneRoadmap"
              data-date="Jul 2026"
@@ -868,46 +1105,53 @@
              data-url="https://oneroadmap.io/"
              data-skills="Data Analysis, Data Cleaning, KPI Reporting">
           
-          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#6366F1] via-[#8B5CF6] to-[#EC4899]"></div>
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500"></div>
 
           <div class="flex justify-between items-start mb-3 sm:mb-4">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-[11px] font-mono font-bold uppercase">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] font-mono font-bold uppercase">
               <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="10"/>
                 <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
               </svg>
               OneRoadmap Verified
             </span>
-            <span class="font-mono text-xs text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded-full">Jul 2026</span>
+            <span class="font-mono text-xs text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full">Jul 2026</span>
           </div>
 
           <h3 class="text-base sm:text-lg font-bold text-white mb-4 sm:mb-6 leading-snug">Data Analyst Job Simulation</h3>
 
           <div class="flex items-center justify-between pt-3 sm:pt-4 border-t border-white/10 font-mono text-xs">
             <span class="text-slate-400">ID: ORA-DA-PXA269</span>
-            <span class="text-indigo-400 font-bold">Verify ↗</span>
+            <span class="text-emerald-400 font-bold">Verify ↗</span>
           </div>
         </div>
 
-        <!-- 6. CISCO CCNA -->
-        <div class="cert-card jobin-card p-5 sm:p-7 relative overflow-hidden reveal border border-sky-500/30 hover:border-sky-400">
-          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#005073] via-[#00BCEB] to-[#1BA0D7]"></div>
+        <!-- 7. CISCO CCNA (BLUE) - FULLY INTERACTIVE WITH MODAL ATTRIBUTES -->
+        <div class="cert-card has-cred jobin-card p-5 sm:p-7 relative overflow-hidden reveal cursor-pointer border border-blue-500/30 hover:border-blue-400"
+             data-title="Cisco CCNA (Routing &amp; Switching)"
+             data-issuer="Cisco Systems"
+             data-date="Nov 2025"
+             data-id="Enterprise Network Architecture"
+             data-url="https://www.cisco.com/c/en/us/training-events/training-certifications/certifications.html"
+             data-skills="Enterprise Routing &amp; Switching, VLANs, Inter-VLAN Routing, OSPF, DHCP, STP, Network Architecture">
+          
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-sky-400 to-cyan-400"></div>
 
           <div class="flex justify-between items-start mb-3 sm:mb-4">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-[11px] font-mono font-bold uppercase">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-[11px] font-mono font-bold uppercase">
               <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M4 10v4h2v-4H4zm4-3v10h2V7H8zm4-4v16h2V3h-2zm4 4v10h2V7h-2zm4 3v4h2v-4h-2z"/>
               </svg>
               Cisco Certified
             </span>
-            <span class="font-mono text-xs text-sky-400 bg-sky-500/10 px-2.5 py-0.5 rounded-full">Nov 2025</span>
+            <span class="font-mono text-xs text-blue-400 bg-blue-500/10 px-2.5 py-0.5 rounded-full">Nov 2025</span>
           </div>
 
           <h3 class="text-base sm:text-lg font-bold text-white mb-4 sm:mb-6 leading-snug">Cisco CCNA (Routing &amp; Switching)</h3>
 
           <div class="flex items-center justify-between pt-3 sm:pt-4 border-t border-white/10 font-mono text-xs">
             <span class="text-slate-400">Enterprise Networking</span>
-            <span class="text-sky-400 font-bold">Verified</span>
+            <span class="text-blue-400 font-bold">Verify ↗</span>
           </div>
         </div>
 
@@ -927,8 +1171,9 @@
         Actively exploring high-impact Data Analyst opportunities and collaborative analytics initiatives.
       </p>
 
+      <!-- Contact Email Link with valid Tailwind arbitrary underline-offset-[6px] -->
       <div class="mb-6 sm:mb-8">
-        <a href="mailto:amennajeeb8418@gmail.com" class="text-base sm:text-xl md:text-2xl font-mono font-bold text-white hover:text-brand-primary transition-colors underline decoration-brand-primary/50 underline-offset-6 break-all">
+        <a href="mailto:amennajeeb8418@gmail.com" class="text-base sm:text-xl md:text-2xl font-mono font-bold text-white hover:text-brand-primary transition-colors underline decoration-brand-primary/50 underline-offset-[6px] break-all">
           amennajeeb8418@gmail.com
         </a>
       </div>
@@ -971,7 +1216,7 @@
   <!-- CREDENTIAL MODAL POPUP -->
   <div id="certModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-xl flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
     <div class="jobin-card max-w-lg w-full p-6 sm:p-8 relative border border-brand-primary/40 shadow-brand-glow-lg transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto" id="modalBox">
-      <button id="modalClose" class="absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/20 transition-all">
+      <button id="modalClose" class="absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/20 transition-all font-mono">
         ✕
       </button>
       
@@ -1005,8 +1250,10 @@
     </div>
   </div>
 
+
+
   <script>
-    // HEADER BLUR ON SCROLL
+    // 1. HEADER BLUR ON SCROLL
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 20) {
@@ -1016,7 +1263,7 @@
       }
     });
 
-    // MOBILE MENU WITH ANIMATION & ACCESSIBLE ICON TOGGLE
+    // 2. MOBILE MENU WITH ANIMATION & ACCESSIBLE ARIA-EXPANDED TOGGLE
     const mobileToggle = document.getElementById('mobileToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     const menuIcon = document.getElementById('menuIcon');
@@ -1024,6 +1271,7 @@
 
     mobileToggle.addEventListener('click', () => {
       const isHidden = mobileMenu.classList.toggle('hidden');
+      mobileToggle.setAttribute('aria-expanded', !isHidden);
       if (isHidden) {
         menuIcon.classList.remove('hidden');
         closeIcon.classList.add('hidden');
@@ -1036,12 +1284,13 @@
     document.querySelectorAll('.mobile-link').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
+        mobileToggle.setAttribute('aria-expanded', 'false');
         menuIcon.classList.remove('hidden');
         closeIcon.classList.add('hidden');
       });
     });
 
-    // SCROLL REVEAL (IntersectionObserver)
+    // 3. SCROLL REVEAL (IntersectionObserver)
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1052,7 +1301,137 @@
     }, { threshold: 0.08 });
     reveals.forEach(el => observer.observe(el));
 
-    // CREDENTIAL MODAL LOGIC
+    // 4. COUNT-UP ANIMATION FOR HERO METRICS
+    const counters = document.querySelectorAll('.counter');
+    let countersAnimated = false;
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !countersAnimated) {
+          countersAnimated = true;
+          counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'), 10) || 0;
+            const duration = 1200; // milliseconds
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              // Ease-out quad easing function
+              const easeOut = 1 - (1 - progress) * (1 - progress);
+              const currentVal = Math.floor(easeOut * target);
+              counter.textContent = currentVal;
+
+              if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+              } else {
+                counter.textContent = target;
+              }
+            }
+            requestAnimationFrame(updateCounter);
+          });
+        }
+      });
+    }, { threshold: 0.2 });
+
+    const metricsStrip = document.getElementById('metricsStrip');
+    if (metricsStrip) {
+      counterObserver.observe(metricsStrip);
+    }
+
+    // 5. REAL CHART.JS CHART FOR FLAGSHIP PROJECT PREVIEW PANEL
+    const chartCanvas = document.getElementById('flagshipChart');
+    if (chartCanvas && typeof Chart !== 'undefined') {
+      const ctx = chartCanvas.getContext('2d');
+      
+      // Gradient for revenue fill
+      const revGradient = ctx.createLinearGradient(0, 0, 0, 160);
+      revGradient.addColorStop(0, 'rgba(16, 185, 129, 0.35)');
+      revGradient.addColorStop(1, 'rgba(16, 185, 129, 0.0)');
+
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          datasets: [
+            {
+              label: 'Actual Revenue ($k)',
+              data: [68, 74, 82, 88, 95, 102, 110, 118, 125, 134, 142, 150],
+              borderColor: '#10b981',
+              backgroundColor: revGradient,
+              borderWidth: 2.5,
+              fill: true,
+              tension: 0.35,
+              pointBackgroundColor: '#10b981',
+              pointBorderColor: '#0c101c',
+              pointRadius: 3,
+              pointHoverRadius: 5
+            },
+            {
+              label: 'Target KPI ($k)',
+              data: [65, 70, 75, 85, 90, 95, 105, 110, 120, 128, 135, 140],
+              borderColor: '#3b82f6',
+              borderWidth: 1.5,
+              borderDash: [4, 4],
+              fill: false,
+              tension: 0.35,
+              pointRadius: 0,
+              pointHoverRadius: 4
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: {
+            mode: 'index',
+            intersect: false
+          },
+          plugins: {
+            legend: {
+              display: true,
+              position: 'top',
+              align: 'end',
+              labels: {
+                boxWidth: 10,
+                boxHeight: 10,
+                color: '#94a3b8',
+                font: { family: 'JetBrains Mono', size: 10 }
+              }
+            },
+            tooltip: {
+              backgroundColor: '#0c101c',
+              borderColor: 'rgba(16, 185, 129, 0.4)',
+              borderWidth: 1,
+              titleFont: { family: 'Outfit', size: 11, weight: 'bold' },
+              bodyFont: { family: 'JetBrains Mono', size: 10 },
+              padding: 8,
+              callbacks: {
+                label: function(context) {
+                  return ' ' + context.dataset.label + ': $' + context.parsed.y + 'k';
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { color: 'rgba(255, 255, 255, 0.05)' },
+              ticks: { color: '#64748b', font: { family: 'JetBrains Mono', size: 9 } }
+            },
+            y: {
+              grid: { color: 'rgba(255, 255, 255, 0.05)' },
+              ticks: {
+                color: '#64748b',
+                font: { family: 'JetBrains Mono', size: 9 },
+                callback: function(val) { return '$' + val + 'k'; }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // 6. CREDENTIAL MODAL LOGIC (INSPECT ALL 7 ACCREDITATIONS INCLUDING CCNA)
     const certModal = document.getElementById('certModal');
     const modalBox = document.getElementById('modalBox');
     const modalClose = document.getElementById('modalClose');
@@ -1083,19 +1462,16 @@
       });
     });
 
-    function closeModal() {
+    function closeCertModal() {
       certModal.classList.add('opacity-0', 'pointer-events-none');
       modalBox.classList.remove('scale-100');
       modalBox.classList.add('scale-95');
       document.body.style.overflow = '';
     }
 
-    modalClose.addEventListener('click', closeModal);
+    modalClose.addEventListener('click', closeCertModal);
     certModal.addEventListener('click', (e) => {
-      if (e.target === certModal) closeModal();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
+      if (e.target === certModal) closeCertModal();
     });
 
     modalCopyBtn.addEventListener('click', () => {
@@ -1106,6 +1482,20 @@
         });
       }
     });
+
+    // Global Escape Key Listener for Credential Modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeCertModal();
+      }
+    });
+
+    // 7. CONSOLE.LOG EASTER EGG FOR HIRING MANAGERS & TECHNICAL EVALUATORS
+    console.log(
+      "%c👋 Looking under the hood? Let's talk data!\n%cMuhammed Amen Najeeb M — Data Analyst\n📧 amennajeeb8418@gmail.com\n🔗 linkedin.com/in/amennajeeb\n💻 github.com/amennajeeb",
+      "color: #10b981; font-weight: 800; font-size: 14px; font-family: 'Outfit', sans-serif;",
+      "color: #94a3b8; font-size: 12px; font-family: 'JetBrains Mono', monospace; line-height: 1.6;"
+    );
   </script>
 </body>
 </html>
